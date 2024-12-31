@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Alaikal Hamdi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @media print {
+            .action-buttons {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-200 text-gray-800">
+    <div class="max-w-3xl mx-auto bg-white rounded-lg p-8 pb-8 pt-4 mt-10 mb-6">
+        <!-- Action Buttons (Language Switcher & Print) -->
+        <div class="action-buttons">
+            <div class="flex justify-between mb-6">
+                <!-- Language Switch -->
+                <div>
+                    <button 
+                        id="language-switch"
+                        class="bg-blue-500 text-white font-semibold py-1 px-3 rounded hover:bg-blue-600"
+                        onclick="toggleLanguage()"
+                    >
+                        Lihat dalam Bahasa Indonesia
+                    </button>
+                </div>
+                <!-- Print Button -->
+                <div>
+                    <button 
+                        class="bg-blue-500 text-white font-semibold py-1 px-4 rounded hover:bg-blue-600"
+                        onclick="window.print()"
+                    >
+                        Print
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <header class="text-center border-b pb-4">
+            <h1 class="text-3xl font-bold text-gray-900" data-en="Alaikal Hamdi A'asifa Hamdani" data-id="Alaikal Hamdi A'asifa Hamdani">Alaikal Hamdi A'asifa Hamdani</h1>
+            <p class="text-lg text-gray-600" data-en="Student, Web & UI/UX Developer" data-id="Pelajar, Pengembang Website & UI/UX">Student, Web & UI/UX Developer</p>
+            <p class="text-sm text-gray-500 mt-2" data-en="Email: alaikal.edu@gmail.com | Phone: +62 823-5335-8664" data-id="Email: alaikal.edu@gmail.com | Telepon: +62 823-5335-8664">
+                Email: alaikal.edu@gmail.com | Phone: +62 823-5335-8664
+            </p>
+        </header>
+
+        <!-- Profile -->
+        <section class="mt-4">
+            <h2 class="text-xl font-semibold text-gray-900 border-b pb-2" data-en="Profile" data-id="Profil">Profile</h2>
+            <p class="text-gray-700 mt-4" data-en="A student in Computer Science with hands-on experience in developing web applications and collaborating on software projects. Proficient in JavaScript, Python, and database management. Eager to contribute innovative solutions and grow as part of a forward-thinking organization." 
+               data-id="Seorang mahasiswa Ilmu Komputer dengan pengalaman dalam pengembangan aplikasi web dan kolaborasi pada proyek perangkat lunak. Terampil dalam JavaScript, Python, dan pengelolaan data. Antusias dalam menciptakan solusi inovatif dan berkembang bersama organisasi yang progresif.">
+               A student in Computer Science with hands-on experience in developing web applications and collaborating on software projects. Proficient in JavaScript, Python, and database management. Eager to contribute innovative solutions and grow as part of a forward-thinking organization.
+            </p>
+        </section>
+
+        <!-- Skills -->
+        <section class="mt-6">
+            <h2 class="text-xl font-semibold text-gray-900 border-b pb-2" data-en="Skills" data-id="Keahlian">Skills</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-4 mt-4">
+                <!-- Languages -->
+                <div>
+                    <h3 class="font-semibold text-gray-800 mb-2" data-en="Languages" data-id="Bahasa">Languages</h3>
+                    <ul class="space-y-2">
+                        <li class="bg-gray-200 text-gray-800 px-4 py-1 rounded-full" data-en="English (Fluent)" data-id="Inggris (Lancar)">English (Fluent)</li>
+                        <li class="bg-gray-200 text-gray-800 px-4 py-1 rounded-full" data-en="Indonesian (Native)" data-id="Indonesia (Asli)">Indonesian (Native)</li>
+                        <li class="bg-gray-200 text-gray-800 px-4 py-1 rounded-full" data-en="Japanese (Basic)" data-id="Jepang (Dasar)">Japanese (Basic)</li>
+                    </ul>
+                </div>
+                <!-- Programming Languages -->
+                <div>
+                    <h3 class="font-semibold text-gray-800 mb-2" data-en="Programming" data-id="Programming">Programming</h3>
+                    <ul class="space-y-2">
+                        <li class="bg-gray-200 text-gray-800 px-4 py-1 rounded-full" data-en="Python" data-id="Python">Python</li>
+                        <li class="bg-gray-200 text-gray-800 px-4 py-1 rounded-full" data-en="JavaScript" data-id="JavaScript">JavaScript</li>
+                        <li class="bg-gray-200 text-gray-800 px-4 py-1 rounded-full" data-en="HTML & CSS" data-id="HTML & CSS">HTML & CSS</li>
+                        <li class="bg-gray-200 text-gray-800 px-4 py-1 rounded-full" data-en="C++" data-id="C++">C++</li>
+                    </ul>
+                </div>
+                <!-- Tools -->
+                <div>
+                    <h3 class="font-semibold text-gray-800 mb-2" data-en="Tools" data-id="Alat">Tools</h3>
+                    <ul class="space-y-2">
+                        <li class="bg-gray-200 text-gray-800 px-4 py-1 rounded-full" data-en="Git" data-id="Git">Git</li>
+                        <li class="bg-gray-200 text-gray-800 px-4 py-1 rounded-full" data-en="VS Code" data-id="VS Code">VS Code</li>
+                        <li class="bg-gray-200 text-gray-800 px-4 py-1 rounded-full" data-en="Figma" data-id="Figma">Figma</li>
+                        <li class="bg-gray-200 text-gray-800 px-4 py-1 rounded-full" data-en="SQL" data-id="SQL">SQL</li>
+                    </ul>
+                </div>
+                <!-- Frameworks -->
+                <div>
+                    <h3 class="font-semibold text-gray-800 mb-2" data-en="Frameworks" data-id="Framework">Frameworks</h3>
+                    <ul class="space-y-2">
+                        <li class="bg-gray-200 text-gray-800 px-4 py-1 rounded-full" data-en="React" data-id="React">React</li>
+                        <li class="bg-gray-200 text-gray-800 px-4 py-1 rounded-full" data-en="Tailwind CSS" data-id="Tailwind CSS">Tailwind CSS</li>
+                        <li class="bg-gray-200 text-gray-800 px-4 py-1 rounded-full" data-en="Node.js" data-id="Node.js">Node.js</li>
+                        <li class="bg-gray-200 text-gray-800 px-4 py-1 rounded-full" data-en="Django & Flask" data-id="Django & Flask">Django & Flask</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- Experience -->
+        <section class="mt-6">
+            <h2 class="text-xl font-semibold text-gray-900 border-b pb-2" data-en="Experience" data-id="Pengalaman">Experience</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 mt-4">
+                <div class="">
+                    <h3 class="font-bold text-gray-800" data-en="Educator & Curriculum Designer" data-id="Pengajar & Pengembang Kurikulum">Educator & Curriculum Designer</h3>
+                    <p class="text-sm text-gray-500" data-en="GEARS UP! | Nov 2023 - Sep 2024" data-id="GEARS UP! | Nov 2023 - Sep 2024">
+                        GEARS UP! | Nov 2023 - Sep 2024
+                    </p>
+                    <ul class="list-disc list-inside text-gray-700 mt-2">
+                        <li data-en="Curriculum Developer for introducing STEM education to students in schools with limited access to STEM resources." data-id="Pengembang Kurikulum utama untuk memperkenalkan pendidikan STEM kepada siswa di sekolah dengan akses terbatas ke sumber daya STEM.">Curriculum Developer for introducing STEM education to students in schools with limited access to STEM resources.</li>
+                        <li data-en="Main roster of STEM Educators in GEARS UP!" data-id="Salah satu Pendidik STEM di GEARS UP!">Main roster of GEARS UP! STEM Educators</li>
+                    </ul>
+                </div>
+                <div class="">
+                    <h3 class="font-bold text-gray-800" data-en="UI/UX Developer" data-id="Pengembang UI/UX">UI/UX Developer</h3>
+                    <p class="text-sm text-gray-500" data-en="H2E Energy using Hydrogen | Aug 2022 - Dec 2024" data-id="H2E Energy using Hydrogen | Agu 2022 - Des 2024">
+                        H2E Energy using Hydrogen | Aug 2022 - Dec 2024
+                    </p>
+                    <ul class="list-disc list-inside text-gray-700 mt-2">
+                        <li data-en="User Interface (UI) & User Experience (UX) Developer and Designer for H2Nose" data-id="Pengembang dan Desainer Antarmuka Pengguna (UI) untuk H2Nose">User Interface (UI) & User Experience (UX) Developer and Designer for H2Nose</li>
+                        <li data-en="One of the lead developers for H2Nose" data-id="Salah satu pengembang utama untuk H2Nose">One of the lead developers for H2Nose</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="mt-6">
+            <h2 class="text-xl font-semibold text-gray-900 border-b pb-2" data-en="Education" data-id="Pendidikan">Education</h2>
+            <div class="mt-4">
+                <h3 class="font-bold text-gray-800" data-en="Computer Science" data-id="Ilmu Komputer">Bachelor's in Computer Science</h3>
+                <p class="text-sm text-gray-500" data-en="University of Indonesia | 2025-2029 (expected)" data-id="Universitas Indonesia | 2025-2029 (diperkirakan)">
+                    University of Indonesia | 2025-2029 (expected)
+                </p>
+                <p class="text-gray-600 mt-2" data-en="" 
+                   data-id="">
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        let isEnglish = true;
+
+        function toggleLanguage() {
+            const elements = document.querySelectorAll('[data-en]');
+            isEnglish = !isEnglish;
+
+            elements.forEach(el => {
+                el.textContent = el.getAttribute(isEnglish ? 'data-en' : 'data-id');
+            });
+
+            const button = document.getElementById('language-switch');
+            button.textContent = isEnglish ? 'Lihat dalam Bahasa Indonesia' : 'View in English';
+        }
+    </script>
+</body>
+</html>

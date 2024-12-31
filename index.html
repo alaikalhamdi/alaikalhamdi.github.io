@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Website</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @layer utilities {
+      .hero-bg {
+        background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+        background-size: cover;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleThemeBtn = document.getElementById('toggle-theme');
+      toggleThemeBtn.addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark');
+      });
+    });
+  </script>
+</head>
+<body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md py-4 dark:bg-gray-800">
+    <div class="container mx-auto flex justify-between items-center px-4">
+      <h1 class="text-2xl font-bold">Alaikal Hamdi</h1>
+      <ul class="flex space-x-6">
+        <li><a href="#home" class="hover:text-blue-500">Home</a></li>
+        <li><a href="#about" class="hover:text-blue-500">About</a></li>
+        <li><a href="#projects" class="hover:text-blue-500">Projects</a></li>
+        <li><a href="#contact" class="hover:text-blue-500">Contact</a></li>
+        <li><a href="./cv.html" class="hover:text-blue-500">CV</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-bg text-white py-20">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-4">Alaikal Hamdi A'asifa Hamdani</h2>
+      <p class="mb-6">I am a Web Developer passionate about building modern, responsive websites.</p>
+      <a href="#contact" class="bg-white text-blue-500 px-6 py-2 rounded hover:bg-gray-100">Contact Me</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-16 bg-gray-100 dark:bg-gray-800">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8">About Me</h2>
+      <div class="flex flex-col md:flex-row items-center">
+        <img src="./ale.png" alt="Profile Picture" class="rounded-full w-32 h-32 mb-6 md:mb-0 md:mr-6">
+        <p class="text-center md:text-left">Hello! I'm a developer with a passion for creating sleek, functional, and user-friendly websites and softwares. I have experience with various web technologies and always strive to improve my skills and learn new ones. I also love robotics and games!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills & Experiences Section -->
+  <section id="skills" class="py-16 bg-white dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8">Skills & Experiences</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Skills List -->
+        <div>
+          <h3 class="text-xl font-bold mb-4">Skills</h3>
+          <ul class="list-disc list-inside space-y-2">
+            <li>HTML, CSS, and JavaScript</li>
+            <li>React and Tailwind CSS</li>
+            <li>App Development with Cordova & Electron.js</li>
+            <li>Backend Development with Node.js</li>
+            <li>Version Control with Git and GitHub</li>
+            <li>Responsive and Accessible Web Design</li>
+          </ul>
+        </div>
+        <!-- Experiences -->
+        <div>
+          <h3 class="text-xl font-bold mb-4">Experiences</h3>
+          <div class="space-y-4">
+            <div>
+              <h4 class="font-bold">Educator and Curriculum Designer</h4>
+              <p class="text-sm text-gray-600 dark:text-gray-400">GEARS UP! | Nov 2023 - Sep 2024</p>
+              <p>Designed and implemented comprehensive STEM educational programs tailored for students in school with limited access to STEM.</p>
+            </div>
+            <div>
+              <h4 class="font-bold">UI/UX Developer</h4>
+              <p class="text-sm text-gray-600 dark:text-gray-400">H2E | Aug 2022 - Dec 2024</p>
+              <p>Designed and developed a custom UI/UX for products, and collaborated with the team to design an ideal app.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-16 bg-gray-100 dark:bg-gray-800">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8">My Projects</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Project 1 -->
+        <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded shadow">
+          <h3 class="text-xl font-bold mb-2">TERAFEST</h3>
+          <p>TERAFEST is an exhibition at my school showcasing our engineering projects and products. As one of the organizers, I contributed by helping develop the event's website.</p>
+        </div>
+        <!-- Project 2 -->
+        <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded shadow">
+          <h3 class="text-xl font-bold mb-2">FIRST Tech Challenge Nusantara</h3>
+          <p>The FIRST Tech Challenge (FTC) is an annual global robotics competition for young students. I volunteered for this event and contributed to its presence in Indonesia by creating a website that showcases match history and team lists.</p>
+        </div>
+        <!-- Project 3 -->
+        <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded shadow">
+          <h3 class="text-xl font-bold mb-2">GEARS UP!</h3>
+          <p>A brief description of the project goes here.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact" class="bg-blue-500 text-white dark:bg-blue-800 py-8">
+    <div class="container mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="text-2xl font-bold mb-4">Get in Touch</h3>
+          <p>Email: alaikal.edu@gmail.com</p>
+          <p>Phone: +62 823-5335-8664</p>
+          <p>Follow me on <a href="www.linkedin.com/in/alaikal-hamdi" class="underline hover:text-gray-300">LinkedIn</a> or <a href="#" class="underline hover:text-gray-300">GitHub</a>.</p>
+        </div>
+        <div>
+          <h3 class="text-2xl font-bold mb-4">Site Navigation</h3>
+          <p><a href="" class="underline hover:text-gray-300">Main website</a></p>
+          <p><a href="./index.html" class="underline hover:text-gray-300">Portfolio</a></p>
+          <p><a href="#" class="underline hover:text-gray-300">Curriculum Vitae (CV)</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
