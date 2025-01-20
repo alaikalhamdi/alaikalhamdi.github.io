@@ -16,8 +16,12 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const toggleThemeBtn = document.getElementById('toggle-theme');
-      toggleThemeBtn.addEventListener('click', () => {
-        document.documentElement.classList.toggle('dark');
+      const navMenu = document.getElementById('nav-menu');
+      // toggleThemeBtn.addEventListener('click', () => {
+      //   document.documentElement.classList.toggle('dark');
+      // });
+      document.getElementById('hamburger-btn').addEventListener('click', () => {
+        navMenu.classList.toggle('hidden');
       });
     });
   </script>
@@ -34,8 +38,17 @@
         <li><a href="#contact" class="hover:text-blue-500">Contact</a></li>
         <li><a href="./cv.html" class="hover:text-blue-500">CV</a></li>
       </ul>
-      <button id="toggle-theme" class="md:hidden">☰</button>
+      <button id="hamburger-btn" class="md:hidden">☰</button>
     </div>
+  </nav>
+  <nav class="hidden bg-white shadow-md py-4 dark:bg-gray-800 absolute top-16 right-0" id="nav-menu">
+    <ul class="mx-10">
+      <li class="my-3"><a href="#home" class="hover:text-blue-500">Home</a></li>
+      <li class="my-3"><a href="#about" class="hover:text-blue-500">About</a></li>
+      <li class="my-3"><a href="#projects" class="hover:text-blue-500">Projects</a></li>
+      <li class="my-3"><a href="#contact" class="hover:text-blue-500">Contact</a></li>
+      <li class="my-3"><a href="./cv.html" class="hover:text-blue-500">CV</a></li>
+    </ul>
   </nav>
 
   <!-- Hero Section -->
