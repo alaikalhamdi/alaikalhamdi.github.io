@@ -214,12 +214,18 @@
         <div>
           <h3 class="text-xl font-bold mb-4">Experiences</h3>
           <div class="space-y-4">
-            <div>
+            <div 
+              class="bg-gray-100 dark:bg-gray-800 p-4 rounded shadow cursor-pointer experience" 
+              data-images='["./gu/IMG_2715.jpg", "./gu/IMG_2723.jpg", "./gu/IMG_2749.jpg", "./gu/IMG_2751.jpg", "./gu/IMG_2663.jpg", "./gu/IMG_2620.jpg", "./gu/IMG_2621.jpg", "./gu/IMG_2622.jpg", "./gu/IMG_2646.jpg", "./gu/IMG_2653.jpg", "./gu/IMG_2658.jpg", "./gu/IMG_2662.jpg", "./gu/IMG_2663.jpg"]'
+            >
               <h4 class="font-bold">Educator and Curriculum Designer</h4>
               <p class="text-sm text-gray-600 dark:text-gray-400">GEARS UP! | Nov 2023 - Sep 2024</p>
               <p>Designed and implemented comprehensive STEM educational programs tailored for students in school with limited access to STEM.</p>
             </div>
-            <div>
+            <div 
+              class="bg-gray-100 dark:bg-gray-800 p-4 rounded shadow cursor-pointer experience" 
+              data-images='["./h2e/1.jpeg", "./h2e/2.jpeg", "./h2e/3.jpeg", "./h2e/4.jpeg", "./h2e/5.jpeg", "./h2e/6.jpeg", "./h2e/7.jpeg", "./h2e/8.jpeg"]'
+            >
               <h4 class="font-bold">UI/UX Developer</h4>
               <p class="text-sm text-gray-600 dark:text-gray-400">H2E | Aug 2022 - Dec 2024</p>
               <p>Designed and developed a custom UI/UX for products, and collaborated with the team to design an ideal app.</p>
@@ -266,8 +272,18 @@
     </div>
   </section>
 
+  <!-- Fullscreen Popup -->
+  <div id="popup" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center hidden z-50">
+    <div class="relative w-full h-full">
+      <div id="slideshow" class="w-full h-full flex items-center justify-center"></div>
+      <button id="prev-slide" class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-2xl">&lt;</button>
+      <button id="next-slide" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-2xl">&gt;</button>
+      <button id="close-popup" class="absolute top-4 right-4 bg-white text-black px-3 py-2 rounded">Close</button>
+    </div>
+  </div>
+
   <!-- Footer -->
-  <footer id="contact" class="bg-blue-500 text-white dark:bg-blue-800 py-8">
+  <footer id="contact" class="text-white py-8 hero-bg">
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
@@ -285,5 +301,57 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const experiences = document.querySelectorAll('.experience');
+      const popup = document.getElementById('popup');
+      const slideshow = document.getElementById('slideshow');
+      const prevSlideBtn = document.getElementById('prev-slide');
+      const nextSlideBtn = document.getElementById('next-slide');
+      const closePopupBtn = document.getElementById('close-popup');
+      let currentSlide = 0;
+      let slides = [];
+  
+      const showSlide = (index) => {
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('hidden', i !== index);
+        });
+      };
+  
+      experiences.forEach(experience => {
+        experience.addEventListener('click', () => {
+          const images = JSON.parse(experience.dataset.images);
+          slideshow.innerHTML = ''; // Clear previous slides
+          slides = images.map((src, index) => {
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = `Slide ${index + 1}`;
+            img.className = `absolute object-contain w-full h-full ${index !== 0 ? 'hidden' : ''}`;
+            slideshow.appendChild(img);
+            return img;
+          });
+          currentSlide = 0;
+          showSlide(currentSlide);
+          popup.classList.remove('hidden');
+        });
+      });
+  
+      prevSlideBtn.addEventListener('click', () => {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+      });
+  
+      nextSlideBtn.addEventListener('click', () => {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+      });
+  
+      closePopupBtn.addEventListener('click', () => {
+        popup.classList.add('hidden');
+      });
+    });
+  </script>
+
 </body>
 </html>
