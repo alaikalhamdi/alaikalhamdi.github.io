@@ -23,12 +23,15 @@
       background-color: transparent !important;
       box-shadow: none !important;
     }
+    .navbar-transition {
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
   </style>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const toggleThemeBtn = document.getElementById('toggle-theme');
       const navMenu = document.getElementById('nav-menu');
-      const navbar = document.querySelector('nav');
+      const navbar = document.getElementById('navbar');
 
       document.getElementById('hamburger-btn').addEventListener('click', () => {
         navMenu.classList.toggle('hidden');
@@ -51,7 +54,7 @@
 </head>
 <body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
   <!-- Navbar -->
-  <nav class="bg-white shadow-md py-4 dark:bg-gray-800 fixed w-full top-0 z-50">
+  <nav class="bg-white shadow-md py-4 dark:bg-gray-800 fixed w-full top-0 z-50 navbar-transition" id="navbar">
     <div class="container mx-auto flex justify-between items-center px-4">
       <h1 class="text-2xl font-bold">Alaikal Hamdi</h1>
       <ul class="hidden md:flex space-x-6">
@@ -61,10 +64,10 @@
         <li><a href="#contact" class="hover:text-blue-500">Contact</a></li>
         <li><a href="./cv.html" class="hover:text-blue-500">CV</a></li>
       </ul>
-      <button id="hamburger-btn" class="md:hidden">☰</button>
+      <button id="hamburger-btn" class="md:hidden w-10 h-10">☰</button>
     </div>
   </nav>
-  <nav class="hidden bg-white shadow-md py-4 dark:bg-gray-800 absolute top-16 right-0" id="nav-menu">
+  <nav class="hidden bg-white shadow-md py-4 dark:bg-gray-800 fixed top-16 right-5" id="nav-menu">
     <ul class="mx-10">
       <li class="my-3"><a href="#home" class="hover:text-blue-500">Home</a></li>
       <li class="my-3"><a href="#about" class="hover:text-blue-500">About</a></li>
