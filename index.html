@@ -26,71 +26,106 @@
         100% { background-position: 0% 0%; }
       }
     }
-    .navbar-transparent {
-      background-color: transparent !important;
-      box-shadow: none !important;
-    }
-    .navbar-transition {
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    }
   </style>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const toggleThemeBtn = document.getElementById('toggle-theme');
+      const hamburgerBtn = document.getElementById('hamburger-btn');
       const navMenu = document.getElementById('nav-menu');
-      const navbar = document.getElementById('navbar');
 
-      document.getElementById('hamburger-btn').addEventListener('click', () => {
+      // Hamburger toggle & outside click handling
+      hamburgerBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
         navMenu.classList.toggle('hidden');
       });
 
-      window.addEventListener('scroll', () => {
-        if (window.scrollY === 0) {
-          navbar.classList.add('navbar-transparent');
-        } else {
-          navbar.classList.remove('navbar-transparent');
+      document.addEventListener('click', (e) => {
+        if (!navMenu.contains(e.target) && !hamburgerBtn.contains(e.target)) {
+          navMenu.classList.add('hidden');
         }
       });
 
-      // Initial check
-      if (window.scrollY === 0) {
-        navbar.classList.add('navbar-transparent');
-      }
+      navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navMenu.classList.add('hidden');
+        });
+      });
 
-      // Smooth scrolling
+      // Smooth scrolling for in-page anchors
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
           e.preventDefault();
-          document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-          });
+          const targetId = this.getAttribute('href');
+          const target = document.querySelector(targetId);
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth'
+            });
+          }
         });
       });
+
+      // Scroll spy for topbar active link indicator
+      const sections = [
+        document.getElementById('home'),
+        document.getElementById('about'),
+        document.getElementById('skills'),
+        document.getElementById('projects'),
+        document.getElementById('contact')
+      ].filter(Boolean);
+
+      const navLinks = document.querySelectorAll('#navbar ul a[href^="#"]');
+
+      function updateActiveNav() {
+        const scrollPosition = window.scrollY + 140;
+        let currentId = 'home';
+
+        sections.forEach(section => {
+          if (section.offsetTop <= scrollPosition) {
+            currentId = section.getAttribute('id');
+          }
+        });
+
+        navLinks.forEach(link => {
+          const target = link.getAttribute('href').substring(1);
+          if (target === currentId) {
+            link.className = 'text-blue-600 dark:text-blue-400 font-semibold border-b-2 border-blue-500 pb-0.5 transition-colors';
+          } else {
+            link.className = 'hover:text-blue-500 transition-colors';
+          }
+        });
+      }
+
+      window.addEventListener('scroll', updateActiveNav);
+      updateActiveNav();
     });
   </script>
 </head>
 <body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
   <!-- Navbar -->
-  <nav class="bg-white shadow-md py-4 dark:bg-gray-800 fixed w-full top-0 z-50 navbar-transition" id="navbar">
+  <nav class="bg-white/95 dark:bg-gray-800/95 backdrop-blur-md shadow-md py-4 fixed w-full top-0 z-40 transition-colors" id="navbar">
     <div class="container mx-auto flex justify-between items-center px-4">
-      <h1 class="text-2xl font-bold"><a href="#home">Alaikal Hamdi</a></h1>
-      <ul class="hidden md:flex space-x-6">
-        <li><a href="#home" class="hover:text-blue-500">Home</a></li>
-        <li><a href="#about" class="hover:text-blue-500">About</a></li>
-        <li><a href="./projects.html" class="hover:text-blue-500">Projects</a></li>
-        <li><a href="#contact" class="hover:text-blue-500">Contact</a></li>
-        <li><a href="./cv.html" class="hover:text-blue-500">CV</a></li>
+      <a href="#home" class="text-2xl font-bold hover:text-blue-500 transition-colors">Alaikal Hamdi</a>
+      <ul class="hidden md:flex items-center space-x-6 text-sm font-medium">
+        <li><a href="#home" class="text-blue-600 dark:text-blue-400 font-semibold border-b-2 border-blue-500 pb-0.5 transition-colors">Home</a></li>
+        <li><a href="#about" class="hover:text-blue-500 transition-colors">About</a></li>
+        <li><a href="#skills" class="hover:text-blue-500 transition-colors">Skills & Experiences</a></li>
+        <li><a href="./projects.html" class="hover:text-blue-500 transition-colors">Projects</a></li>
+        <li><a href="#contact" class="hover:text-blue-500 transition-colors">Contact</a></li>
+        <li><a href="./cv.html" class="hover:text-blue-500 transition-colors">CV</a></li>
       </ul>
-      <button id="hamburger-btn" class="md:hidden w-10 h-8">☰</button>
+      <button id="hamburger-btn" class="md:hidden w-10 h-8 text-xl" aria-label="Toggle navigation menu">☰</button>
     </div>
   </nav>
-  <nav class="hidden bg-white shadow-md py-4 dark:bg-gray-800 fixed top-16 right-5 z-50 rounded-lg" id="nav-menu">
-    <ul class="mx-10">
-      <li class="my-3"><a href="#home" class="hover:text-blue-500">Home</a></li>
-      <li class="my-3"><a href="#about" class="hover:text-blue-500">About</a></li>
-      <li class="my-3"><a href="./projects.html" class="hover:text-blue-500">Projects</a></li>
-      <li class="my-3"><a href="#contact" class="hover:text-blue-500">Contact</a></li>
-      <li class="my-3"><a href="./cv.html" class="hover:text-blue-500">CV</a></li>
+
+  <!-- Mobile Menu -->
+  <nav class="hidden bg-white dark:bg-gray-800 shadow-xl rounded-lg py-4 fixed top-16 right-4 z-50 w-56 border border-gray-200 dark:border-gray-700 md:hidden" id="nav-menu">
+    <ul class="px-5 space-y-3 text-sm font-medium">
+      <li><a href="#home" class="block py-1 hover:text-blue-500">Home</a></li>
+      <li><a href="#about" class="block py-1 hover:text-blue-500">About</a></li>
+      <li><a href="#skills" class="block py-1 hover:text-blue-500">Skills & Experiences</a></li>
+      <li><a href="./projects.html" class="block py-1 hover:text-blue-500">Projects</a></li>
+      <li><a href="#contact" class="block py-1 hover:text-blue-500">Contact</a></li>
+      <li><a href="./cv.html" class="block py-1 hover:text-blue-500">CV</a></li>
     </ul>
   </nav>
 
