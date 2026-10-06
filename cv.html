@@ -17,21 +17,27 @@
     <div class="max-w-3xl mx-auto bg-white rounded-lg p-8 pb-8 pt-2 mt-10 mb-6">
          <!-- Action Buttons (Language Switcher & Print) -->
         <div class="action-buttons">
-            <div class="flex justify-between mb-2">
-                <!-- Language Switch -->
-                <div>
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3 pb-2 border-b border-gray-100">
+                <!-- Navigation Links -->
+                <div class="flex items-center space-x-2">
+                    <a href="./index.html" class="inline-flex items-center text-xs md:text-sm font-semibold text-gray-700 hover:text-blue-600 bg-gray-100 hover:bg-gray-200 py-1 px-3 rounded transition-colors">
+                        &larr; Portfolio Home
+                    </a>
+                    <a href="./projects.html" class="inline-flex items-center text-xs md:text-sm font-semibold text-gray-700 hover:text-blue-600 bg-gray-100 hover:bg-gray-200 py-1 px-3 rounded transition-colors">
+                        Projects
+                    </a>
+                </div>
+                <!-- Action Controls (Language Switch & Print) -->
+                <div class="flex items-center space-x-2">
                     <button 
                         id="language-switch"
-                        class="bg-blue-500 text-white font-semibold py-1 px-3 rounded hover:bg-blue-600"
+                        class="bg-blue-500 text-white text-xs md:text-sm font-semibold py-1 px-3 rounded hover:bg-blue-600 transition-colors"
                         onclick="toggleLanguage()"
                     >
                         Lihat dalam Bahasa Indonesia
                     </button>
-                </div>
-                <!-- Print Button -->
-                <div>
                     <button 
-                        class="bg-blue-500 text-white font-semibold py-1 px-4 rounded hover:bg-blue-600"
+                        class="bg-blue-500 text-white text-xs md:text-sm font-semibold py-1 px-3 md:px-4 rounded hover:bg-blue-600 transition-colors"
                         onclick="window.print()"
                     >
                         Print

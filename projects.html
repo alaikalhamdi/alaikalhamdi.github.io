@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore the portfolio projects of Alaikal Hamdi - web applications, robotics platforms, UI/UX systems, and educational initiatives.">
+  <meta name="keywords" content="Alaikal Hamdi, Portfolio, Projects, Web Development, React, Tailwind CSS, Python, Robotics, Automation Engineering">
+  <meta name="author" content="alaikal.edu@gmail.com">
+  <link rel="apple-touch-icon" sizes="180x180" href="ico/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="ico/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="ico/favicon-16x16.png">
+  <link rel="manifest" href="ico/site.webmanifest">
+  <title>Projects - Alaikal Hamdi</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/5ad3573202.js" crossorigin="anonymous"></script>
+  <style>
+    @layer utilities {
+      .hero-bg {
+        background: linear-gradient(135deg, #1e3a8a, #f013f0);
+        background-size: 400% 400%;
+        animation: gradientAnimation 15s ease infinite;
+      }
+      @keyframes gradientAnimation {
+        0% { background-position: 0% 0%; }
+        50% { background-position: 100% 100%; }
+        100% { background-position: 0% 0%; }
+      }
+    }
+    .project-card {
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-4px);
+    }
+    .filter-btn.active {
+      background-color: #2563eb;
+      color: #ffffff;
+      border-color: #2563eb;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100 min-h-screen flex flex-col">
+
+  <!-- Navbar -->
+  <nav class="bg-white/95 dark:bg-gray-800/95 backdrop-blur-md shadow-md py-4 fixed w-full top-0 z-40 transition-colors" id="navbar">
+    <div class="container mx-auto flex justify-between items-center px-4">
+      <a href="./index.html" class="text-2xl font-bold hover:text-blue-500 transition-colors">Alaikal Hamdi</a>
+      <ul class="hidden md:flex items-center space-x-6 text-sm font-medium">
+        <li><a href="./index.html" class="hover:text-blue-500 transition-colors">Home</a></li>
+        <li><a href="./index.html#about" class="hover:text-blue-500 transition-colors">About</a></li>
+        <li><a href="./index.html#skills" class="hover:text-blue-500 transition-colors">Skills & Experiences</a></li>
+        <li><a href="./projects.html" class="text-blue-600 dark:text-blue-400 font-semibold border-b-2 border-blue-500 pb-0.5">Projects</a></li>
+        <li><a href="./index.html#contact" class="hover:text-blue-500 transition-colors">Contact</a></li>
+        <li><a href="./cv.html" class="hover:text-blue-500 transition-colors">CV</a></li>
+      </ul>
+      <button id="hamburger-btn" class="md:hidden w-10 h-8 text-xl" aria-label="Toggle navigation menu">☰</button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <nav class="hidden bg-white dark:bg-gray-800 shadow-xl rounded-lg py-4 fixed top-16 right-4 z-50 w-56 border border-gray-200 dark:border-gray-700 md:hidden" id="nav-menu">
+    <ul class="px-5 space-y-3 text-sm font-medium">
+      <li><a href="./index.html" class="block py-1 hover:text-blue-500">Home</a></li>
+      <li><a href="./index.html#about" class="block py-1 hover:text-blue-500">About</a></li>
+      <li><a href="./index.html#skills" class="block py-1 hover:text-blue-500">Skills & Experiences</a></li>
+      <li><a href="./projects.html" class="block py-1 text-blue-600 dark:text-blue-400 font-semibold">Projects</a></li>
+      <li><a href="./index.html#contact" class="block py-1 hover:text-blue-500">Contact</a></li>
+      <li><a href="./cv.html" class="block py-1 hover:text-blue-500">CV</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header Banner -->
+  <header class="hero-bg text-white pt-28 pb-16 px-4">
+    <div class="container mx-auto text-center max-w-4xl">
+      <nav class="text-xs uppercase tracking-wider text-blue-200 mb-3 flex items-center justify-center space-x-2">
+        <a href="./index.html" class="hover:underline">Home</a>
+        <span>/</span>
+        <span class="text-white font-semibold">Projects</span>
+      </nav>
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">Projects & Engineering Works</h1>
+      <p class="text-base md:text-lg text-gray-100 max-w-2xl mx-auto mb-6 leading-relaxed">
+        A comprehensive collection of web applications, AI-integrated software, robotics platforms, and community STEM initiatives I've engineered and contributed to.
+      </p>
+      <div class="flex flex-wrap justify-center gap-3 text-xs md:text-sm">
+        <span class="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full"><i class="fas fa-layer-group mr-1.5"></i> 6 Featured Works</span>
+        <span class="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full"><i class="fas fa-code mr-1.5"></i> Full-Stack & UI/UX</span>
+        <span class="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full"><i class="fas fa-robot mr-1.5"></i> Robotics & AI</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-12 flex-grow max-w-7xl">
+
+    <!-- Search & Filters Toolbar -->
+    <div class="bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-200 dark:border-gray-700 mb-10">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        
+        <!-- Filter Tabs -->
+        <div class="flex flex-wrap gap-2" id="filter-tabs">
+          <button class="filter-btn active px-4 py-2 text-sm font-medium rounded-lg border border-gray-300 dark:border-gray-600 transition-colors" data-filter="all">
+            All Projects (<span id="count-all">6</span>)
+          </button>
+          <button class="filter-btn px-4 py-2 text-sm font-medium rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" data-filter="web">
+            Web Development (<span id="count-web">5</span>)
+          </button>
+          <button class="filter-btn px-4 py-2 text-sm font-medium rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" data-filter="robotics">
+            Robotics & AI (<span id="count-robotics">3</span>)
+          </button>
+          <button class="filter-btn px-4 py-2 text-sm font-medium rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" data-filter="education">
+            Education & Community (<span id="count-education">2</span>)
+          </button>
+        </div>
+
+        <!-- Search Input -->
+        <div class="relative w-full md:w-72">
+          <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-400">
+            <i class="fas fa-search"></i>
+          </span>
+          <input 
+            type="text" 
+            id="search-input" 
+            placeholder="Search projects or tech..." 
+            class="w-full pl-9 pr-8 py-2 text-sm bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800 dark:text-gray-100"
+          >
+          <button id="clear-search" class="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600 hidden" title="Clear search">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Quick Tech Pills -->
+      <div class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700 flex flex-wrap items-center gap-2 text-xs">
+        <span class="text-gray-500 dark:text-gray-400 font-semibold mr-1">Popular tags:</span>
+        <button class="tag-filter bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2.5 py-1 rounded hover:bg-blue-100 hover:text-blue-700 dark:hover:bg-blue-900/40 dark:hover:text-blue-300 transition-colors" data-tag="Tailwind CSS">Tailwind CSS</button>
+        <button class="tag-filter bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2.5 py-1 rounded hover:bg-blue-100 hover:text-blue-700 dark:hover:bg-blue-900/40 dark:hover:text-blue-300 transition-colors" data-tag="UMKM">UMKM</button>
+        <button class="tag-filter bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2.5 py-1 rounded hover:bg-blue-100 hover:text-blue-700 dark:hover:bg-blue-900/40 dark:hover:text-blue-300 transition-colors" data-tag="React">React</button>
+        <button class="tag-filter bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2.5 py-1 rounded hover:bg-blue-100 hover:text-blue-700 dark:hover:bg-blue-900/40 dark:hover:text-blue-300 transition-colors" data-tag="Next.js">Next.js</button>
+        <button class="tag-filter bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2.5 py-1 rounded hover:bg-blue-100 hover:text-blue-700 dark:hover:bg-blue-900/40 dark:hover:text-blue-300 transition-colors" data-tag="Python">Python</button>
+        <button class="tag-filter bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2.5 py-1 rounded hover:bg-blue-100 hover:text-blue-700 dark:hover:bg-blue-900/40 dark:hover:text-blue-300 transition-colors" data-tag="Robotics">Robotics</button>
+        <button class="tag-filter bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2.5 py-1 rounded hover:bg-blue-100 hover:text-blue-700 dark:hover:bg-blue-900/40 dark:hover:text-blue-300 transition-colors" data-tag="STEM">STEM</button>
+      </div>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+
+      <!-- Project Showcase: KALA Coffee & Roastery (UMKM Showcase) -->
+      <article 
+        class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md border-2 border-amber-500/40 dark:border-amber-500/40 flex flex-col relative"
+        data-categories="web"
+        data-tags="Tailwind CSS JavaScript UMKM Cafe WhatsApp Interactive E-Commerce Responsive"
+        data-title="KALA Specialty Coffee & Roastery"
+      >
+        <div class="relative overflow-hidden group cursor-pointer card-gallery-trigger" data-project-id="kala-coffee">
+          <img src="./img/kala-coffee.jpg" alt="KALA Specialty Coffee & Roastery" class="w-full h-52 object-cover object-center transition-transform duration-300 group-hover:scale-105">
+          <div class="absolute inset-0 bg-blue-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-sm font-medium">
+            <span><i class="fas fa-eye mr-2"></i> View Case Study & Demo</span>
+          </div>
+          <span class="absolute top-3 right-3 bg-amber-600 text-white text-xs font-semibold px-2.5 py-1 rounded shadow">UMKM & Web</span>
+          <span class="absolute top-3 left-3 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded shadow">Client Showcase</span>
+        </div>
+        <div class="p-6 flex flex-col flex-grow">
+          <div class="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 mb-2">
+            <span><i class="fas fa-store mr-1"></i> F&B / Local Business</span>
+            <span>Frontend & UI/UX</span>
+          </div>
+          <h2 class="text-xl font-bold mb-2 hover:text-blue-500 cursor-pointer card-gallery-trigger" data-project-id="kala-coffee">KALA Coffee & Roastery</h2>
+          <p class="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-3 flex-grow">
+            A high-converting, modern static website crafted for local Indonesian cafes and coffee shops. Built to drive customer acquisition with direct WhatsApp ordering, an interactive filterable menu with Rupiah pricing, and table reservation booking.
+          </p>
+          <div class="flex flex-wrap gap-1.5 mb-5">
+            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">Tailwind CSS</span>
+            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">JavaScript</span>
+            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">WhatsApp API</span>
+            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">UMKM Solution</span>
+          </div>
+          <div class="pt-4 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between">
+            <a href="./cafe/index.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300">
+              <span>Live Demo</span>
+              <i class="fas fa-external-link-alt ml-1.5 text-xs"></i>
+            </a>
+            <button class="card-gallery-trigger text-sm text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium" data-project-id="kala-coffee">
+              Details <i class="fas fa-chevron-right ml-1 text-xs"></i>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 1: TERAFEST -->
+      <article 
+        class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700 flex flex-col"
+        data-categories="web"
+        data-tags="HTML CSS JavaScript Tailwind CSS Exhibition"
+        data-title="TERAFEST"
+      >
+        <div class="relative overflow-hidden group cursor-pointer card-gallery-trigger" data-project-id="terafest">
+          <img src="./img/terafest.png" alt="TERAFEST Exhibition Website" class="w-full h-52 object-cover object-top transition-transform duration-300 group-hover:scale-105">
+          <div class="absolute inset-0 bg-blue-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-sm font-medium">
+            <span><i class="fas fa-eye mr-2"></i> View Case Study</span>
+          </div>
+          <span class="absolute top-3 right-3 bg-blue-600 text-white text-xs font-semibold px-2.5 py-1 rounded shadow">Web App</span>
+        </div>
+        <div class="p-6 flex flex-col flex-grow">
+          <div class="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 mb-2">
+            <span><i class="far fa-calendar-alt mr-1"></i> Exhibition Project</span>
+            <span>Organizer & Web Dev</span>
+          </div>
+          <h2 class="text-xl font-bold mb-2 hover:text-blue-500 cursor-pointer card-gallery-trigger" data-project-id="terafest">TERAFEST</h2>
+          <p class="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-3 flex-grow">
+            TERAFEST is an annual school exhibition showcasing engineering projects and student innovations. Built the digital event portal to showcase project lineups, schedules, and exhibitor information.
+          </p>
+          <div class="flex flex-wrap gap-1.5 mb-5">
+            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">HTML5</span>
+            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">Tailwind CSS</span>
+            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">JavaScript</span>
+            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">Responsive</span>
+          </div>
+          <div class="pt-4 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between">
+            <a href="https://terafest-website.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300">
+              <span>Live Site</span>
+              <i class="fas fa-external-link-alt ml-1.5 text-xs"></i>
+            </a>
+            <button class="card-gallery-trigger text-sm text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium" data-project-id="terafest">
+              Details <i class="fas fa-chevron-right ml-1 text-xs"></i>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 2: FTC Nusantara -->
+      <article 
+        class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700 flex flex-col"
+        data-categories="web robotics"
+        data-tags="React Tailwind CSS REST API Robotics FIRST Tech Challenge Competition"
+        data-title="FIRST Tech Challenge Nusantara"
+      >
+        <div class="relative overflow-hidden group cursor-pointer card-gallery-trigger" data-project-id="ftc">
+          <img src="./img/ifrfoundation.png" alt="FIRST Tech Challenge Nusantara Platform" class="w-full h-52 object-cover object-top transition-transform duration-300 group-hover:scale-105">
+          <div class="absolute inset-0 bg-blue-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-sm font-medium">
+            <span><i class="fas fa-eye mr-2"></i> View Case Study</span>
+          </div>
+          <span class="absolute top-3 right-3 bg-indigo-600 text-white text-xs font-semibold px-2.5 py-1 rounded shadow">Robotics & Web</span>
+        </div>
+        <div class="p-6 flex flex-col flex-grow">
+          <div class="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 mb-2">
+            <span><i class="far fa-calendar-alt mr-1"></i> Robotics Portal</span>
+            <span>Volunteer & Web Developer</span>
+          </div>
+          <h2 class="text-xl font-bold mb-2 hover:text-blue-500 cursor-pointer card-gallery-trigger" data-project-id="ftc">FIRST Tech Challenge Nusantara</h2>
+          <p class="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-3 flex-grow">
+            Official platform for the global robotics tournament in Indonesia. Provides match results, live game schedules, leaderboards, and detailed profiles of student robotics teams across Indonesia.
+          </p>
+          <div class="flex flex-wrap gap-1.5 mb-5">
+            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">React</span>
+            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">Tailwind CSS</span>
+            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">Robotics</span>
+            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">API Integration</span>
+          </div>
+          <div class="pt-4 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between">
+            <a href="https://ifrfoundation.org" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300">
+              <span>Live Site</span>
+              <i class="fas fa-external-link-alt ml-1.5 text-xs"></i>
+            </a>
+            <button class="card-gallery-trigger text-sm text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium" data-project-id="ftc">
+              Details <i class="fas fa-chevron-right ml-1 text-xs"></i>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 3: GEARS UP! Web -->
+      <article 
+        class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700 flex flex-col"
+        data-categories="web education"
+        data-tags="React Tailwind CSS STEM Education Non-profit"
+        data-title="GEARS UP! Platform"
+      >
+        <div class="relative overflow-hidden group cursor-pointer card-gallery-trigger" data-project-id="gearsup-web">
+          <img src="./img/gearsup.png" alt="GEARS UP! STEM Organization Website" class="w-full h-52 object-cover object-top transition-transform duration-300 group-hover:scale-105">
+          <div class="absolute inset-0 bg-blue-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-sm font-medium">
+            <span><i class="fas fa-eye mr-2"></i> View Case Study</span>
+          </div>
+          <span class="absolute top-3 right-3 bg-teal-600 text-white text-xs font-semibold px-2.5 py-1 rounded shadow">Education & Web</span>
+        </div>
+        <div class="p-6 flex flex-col flex-grow">
+          <div class="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 mb-2">
+            <span><i class="far fa-calendar-alt mr-1"></i> Nov 2023 - Sep 2024</span>
+            <span>Front End Developer</span>
+          </div>
+          <h2 class="text-xl font-bold mb-2 hover:text-blue-500 cursor-pointer card-gallery-trigger" data-project-id="gearsup-web">GEARS UP! Platform</h2>
+          <p class="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-3 flex-grow">
+            Built the public platform and STEM resource portal using React and Tailwind CSS. The modernized portal increased user engagement by 20% for students and educators seeking hands-on STEM resources.
+          </p>
+          <div class="flex flex-wrap gap-1.5 mb-5">
+            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">React</span>
+            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">Tailwind CSS</span>
+            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">STEM</span>
+            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">UI/UX</span>
+          </div>
+          <div class="pt-4 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between">
+            <a href="https://gearsup.org" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300">
+              <span>Live Site</span>
+              <i class="fas fa-external-link-alt ml-1.5 text-xs"></i>
+            </a>
+            <button class="card-gallery-trigger text-sm text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium" data-project-id="gearsup-web">
+              Details <i class="fas fa-chevron-right ml-1 text-xs"></i>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 4: H2Nose Application -->
+      <article 
+        class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700 flex flex-col"
+        data-categories="web robotics"
+        data-tags="Next.js React Tailwind CSS Python AI ML Hydrogen Hardware IoT"
+        data-title="H2Nose AI & Hydrogen System"
+      >
+        <div class="relative overflow-hidden group cursor-pointer card-gallery-trigger" data-project-id="h2nose">
+          <img src="./h2e/1.jpeg" alt="H2Nose UI/UX and Hardware System" class="w-full h-52 object-cover object-center transition-transform duration-300 group-hover:scale-105">
+          <div class="absolute inset-0 bg-blue-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-sm font-medium">
+            <span><i class="fas fa-images mr-2"></i> View Gallery (8 photos)</span>
+          </div>
+          <span class="absolute top-3 right-3 bg-purple-600 text-white text-xs font-semibold px-2.5 py-1 rounded shadow">AI & Hardware UI</span>
+          <span class="absolute bottom-3 left-3 bg-black/70 text-white text-xs px-2 py-0.5 rounded backdrop-blur-sm">
+            <i class="fas fa-camera mr-1"></i> 8 Photos
+          </span>
+        </div>
+        <div class="p-6 flex flex-col flex-grow">
+          <div class="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 mb-2">
+            <span><i class="far fa-calendar-alt mr-1"></i> Aug 2022 - Dec 2024</span>
+            <span>UI/UX & AI Developer</span>
+          </div>
+          <h2 class="text-xl font-bold mb-2 hover:text-blue-500 cursor-pointer card-gallery-trigger" data-project-id="h2nose">H2Nose AI & Hydrogen System</h2>
+          <p class="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-3 flex-grow">
+            Designed custom UI/UX and web application using Next.js, React, and Tailwind CSS for H2Nose, an intelligent hydrogen energy sensing device. Implemented AI detection algorithms with Python.
+          </p>
+          <div class="flex flex-wrap gap-1.5 mb-5">
+            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">Next.js</span>
+            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">React</span>
+            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">Python</span>
+            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">AI / ML</span>
+          </div>
+          <div class="pt-4 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between">
+            <button class="card-gallery-trigger inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300" data-project-id="h2nose">
+              <i class="fas fa-images mr-1.5"></i> Gallery & Case Study
+            </button>
+            <span class="text-xs text-gray-500">H2E Energy</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 5: GEARS UP! Workshops -->
+      <article 
+        class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-700 flex flex-col"
+        data-categories="education robotics"
+        data-tags="Robotics STEM Education Curriculum Design Mentorship Hardware"
+        data-title="STEM Robotics Curriculum & Outreach"
+      >
+        <div class="relative overflow-hidden group cursor-pointer card-gallery-trigger" data-project-id="gearsup-workshops">
+          <img src="./gu/IMG_2715.jpg" alt="GEARS UP STEM Education Workshop" class="w-full h-52 object-cover object-center transition-transform duration-300 group-hover:scale-105">
+          <div class="absolute inset-0 bg-blue-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-sm font-medium">
+            <span><i class="fas fa-images mr-2"></i> View Gallery (13 photos)</span>
+          </div>
+          <span class="absolute top-3 right-3 bg-amber-600 text-white text-xs font-semibold px-2.5 py-1 rounded shadow">Education & STEM</span>
+          <span class="absolute bottom-3 left-3 bg-black/70 text-white text-xs px-2 py-0.5 rounded backdrop-blur-sm">
+            <i class="fas fa-camera mr-1"></i> 13 Photos
+          </span>
+        </div>
+        <div class="p-6 flex flex-col flex-grow">
+          <div class="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 mb-2">
+            <span><i class="far fa-calendar-alt mr-1"></i> Nov 2023 - Sep 2024</span>
+            <span>Educator & Designer</span>
+          </div>
+          <h2 class="text-xl font-bold mb-2 hover:text-blue-500 cursor-pointer card-gallery-trigger" data-project-id="gearsup-workshops">STEM Robotics Curriculum & Outreach</h2>
+          <p class="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-3 flex-grow">
+            Designed and implemented comprehensive hands-on STEM and robotics curricula tailored for students in schools with limited access to modern technology education. Mentored student teams.
+          </p>
+          <div class="flex flex-wrap gap-1.5 mb-5">
+            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">Robotics</span>
+            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">Curriculum</span>
+            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">Mentorship</span>
+            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">STEM</span>
+          </div>
+          <div class="pt-4 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between">
+            <button class="card-gallery-trigger inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300" data-project-id="gearsup-workshops">
+              <i class="fas fa-images mr-1.5"></i> Gallery & Photos
+            </button>
+            <span class="text-xs text-gray-500">GEARS UP!</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Empty State -->
+    <div id="no-results" class="hidden text-center py-16 bg-white dark:bg-gray-800 rounded-xl border border-dashed border-gray-300 dark:border-gray-700 my-6">
+      <i class="fas fa-folder-open text-4xl text-gray-400 mb-3"></i>
+      <h3 class="text-lg font-bold text-gray-700 dark:text-gray-200">No projects match your filter</h3>
+      <p class="text-sm text-gray-500 dark:text-gray-400 mt-1 max-w-sm mx-auto">Try clearing your search query or selecting a different category tab.</p>
+      <button id="reset-filter-btn" class="mt-4 px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors">
+        Reset Filters
+      </button>
+    </div>
+
+  </main>
+
+  <!-- Interactive Modal / Lightbox -->
+  <div id="project-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4 overflow-y-auto" role="dialog" aria-modal="true">
+    <div class="bg-white dark:bg-gray-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col shadow-2xl border border-gray-200 dark:border-gray-700 my-auto">
+      
+      <!-- Modal Header -->
+      <div class="p-5 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between bg-gray-50 dark:bg-gray-850">
+        <div>
+          <span id="modal-category" class="text-xs font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider">Category</span>
+          <h2 id="modal-title" class="text-2xl font-bold text-gray-900 dark:text-white mt-0.5">Project Title</h2>
+        </div>
+        <button id="modal-close" class="text-gray-400 hover:text-gray-700 dark:hover:text-white w-9 h-9 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center justify-center text-lg transition-colors" aria-label="Close modal">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body (Scrollable) -->
+      <div class="p-6 overflow-y-auto space-y-6">
+        
+        <!-- Gallery / Slideshow Area -->
+        <div id="modal-gallery-container" class="relative bg-gray-950 rounded-xl overflow-hidden shadow-inner h-72 md:h-96 flex items-center justify-center">
+          <div id="modal-slideshow" class="w-full h-full relative flex items-center justify-center"></div>
+          
+          <!-- Slide Navigation Controls -->
+          <button id="modal-prev-slide" class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/90 text-white w-10 h-10 rounded-full flex items-center justify-center text-lg transition-colors z-10" aria-label="Previous slide">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button id="modal-next-slide" class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/90 text-white w-10 h-10 rounded-full flex items-center justify-center text-lg transition-colors z-10" aria-label="Next slide">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+          <div id="modal-slide-counter" class="absolute bottom-3 right-3 bg-black/75 text-white text-xs px-2.5 py-1 rounded-full z-10">
+            1 / 1
+          </div>
+        </div>
+
+        <!-- Project Details Section -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="md:col-span-2 space-y-4">
+            <div>
+              <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Overview</h3>
+              <p id="modal-description" class="text-gray-700 dark:text-gray-300 leading-relaxed text-sm"></p>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">My Key Contributions</h3>
+              <ul id="modal-contributions" class="list-disc list-inside text-gray-700 dark:text-gray-300 text-sm space-y-1.5"></ul>
+            </div>
+          </div>
+
+          <div class="space-y-4 bg-gray-50 dark:bg-gray-750 p-4 rounded-xl border border-gray-100 dark:border-gray-700">
+            <div>
+              <h4 class="text-xs uppercase font-semibold text-gray-500 dark:text-gray-400 mb-1">Timeline & Role</h4>
+              <p id="modal-timeline-role" class="text-sm font-medium text-gray-800 dark:text-gray-200"></p>
+            </div>
+            <div>
+              <h4 class="text-xs uppercase font-semibold text-gray-500 dark:text-gray-400 mb-2">Technologies Used</h4>
+              <div id="modal-tags" class="flex flex-wrap gap-1.5"></div>
+            </div>
+            <div id="modal-links-container" class="pt-3 border-t border-gray-200 dark:border-gray-700">
+              <a id="modal-live-link" href="#" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-2 px-4 rounded-lg transition-colors">
+                <span>Visit Live Project</span>
+                <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="p-4 border-t border-gray-200 dark:border-gray-700 flex justify-end bg-gray-50 dark:bg-gray-850">
+        <button id="modal-close-bottom" class="px-5 py-2 text-sm font-medium bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 rounded-lg transition-colors">
+          Close
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Call to Action Section -->
+  <section class="bg-gray-200/60 dark:bg-gray-800/60 py-16 border-t border-gray-200 dark:border-gray-700">
+    <div class="container mx-auto px-4 text-center max-w-3xl">
+      <h2 class="text-2xl md:text-3xl font-bold mb-3">Interested in collaborating or discussing a project?</h2>
+      <p class="text-gray-600 dark:text-gray-300 text-sm md:text-base mb-6">
+        I'm always open to new software development challenges, UI/UX designs, robotics integrations, and educational initiatives.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="mailto:alaikal.edu@gmail.com" class="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-5 py-2.5 rounded-lg shadow transition-colors">
+          <i class="fas fa-envelope mr-2"></i> Send an Email
+        </a>
+        <a href="https://www.linkedin.com/in/alaikal-hamdi" target="_blank" rel="noopener noreferrer" class="inline-flex items-center bg-white dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 text-gray-800 dark:text-white border border-gray-300 dark:border-gray-600 text-sm font-semibold px-5 py-2.5 rounded-lg shadow-sm transition-colors">
+          <i class="fab fa-linkedin mr-2 text-blue-500"></i> LinkedIn Profile
+        </a>
+        <a href="./cv.html" class="inline-flex items-center bg-white dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 text-gray-800 dark:text-white border border-gray-300 dark:border-gray-600 text-sm font-semibold px-5 py-2.5 rounded-lg shadow-sm transition-colors">
+          <i class="fas fa-file-alt mr-2 text-blue-500"></i> View Full CV
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact" class="text-white py-12 hero-bg">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="text-2xl font-bold mb-4">Get in Touch</h3>
+          <p class="mb-2"><i class="fas fa-envelope w-5 mr-1"></i> alaikal.edu@gmail.com</p>
+          <p class="mb-2"><i class="fas fa-phone w-5 mr-1"></i> +62 823-5335-8664</p>
+          <div class="flex space-x-4 mt-4">
+            <a href="https://www.linkedin.com/in/alaikal-hamdi" class="text-white hover:text-gray-300 text-xl" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/alaikalhamdi" class="text-white hover:text-gray-300 text-xl" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://instagram.com/yuan.arib" class="text-white hover:text-gray-300 text-xl" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-2xl font-bold mb-4">Site Navigation</h3>
+          <ul class="space-y-2">
+            <li><a href="./index.html" class="underline hover:text-gray-200">Portfolio Home</a></li>
+            <li><a href="./index.html#about" class="underline hover:text-gray-200">About Me</a></li>
+            <li><a href="./index.html#skills" class="underline hover:text-gray-200">Skills & Experiences</a></li>
+            <li><a href="./projects.html" class="underline hover:text-gray-200 font-semibold">Projects Showcase</a></li>
+            <li><a href="./cv.html" class="underline hover:text-gray-200">Curriculum Vitae (CV)</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/20 mt-8 pt-6 text-center text-xs text-gray-200">
+        &copy; 2026 Alaikal Hamdi. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Project Data for Modals & Interactive Details
+    const projectDetails = {
+      'kala-coffee': {
+        title: 'KALA Specialty Coffee & Roastery — Local Business Showcase',
+        category: 'Web Development / UMKM & Cafe',
+        timelineRole: 'Client Showcase | Web Designer & Developer',
+        description: 'KALA Specialty Coffee & Roastery is a high-converting digital storefront and brand showcase designed specifically for local Indonesian food and beverage businesses. Designed to turn casual web visitors into paying customers, it pairs a warm specialty coffee aesthetic with frictionless local commerce features: instant WhatsApp order dispatch, interactive tasting quiz, table reservation, and Google Maps integration.',
+        contributions: [
+          'Engineered a fast, responsive, and mobile-first static website using Tailwind CSS and vanilla JavaScript.',
+          'Built an automated WhatsApp ordering engine that formats item selections and customer notes directly into WhatsApp chat messages.',
+          'Created an interactive "Coffee Matcher Quiz" recommending personalized brews based on visitor flavor preferences and activities.',
+          'Implemented table reservation modal generating formatted booking messages with date, party size, and zone preferences.',
+          'Designed Work-From-Cafe (WFC) amenities cards, customer social proof reviews (Google 4.9 rating), and GrabFood / GoFood delivery links.'
+        ],
+        tags: ['Tailwind CSS', 'JavaScript', 'WhatsApp API', 'Responsive Design', 'Local SEO & Maps', 'F&B Business'],
+        liveLink: './cafe/index.html',
+        images: ['./img/kala-coffee.jpg']
+      },
+      'terafest': {
+        title: 'TERAFEST Exhibition Platform',
+        category: 'Web Development / Exhibition',
+        timelineRole: 'School Exhibition | Organizer & Web Developer',
+        description: 'TERAFEST is an annual premier engineering exhibition at my school where students present cutting-edge automation, electrical, and mechanical engineering projects. As both an event organizer and frontend developer, I built the official event website to provide attendees and judges with an interactive digital guide to the exhibitions.',
+        contributions: [
+          'Engineered a fast, responsive user interface with Tailwind CSS and JavaScript.',
+          'Built the interactive exhibition project catalog with team summaries and showcase galleries.',
+          'Created schedule timetables and interactive visitor guidelines to improve on-site event navigation.',
+          'Optimized asset loading and mobile layout for smartphone visitors at the exhibition venue.'
+        ],
+        tags: ['HTML5', 'Tailwind CSS', 'JavaScript', 'Responsive Web Design', 'Event Showcase'],
+        liveLink: 'https://terafest-website.com',
+        images: ['./img/terafest.png']
+      },
+      'ftc': {
+        title: 'FIRST Tech Challenge (FTC) Nusantara',
+        category: 'Web Development & Robotics',
+        timelineRole: 'Robotics Tournament | Volunteer & Web Developer',
+        description: 'The FIRST Tech Challenge (FTC) is an internationally celebrated robotics tournament where student teams design, build, and code robots to compete in an alliance format. I volunteered for the Indonesian championship, contributing to its digital infrastructure by engineering the central competition portal.',
+        contributions: [
+          'Developed a modern web portal using React and Tailwind CSS for the national championship.',
+          'Implemented real-time match schedule viewers, tournament brackets, and live score reporting.',
+          'Created comprehensive team directories highlighting school participants and alliance pairings.',
+          'Facilitated public streaming links and match archive documentation for teams and mentors.'
+        ],
+        tags: ['React', 'Tailwind CSS', 'Robotics', 'REST API', 'Event Platform'],
+        liveLink: 'https://ifrfoundation.org',
+        images: ['./img/ifrfoundation.png']
+      },
+      'gearsup-web': {
+        title: 'GEARS UP! STEM Organization Platform',
+        category: 'Web Development & Education',
+        timelineRole: 'Nov 2023 - Sep 2024 | Front End Developer',
+        description: 'GEARS UP! is a non-profit organization focused on making high-quality STEM education and robotics accessible to students in schools with limited access to modern resources across Indonesia. I designed and built the primary web platform that serves as their public identity and educational content portal.',
+        contributions: [
+          'Architected and deployed the responsive website utilizing React and Tailwind CSS.',
+          'Increased user engagement by 20% for online STEM education resources and volunteer registrations.',
+          'Designed intuitive UI layouts that communicate complex STEM curricula to young learners.',
+          'Collaborated with educators to structure modular curriculum downloads and event calendars.'
+        ],
+        tags: ['React', 'Tailwind CSS', 'UI/UX Design', 'STEM Education', 'Community Platform'],
+        liveLink: 'https://gearsup.org',
+        images: ['./img/gearsup.png']
+      },
+      'h2nose': {
+        title: 'H2Nose AI & Hydrogen System App',
+        category: 'Robotics, AI & Hardware UI',
+        timelineRole: 'Aug 2022 - Dec 2024 | Core Developer, UI/UX & AI Scientist',
+        description: 'H2Nose is an intelligent hydrogen energy sensing and diagnostics device developed by H2E Energy. As core developer, UI/UX designer, and AI scientist, I engineered both the application interface and the intelligent analytical algorithms that process sensor metrics for safety and performance monitoring.',
+        contributions: [
+          'Designed intuitive, high-performance user interface and dashboard using Next.js, React, and Tailwind CSS.',
+          'Developed AI detection and data visualization pipelines in Python for hydrogen sensor telemetry.',
+          'Collaborated closely with engineers on hardware-software communication protocols and diagnostics.',
+          'Created real-time graphs and alert dashboards for experimental energy monitoring.'
+        ],
+        tags: ['Next.js', 'React', 'Tailwind CSS', 'Python', 'AI / ML', 'Hardware IoT', 'Sensor Analytics'],
+        liveLink: null,
+        images: [
+          './h2e/1.jpeg',
+          './h2e/2.jpeg',
+          './h2e/3.jpeg',
+          './h2e/4.jpeg',
+          './h2e/5.jpeg',
+          './h2e/6.jpeg',
+          './h2e/7.jpeg',
+          './h2e/8.jpeg'
+        ]
+      },
+      'gearsup-workshops': {
+        title: 'STEM Robotics Curriculum & Outreach Workshops',
+        category: 'Education & Robotics',
+        timelineRole: 'Nov 2023 - Sep 2024 | Educator & Curriculum Designer',
+        description: 'Through GEARS UP!, I designed and led hands-on STEM and robotics workshops directly in classrooms and community centers. The initiative focused on students in schools with minimal access to STEM education, providing them with mentorship, robotic kits, and programming instruction.',
+        contributions: [
+          'Designed step-by-step curriculum modules covering mechanical robot assembly, sensors, and basic logic.',
+          'Taught dozens of hands-on interactive workshop sessions across diverse educational institutions.',
+          'Mentored student teams in problem solving, algorithmic thinking, and collaborative engineering.',
+          'Documented workshops and evaluated student learning outcomes to continuously refine teaching materials.'
+        ],
+        tags: ['Robotics', 'STEM Outreach', 'Curriculum Design', 'Mentorship', 'Workshops'],
+        liveLink: null,
+        images: [
+          './gu/IMG_2715.jpg',
+          './gu/IMG_2723.jpg',
+          './gu/IMG_2749.jpg',
+          './gu/IMG_2751.jpg',
+          './gu/IMG_2663.jpg',
+          './gu/IMG_2620.jpg',
+          './gu/IMG_2621.jpg',
+          './gu/IMG_2622.jpg',
+          './gu/IMG_2646.jpg',
+          './gu/IMG_2653.jpg',
+          './gu/IMG_2658.jpg',
+          './gu/IMG_2662.jpg',
+          './gu/IMG_2763.jpg'
+        ]
+      }
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Navbar Mobile Toggle
+      const hamburgerBtn = document.getElementById('hamburger-btn');
+      const navMenu = document.getElementById('nav-menu');
+
+      hamburgerBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navMenu.classList.toggle('hidden');
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!navMenu.contains(e.target) && !hamburgerBtn.contains(e.target)) {
+          navMenu.classList.add('hidden');
+        }
+      });
+
+      // Filter and Search Logic
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const tagBtns = document.querySelectorAll('.tag-filter');
+      const searchInput = document.getElementById('search-input');
+      const clearSearchBtn = document.getElementById('clear-search');
+      const cards = document.querySelectorAll('.project-card');
+      const noResults = document.getElementById('no-results');
+      const resetFilterBtn = document.getElementById('reset-filter-btn');
+
+      let currentCategory = 'all';
+      let currentQuery = '';
+
+      function updateCategoryCounts() {
+        const counts = { all: cards.length, web: 0, robotics: 0, education: 0 };
+        cards.forEach(card => {
+          const cats = (card.dataset.categories || '').split(' ');
+          cats.forEach(c => {
+            if (counts[c] !== undefined) counts[c]++;
+          });
+        });
+        for (const cat in counts) {
+          const el = document.getElementById(`count-${cat}`);
+          if (el) el.textContent = counts[cat];
+        }
+      }
+      updateCategoryCounts();
+
+      function applyFilters() {
+        let visibleCount = 0;
+        const query = currentQuery.toLowerCase().trim();
+
+        cards.forEach(card => {
+          const categories = card.dataset.categories || '';
+          const tags = card.dataset.tags || '';
+          const title = card.dataset.title || '';
+          const textContent = card.innerText || '';
+
+          const matchesCategory = currentCategory === 'all' || categories.split(' ').includes(currentCategory);
+          const matchesQuery = query === '' || 
+            title.toLowerCase().includes(query) || 
+            tags.toLowerCase().includes(query) || 
+            textContent.toLowerCase().includes(query);
+
+          if (matchesCategory && matchesQuery) {
+            card.classList.remove('hidden');
+            visibleCount++;
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+
+        if (visibleCount === 0) {
+          noResults.classList.remove('hidden');
+        } else {
+          noResults.classList.add('hidden');
+        }
+      }
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentCategory = btn.dataset.filter;
+          applyFilters();
+        });
+      });
+
+      tagBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          searchInput.value = btn.dataset.tag;
+          currentQuery = btn.dataset.tag;
+          clearSearchBtn.classList.remove('hidden');
+          applyFilters();
+        });
+      });
+
+      searchInput.addEventListener('input', (e) => {
+        currentQuery = e.target.value;
+        if (currentQuery.length > 0) {
+          clearSearchBtn.classList.remove('hidden');
+        } else {
+          clearSearchBtn.classList.add('hidden');
+        }
+        applyFilters();
+      });
+
+      clearSearchBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        currentQuery = '';
+        clearSearchBtn.classList.add('hidden');
+        applyFilters();
+      });
+
+      resetFilterBtn.addEventListener('click', () => {
+        currentCategory = 'all';
+        currentQuery = '';
+        searchInput.value = '';
+        clearSearchBtn.classList.add('hidden');
+        filterBtns.forEach(b => b.classList.toggle('active', b.dataset.filter === 'all'));
+        applyFilters();
+      });
+
+      // Modal / Gallery Functionality
+      const modal = document.getElementById('project-modal');
+      const modalClose = document.getElementById('modal-close');
+      const modalCloseBottom = document.getElementById('modal-close-bottom');
+      const modalCategory = document.getElementById('modal-category');
+      const modalTitle = document.getElementById('modal-title');
+      const modalDescription = document.getElementById('modal-description');
+      const modalContributions = document.getElementById('modal-contributions');
+      const modalTimelineRole = document.getElementById('modal-timeline-role');
+      const modalTags = document.getElementById('modal-tags');
+      const modalLiveLink = document.getElementById('modal-live-link');
+      const modalLinksContainer = document.getElementById('modal-links-container');
+      const modalSlideshow = document.getElementById('modal-slideshow');
+      const modalPrevSlide = document.getElementById('modal-prev-slide');
+      const modalNextSlide = document.getElementById('modal-next-slide');
+      const modalSlideCounter = document.getElementById('modal-slide-counter');
+
+      let currentSlides = [];
+      let currentSlideIdx = 0;
+
+      function updateSlide(idx) {
+        if (currentSlides.length === 0) return;
+        currentSlideIdx = (idx + currentSlides.length) % currentSlides.length;
+        
+        const imgs = modalSlideshow.querySelectorAll('img');
+        imgs.forEach((img, i) => {
+          img.classList.toggle('hidden', i !== currentSlideIdx);
+        });
+
+        modalSlideCounter.textContent = `${currentSlideIdx + 1} / ${currentSlides.length}`;
+        
+        if (currentSlides.length <= 1) {
+          modalPrevSlide.classList.add('hidden');
+          modalNextSlide.classList.add('hidden');
+          modalSlideCounter.classList.add('hidden');
+        } else {
+          modalPrevSlide.classList.remove('hidden');
+          modalNextSlide.classList.remove('hidden');
+          modalSlideCounter.classList.remove('hidden');
+        }
+      }
+
+      function openModal(projectId) {
+        const data = projectDetails[projectId];
+        if (!data) return;
+
+        modalCategory.textContent = data.category;
+        modalTitle.textContent = data.title;
+        modalTimelineRole.textContent = data.timelineRole;
+        modalDescription.textContent = data.description;
+
+        // Contributions list
+        modalContributions.innerHTML = '';
+        data.contributions.forEach(item => {
+          const li = document.createElement('li');
+          li.textContent = item;
+          modalContributions.appendChild(li);
+        });
+
+        // Tags
+        modalTags.innerHTML = '';
+        data.tags.forEach(tag => {
+          const span = document.createElement('span');
+          span.className = 'bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs px-2.5 py-0.5 rounded font-medium';
+          span.textContent = tag;
+          modalTags.appendChild(span);
+        });
+
+        // Live Link
+        if (data.liveLink) {
+          modalLiveLink.href = data.liveLink;
+          modalLiveLink.classList.remove('hidden');
+          modalLinksContainer.classList.remove('hidden');
+        } else {
+          modalLiveLink.classList.add('hidden');
+          modalLinksContainer.classList.add('hidden');
+        }
+
+        // Slideshow
+        modalSlideshow.innerHTML = '';
+        currentSlides = data.images || [];
+        currentSlides.forEach((src, i) => {
+          const img = document.createElement('img');
+          img.src = src;
+          img.alt = `${data.title} screenshot ${i + 1}`;
+          img.className = `w-full h-full object-contain absolute inset-0 ${i !== 0 ? 'hidden' : ''}`;
+          modalSlideshow.appendChild(img);
+        });
+
+        updateSlide(0);
+
+        // Show modal & prevent background scroll
+        modal.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+      }
+
+      function closeModal() {
+        modal.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+      }
+
+      // Attach click events to card gallery triggers
+      document.querySelectorAll('.card-gallery-trigger').forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+          e.preventDefault();
+          const projectId = trigger.dataset.projectId;
+          if (projectId) {
+            openModal(projectId);
+          }
+        });
+      });
+
+      modalPrevSlide.addEventListener('click', (e) => {
+        e.stopPropagation();
+        updateSlide(currentSlideIdx - 1);
+      });
+
+      modalNextSlide.addEventListener('click', (e) => {
+        e.stopPropagation();
+        updateSlide(currentSlideIdx + 1);
+      });
+
+      modalClose.addEventListener('click', closeModal);
+      modalCloseBottom.addEventListener('click', closeModal);
+
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (!modal.classList.contains('hidden')) {
+          if (e.key === 'Escape') closeModal();
+          if (e.key === 'ArrowLeft') updateSlide(currentSlideIdx - 1);
+          if (e.key === 'ArrowRight') updateSlide(currentSlideIdx + 1);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

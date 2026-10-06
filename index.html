@@ -73,22 +73,22 @@
   <!-- Navbar -->
   <nav class="bg-white shadow-md py-4 dark:bg-gray-800 fixed w-full top-0 z-50 navbar-transition" id="navbar">
     <div class="container mx-auto flex justify-between items-center px-4">
-      <h1 class="text-2xl font-bold">Alaikal Hamdi</h1>
+      <h1 class="text-2xl font-bold"><a href="#home">Alaikal Hamdi</a></h1>
       <ul class="hidden md:flex space-x-6">
         <li><a href="#home" class="hover:text-blue-500">Home</a></li>
         <li><a href="#about" class="hover:text-blue-500">About</a></li>
-        <li><a href="#projects" class="hover:text-blue-500">Projects</a></li>
+        <li><a href="./projects.html" class="hover:text-blue-500">Projects</a></li>
         <li><a href="#contact" class="hover:text-blue-500">Contact</a></li>
         <li><a href="./cv.html" class="hover:text-blue-500">CV</a></li>
       </ul>
       <button id="hamburger-btn" class="md:hidden w-10 h-8">☰</button>
     </div>
   </nav>
-  <nav class="hidden bg-white shadow-md py-4 dark:bg-gray-800 fixed top-16 right-5 z-50" id="nav-menu">
+  <nav class="hidden bg-white shadow-md py-4 dark:bg-gray-800 fixed top-16 right-5 z-50 rounded-lg" id="nav-menu">
     <ul class="mx-10">
       <li class="my-3"><a href="#home" class="hover:text-blue-500">Home</a></li>
       <li class="my-3"><a href="#about" class="hover:text-blue-500">About</a></li>
-      <li class="my-3"><a href="#projects" class="hover:text-blue-500">Projects</a></li>
+      <li class="my-3"><a href="./projects.html" class="hover:text-blue-500">Projects</a></li>
       <li class="my-3"><a href="#contact" class="hover:text-blue-500">Contact</a></li>
       <li class="my-3"><a href="./cv.html" class="hover:text-blue-500">CV</a></li>
     </ul>
@@ -251,38 +251,99 @@
     </div>
   </section>
 
-  <!-- Projects Section -->
+  <!-- Featured Projects Section -->
   <section id="projects" class="py-16 bg-gray-100 dark:bg-gray-800">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-8">My Projects</h2>
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
+        <div>
+          <h2 class="text-3xl font-bold">Featured Projects</h2>
+          <p class="text-gray-600 dark:text-gray-400 mt-2">Highlights of web applications and engineering works.</p>
+        </div>
+        <a href="./projects.html" class="mt-4 md:mt-0 inline-flex items-center text-blue-500 hover:text-blue-600 font-semibold group">
+          <span>View all projects & case studies</span>
+          <i class="fas fa-arrow-right ml-2 transition-transform duration-200 group-hover:translate-x-1"></i>
+        </a>
+      </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Project 1 -->
-        <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded shadow">
-          <div class="relative -mx-6 -mt-6 mb-4">
-            <img src="./img/terafest.png" alt="TERAFEST" class="w-full h-50 object-cover rounded-t">
+        <!-- Project: KALA Coffee & Roastery (Client Showcase) -->
+        <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded shadow flex flex-col justify-between border-2 border-amber-500/40 relative">
+          <div class="absolute -top-3 right-4 bg-amber-500 text-gray-900 text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full shadow">
+            Client Showcase / UMKM
           </div>
-          <h3 class="text-xl font-bold mb-2">TERAFEST</h3>
-          <p>TERAFEST is an exhibition at my school showcasing our engineering projects and products. As one of the organizers, I contributed by helping develop the event's website.</p>
-          <a href="https://terafest-website.com" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mt-4 inline-block" target="_blank">View Project</a>
+          <div>
+            <div class="relative -mx-6 -mt-6 mb-4">
+              <img src="./img/kala-coffee.jpg" alt="KALA Coffee & Roastery" class="w-full h-48 object-cover rounded-t">
+            </div>
+            <div class="flex items-center space-x-2 text-xs text-amber-600 dark:text-amber-400 font-semibold mb-1">
+              <span>Web Development • F&B & UMKM</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2">KALA Coffee & Roastery</h3>
+            <p class="text-sm text-gray-700 dark:text-gray-300">Modern static website & digital presence designed for Indonesian cafes & local F&B businesses. Features interactive filterable menu, pre-formatted WhatsApp direct ordering, taste quiz, and table reservations.</p>
+          </div>
+          <div class="mt-4 flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-600">
+            <a href="./cafe/index.html" class="bg-amber-600 text-white px-4 py-2 rounded text-sm hover:bg-amber-700 inline-block font-semibold" target="_blank">
+              <i class="fas fa-external-link-alt mr-1"></i> Live Demo
+            </a>
+            <a href="./projects.html" class="text-sm text-blue-500 hover:underline font-medium">Case Study &rarr;</a>
+          </div>
+        </div>
+        <!-- Project 1 -->
+        <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded shadow flex flex-col justify-between">
+          <div>
+            <div class="relative -mx-6 -mt-6 mb-4">
+              <img src="./img/terafest.png" alt="TERAFEST" class="w-full h-48 object-cover rounded-t">
+            </div>
+            <div class="flex items-center space-x-2 text-xs text-blue-500 font-semibold mb-1">
+              <span>Web Development</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2">TERAFEST</h3>
+            <p class="text-sm text-gray-700 dark:text-gray-300">TERAFEST is an exhibition showcasing our engineering projects and products. As one of the organizers, I contributed by developing the event's website.</p>
+          </div>
+          <div class="mt-4 flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-600">
+            <a href="https://terafest-website.com" class="bg-blue-500 text-white px-4 py-2 rounded text-sm hover:bg-blue-600 inline-block" target="_blank">View Project</a>
+            <a href="./projects.html" class="text-sm text-blue-500 hover:underline font-medium">Case Study &rarr;</a>
+          </div>
         </div>
         <!-- Project 2 -->
-        <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded shadow">
-          <div class="relative -mx-6 -mt-6 mb-4">
-            <img src="./img/ifrfoundation.png" alt="FIRST Tech Challenge Nusantara" class="w-full h-50 object-cover rounded-t">
+        <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded shadow flex flex-col justify-between">
+          <div>
+            <div class="relative -mx-6 -mt-6 mb-4">
+              <img src="./img/ifrfoundation.png" alt="FIRST Tech Challenge Nusantara" class="w-full h-48 object-cover rounded-t">
+            </div>
+            <div class="flex items-center space-x-2 text-xs text-indigo-500 font-semibold mb-1">
+              <span>Robotics & Web</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2">FIRST Tech Challenge Nusantara</h3>
+            <p class="text-sm text-gray-700 dark:text-gray-300">The FIRST Tech Challenge (FTC) is an annual global robotics competition. I contributed by creating a website that showcases match history, live schedules, and team lists.</p>
           </div>
-          <h3 class="text-xl font-bold mb-2">FIRST Tech Challenge Nusantara</h3>
-          <p>The FIRST Tech Challenge (FTC) is an annual global robotics competition for young students. I volunteered for this event and contributed to its presence in Indonesia by creating a website that showcases match history and team lists.</p>
-          <a href="https://ifrfoundation.org" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mt-4 inline-block" target="_blank">View Project</a>
+          <div class="mt-4 flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-600">
+            <a href="https://ifrfoundation.org" class="bg-blue-500 text-white px-4 py-2 rounded text-sm hover:bg-blue-600 inline-block" target="_blank">View Project</a>
+            <a href="./projects.html" class="text-sm text-blue-500 hover:underline font-medium">Case Study &rarr;</a>
+          </div>
         </div>
         <!-- Project 3 -->
-        <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded shadow">
-          <div class="relative -mx-6 -mt-6 mb-4">
-            <img src="./img/gearsup.png" alt="GEARS UP!" class="w-full h-50 object-cover rounded-t">
+        <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded shadow flex flex-col justify-between">
+          <div>
+            <div class="relative -mx-6 -mt-6 mb-4">
+              <img src="./img/gearsup.png" alt="GEARS UP!" class="w-full h-48 object-cover rounded-t">
+            </div>
+            <div class="flex items-center space-x-2 text-xs text-teal-500 font-semibold mb-1">
+              <span>Education & Community</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2">GEARS UP!</h3>
+            <p class="text-sm text-gray-700 dark:text-gray-300">GEARS UP! is a non-profit dedicated to introducing students across Indonesia to STEM. I contributed to establishing its presence by developing their website.</p>
           </div>
-          <h3 class="text-xl font-bold mb-2">GEARS UP!</h3>
-          <p>GEARS UP! is a non-profit organization dedicated to introducing students across Indonesia to STEM. I contributed to establishing its presence by developing their website.</p>
-          <a href="https://gearsup.org" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mt-4 inline-block" target="_blank">View Project</a>
+          <div class="mt-4 flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-600">
+            <a href="https://gearsup.org" class="bg-blue-500 text-white px-4 py-2 rounded text-sm hover:bg-blue-600 inline-block" target="_blank">View Project</a>
+            <a href="./projects.html" class="text-sm text-blue-500 hover:underline font-medium">Case Study &rarr;</a>
+          </div>
         </div>
+      </div>
+      <div class="mt-10 text-center">
+        <a href="./projects.html" class="inline-flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition duration-200">
+          <span>Explore All Projects & Galleries</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
       </div>
     </div>
   </section>
@@ -309,8 +370,8 @@
         </div>
         <div>
           <h3 class="text-2xl font-bold mb-4">Site Navigation</h3>
-          <p><a href="" class="underline hover:text-gray-300">Main website</a></p>
-          <p><a href="./index.html" class="underline hover:text-gray-300">Portfolio</a></p>
+          <p><a href="./index.html" class="underline hover:text-gray-300">Portfolio Home</a></p>
+          <p><a href="./projects.html" class="underline hover:text-gray-300">Projects Showcase</a></p>
           <p><a href="./cv.html" class="underline hover:text-gray-300">Curriculum Vitae (CV)</a></p>
         </div>
       </div>
