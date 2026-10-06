@@ -10,9 +10,10 @@
   <link rel="icon" type="image/png" sizes="32x32" href="ico/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="ico/favicon-16x16.png">
   <link rel="manifest" href="ico/site.webmanifest">
-  <title>Projects - Alaikal Hamdi</title>
+  <title data-en="Projects - Alaikal Hamdi" data-id="Proyek - Alaikal Hamdi">Projects - Alaikal Hamdi</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://kit.fontawesome.com/5ad3573202.js" crossorigin="anonymous"></script>
+  <script src="./lang.js"></script>
   <style>
     @layer utilities {
       .hero-bg {
@@ -45,46 +46,67 @@
   <nav class="bg-white/95 dark:bg-gray-800/95 backdrop-blur-md shadow-md py-4 fixed w-full top-0 z-40 transition-colors" id="navbar">
     <div class="container mx-auto flex justify-between items-center px-4">
       <a href="./index.html" class="text-2xl font-bold hover:text-blue-500 transition-colors">Alaikal Hamdi</a>
-      <ul class="hidden md:flex items-center space-x-6 text-sm font-medium">
-        <li><a href="./index.html" class="hover:text-blue-500 transition-colors">Home</a></li>
-        <li><a href="./index.html#about" class="hover:text-blue-500 transition-colors">About</a></li>
-        <li><a href="./index.html#skills" class="hover:text-blue-500 transition-colors">Skills & Experiences</a></li>
-        <li><a href="./projects.html" class="text-blue-600 dark:text-blue-400 font-semibold border-b-2 border-blue-500 pb-0.5">Projects</a></li>
-        <li><a href="./index.html#contact" class="hover:text-blue-500 transition-colors">Contact</a></li>
-        <li><a href="./cv.html" class="hover:text-blue-500 transition-colors">CV</a></li>
-      </ul>
-      <button id="hamburger-btn" class="md:hidden w-10 h-8 text-xl" aria-label="Toggle navigation menu">☰</button>
+      <div class="hidden md:flex items-center space-x-6 text-sm font-medium">
+        <ul class="flex items-center space-x-6">
+          <li><a href="./index.html" class="hover:text-blue-500 transition-colors" data-en="Home" data-id="Beranda">Home</a></li>
+          <li><a href="./index.html#about" class="hover:text-blue-500 transition-colors" data-en="About" data-id="Tentang">About</a></li>
+          <li><a href="./index.html#skills" class="hover:text-blue-500 transition-colors" data-en="Skills & Experiences" data-id="Keahlian & Pengalaman">Skills & Experiences</a></li>
+          <li><a href="./projects.html" class="text-blue-600 dark:text-blue-400 font-semibold border-b-2 border-blue-500 pb-0.5" data-en="Projects" data-id="Proyek">Projects</a></li>
+          <li><a href="./index.html#contact" class="hover:text-blue-500 transition-colors" data-en="Contact" data-id="Kontak">Contact</a></li>
+          <li><a href="./cv.html" class="hover:text-blue-500 transition-colors" data-en="CV" data-id="CV">CV</a></li>
+        </ul>
+        <!-- Language Switcher Pill -->
+        <div class="flex items-center bg-gray-100 dark:bg-gray-700/80 rounded-full p-1 border border-gray-200 dark:border-gray-600 text-xs shadow-inner">
+          <button type="button" onclick="setLanguage('en')" class="lang-btn-en px-2.5 py-0.5 rounded-full font-semibold transition-all" title="English">EN</button>
+          <button type="button" onclick="setLanguage('id')" class="lang-btn-id px-2.5 py-0.5 rounded-full font-semibold transition-all" title="Bahasa Indonesia">ID</button>
+        </div>
+      </div>
+      <!-- Mobile Right Controls (Switcher & Hamburger) -->
+      <div class="flex items-center space-x-2.5 md:hidden">
+        <div class="flex items-center bg-gray-100 dark:bg-gray-700/80 rounded-full p-0.5 border border-gray-200 dark:border-gray-600 text-xs shadow-inner">
+          <button type="button" onclick="setLanguage('en')" class="lang-btn-en px-2 py-0.5 rounded-full font-semibold transition-all" title="English">EN</button>
+          <button type="button" onclick="setLanguage('id')" class="lang-btn-id px-2 py-0.5 rounded-full font-semibold transition-all" title="Bahasa Indonesia">ID</button>
+        </div>
+        <button id="hamburger-btn" class="w-10 h-8 text-xl" aria-label="Toggle navigation menu">☰</button>
+      </div>
     </div>
   </nav>
 
   <!-- Mobile Menu -->
-  <nav class="hidden bg-white dark:bg-gray-800 shadow-xl rounded-lg py-4 fixed top-16 right-4 z-50 w-56 border border-gray-200 dark:border-gray-700 md:hidden" id="nav-menu">
+  <nav class="hidden bg-white dark:bg-gray-800 shadow-xl rounded-lg py-4 fixed top-16 right-4 z-50 w-60 border border-gray-200 dark:border-gray-700 md:hidden" id="nav-menu">
     <ul class="px-5 space-y-3 text-sm font-medium">
-      <li><a href="./index.html" class="block py-1 hover:text-blue-500">Home</a></li>
-      <li><a href="./index.html#about" class="block py-1 hover:text-blue-500">About</a></li>
-      <li><a href="./index.html#skills" class="block py-1 hover:text-blue-500">Skills & Experiences</a></li>
-      <li><a href="./projects.html" class="block py-1 text-blue-600 dark:text-blue-400 font-semibold">Projects</a></li>
-      <li><a href="./index.html#contact" class="block py-1 hover:text-blue-500">Contact</a></li>
-      <li><a href="./cv.html" class="block py-1 hover:text-blue-500">CV</a></li>
+      <li><a href="./index.html" class="block py-1 hover:text-blue-500" data-en="Home" data-id="Beranda">Home</a></li>
+      <li><a href="./index.html#about" class="block py-1 hover:text-blue-500" data-en="About" data-id="Tentang">About</a></li>
+      <li><a href="./index.html#skills" class="block py-1 hover:text-blue-500" data-en="Skills & Experiences" data-id="Keahlian & Pengalaman">Skills & Experiences</a></li>
+      <li><a href="./projects.html" class="block py-1 text-blue-600 dark:text-blue-400 font-semibold" data-en="Projects" data-id="Proyek">Projects</a></li>
+      <li><a href="./index.html#contact" class="block py-1 hover:text-blue-500" data-en="Contact" data-id="Kontak">Contact</a></li>
+      <li><a href="./cv.html" class="block py-1 hover:text-blue-500" data-en="CV" data-id="CV">CV</a></li>
     </ul>
+    <div class="mt-3 pt-3 border-t border-gray-100 dark:border-gray-700 px-5 flex items-center justify-between text-xs">
+      <span class="text-gray-500 dark:text-gray-400 font-medium" data-en="Language:" data-id="Bahasa:">Language:</span>
+      <div class="flex items-center bg-gray-100 dark:bg-gray-700/80 rounded-full p-0.5 border border-gray-200 dark:border-gray-600">
+        <button type="button" onclick="setLanguage('en')" class="lang-btn-en px-2 py-0.5 rounded-full font-semibold transition-all">EN</button>
+        <button type="button" onclick="setLanguage('id')" class="lang-btn-id px-2 py-0.5 rounded-full font-semibold transition-all">ID</button>
+      </div>
+    </div>
   </nav>
 
   <!-- Header Banner -->
   <header class="hero-bg text-white pt-28 pb-16 px-4">
     <div class="container mx-auto text-center max-w-4xl">
       <nav class="text-xs uppercase tracking-wider text-blue-200 mb-3 flex items-center justify-center space-x-2">
-        <a href="./index.html" class="hover:underline">Home</a>
+        <a href="./index.html" class="hover:underline" data-en="Home" data-id="Beranda">Home</a>
         <span>/</span>
-        <span class="text-white font-semibold">Projects</span>
+        <span class="text-white font-semibold" data-en="Projects" data-id="Proyek">Projects</span>
       </nav>
-      <h1 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">Projects & Engineering Works</h1>
-      <p class="text-base md:text-lg text-gray-100 max-w-2xl mx-auto mb-6 leading-relaxed">
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight" data-en="Projects & Engineering Works" data-id="Proyek & Rekayasa Teknologi">Projects & Engineering Works</h1>
+      <p class="text-base md:text-lg text-gray-100 max-w-2xl mx-auto mb-6 leading-relaxed" data-en="A comprehensive collection of web applications, AI-integrated software, robotics platforms, and community STEM initiatives I've engineered and contributed to." data-id="Koleksi lengkap aplikasi web, perangkat lunak berbasis AI, platform robotika, dan inisiatif STEM komunitas yang saya kembangkan dan kontribusikan.">
         A comprehensive collection of web applications, AI-integrated software, robotics platforms, and community STEM initiatives I've engineered and contributed to.
       </p>
       <div class="flex flex-wrap justify-center gap-3 text-xs md:text-sm">
-        <span class="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full"><i class="fas fa-layer-group mr-1.5"></i> 6 Featured Works</span>
-        <span class="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full"><i class="fas fa-code mr-1.5"></i> Full-Stack & UI/UX</span>
-        <span class="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full"><i class="fas fa-robot mr-1.5"></i> Robotics & AI</span>
+        <span class="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full"><i class="fas fa-layer-group mr-1.5"></i> <span data-en="6 Featured Works" data-id="6 Proyek Unggulan">6 Featured Works</span></span>
+        <span class="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full"><i class="fas fa-code mr-1.5"></i> <span>Full-Stack & UI/UX</span></span>
+        <span class="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full"><i class="fas fa-robot mr-1.5"></i> <span data-en="Robotics & AI" data-id="Robotika & AI">Robotics & AI</span></span>
       </div>
     </div>
   </header>
@@ -99,16 +121,16 @@
         <!-- Filter Tabs -->
         <div class="flex flex-wrap gap-2" id="filter-tabs">
           <button class="filter-btn active px-4 py-2 text-sm font-medium rounded-lg border border-gray-300 dark:border-gray-600 transition-colors" data-filter="all">
-            All Projects (<span id="count-all">6</span>)
+            <span data-en="All Projects" data-id="Semua Proyek">All Projects</span> (<span id="count-all">6</span>)
           </button>
           <button class="filter-btn px-4 py-2 text-sm font-medium rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" data-filter="web">
-            Web Development (<span id="count-web">5</span>)
+            <span data-en="Web Development" data-id="Pengembangan Web">Web Development</span> (<span id="count-web">5</span>)
           </button>
           <button class="filter-btn px-4 py-2 text-sm font-medium rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" data-filter="robotics">
-            Robotics & AI (<span id="count-robotics">3</span>)
+            <span data-en="Robotics & AI" data-id="Robotika & AI">Robotics & AI</span> (<span id="count-robotics">3</span>)
           </button>
           <button class="filter-btn px-4 py-2 text-sm font-medium rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" data-filter="education">
-            Education & Community (<span id="count-education">2</span>)
+            <span data-en="Education & Community" data-id="Pendidikan & Komunitas">Education & Community</span> (<span id="count-education">2</span>)
           </button>
         </div>
 
@@ -120,6 +142,8 @@
           <input 
             type="text" 
             id="search-input" 
+            data-en-placeholder="Search projects or tech..." 
+            data-id-placeholder="Cari proyek atau teknologi..." 
             placeholder="Search projects or tech..." 
             class="w-full pl-9 pr-8 py-2 text-sm bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800 dark:text-gray-100"
           >
@@ -132,7 +156,7 @@
 
       <!-- Quick Tech Pills -->
       <div class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700 flex flex-wrap items-center gap-2 text-xs">
-        <span class="text-gray-500 dark:text-gray-400 font-semibold mr-1">Popular tags:</span>
+        <span class="text-gray-500 dark:text-gray-400 font-semibold mr-1" data-en="Popular tags:" data-id="Tag populer:">Popular tags:</span>
         <button class="tag-filter bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2.5 py-1 rounded hover:bg-blue-100 hover:text-blue-700 dark:hover:bg-blue-900/40 dark:hover:text-blue-300 transition-colors" data-tag="Tailwind CSS">Tailwind CSS</button>
         <button class="tag-filter bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2.5 py-1 rounded hover:bg-blue-100 hover:text-blue-700 dark:hover:bg-blue-900/40 dark:hover:text-blue-300 transition-colors" data-tag="UMKM">UMKM</button>
         <button class="tag-filter bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2.5 py-1 rounded hover:bg-blue-100 hover:text-blue-700 dark:hover:bg-blue-900/40 dark:hover:text-blue-300 transition-colors" data-tag="React">React</button>
@@ -152,14 +176,15 @@
         data-categories="web"
         data-tags="Tailwind CSS JavaScript UMKM Cafe WhatsApp Interactive E-Commerce Responsive"
         data-title="KALA Specialty Coffee & Roastery"
+        data-title-id="KALA Specialty Coffee & Roastery"
       >
         <div class="relative overflow-hidden group cursor-pointer card-gallery-trigger" data-project-id="kala-coffee">
           <img src="./img/kala-coffee.jpg" alt="KALA Specialty Coffee & Roastery" class="w-full h-52 object-cover object-center transition-transform duration-300 group-hover:scale-105">
           <div class="absolute inset-0 bg-blue-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-sm font-medium">
-            <span><i class="fas fa-eye mr-2"></i> View Case Study & Demo</span>
+            <span data-en="<i class=&quot;fas fa-eye mr-2&quot;></i> View Case Study & Demo" data-id="<i class=&quot;fas fa-eye mr-2&quot;></i> Lihat Studi Kasus & Demo"><i class="fas fa-eye mr-2"></i> View Case Study & Demo</span>
           </div>
           <span class="absolute top-3 right-3 bg-amber-600 text-white text-xs font-semibold px-2.5 py-1 rounded shadow">UMKM & Web</span>
-          <span class="absolute top-3 left-3 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded shadow">Client Showcase</span>
+          <span class="absolute top-3 left-3 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded shadow" data-en="Client Showcase" data-id="Showcase Klien">Client Showcase</span>
         </div>
         <div class="p-6 flex flex-col flex-grow">
           <div class="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 mb-2">
@@ -167,7 +192,7 @@
             <span>Frontend & UI/UX</span>
           </div>
           <h2 class="text-xl font-bold mb-2 hover:text-blue-500 cursor-pointer card-gallery-trigger" data-project-id="kala-coffee">KALA Coffee & Roastery</h2>
-          <p class="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-3 flex-grow">
+          <p class="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-3 flex-grow" data-en="A high-converting, modern static website crafted for local Indonesian cafes and coffee shops. Built to drive customer acquisition with direct WhatsApp ordering, an interactive filterable menu with Rupiah pricing, and table reservation booking." data-id="Website statis modern berorientasi konversi tinggi yang dirancang khusus untuk cafe dan coffee shop di Indonesia. Dibuat untuk meningkatkan pelanggan lewat pemesanan langsung WhatsApp, menu interaktif harga Rupiah, dan reservasi meja.">
             A high-converting, modern static website crafted for local Indonesian cafes and coffee shops. Built to drive customer acquisition with direct WhatsApp ordering, an interactive filterable menu with Rupiah pricing, and table reservation booking.
           </p>
           <div class="flex flex-wrap gap-1.5 mb-5">
@@ -178,11 +203,11 @@
           </div>
           <div class="pt-4 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between">
             <a href="./cafe/index.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300">
-              <span>Live Demo</span>
+              <span data-en="Live Demo" data-id="Live Demo">Live Demo</span>
               <i class="fas fa-external-link-alt ml-1.5 text-xs"></i>
             </a>
             <button class="card-gallery-trigger text-sm text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium" data-project-id="kala-coffee">
-              Details <i class="fas fa-chevron-right ml-1 text-xs"></i>
+              <span data-en="Details <i class=&quot;fas fa-chevron-right ml-1 text-xs&quot;></i>" data-id="Detail <i class=&quot;fas fa-chevron-right ml-1 text-xs&quot;></i>">Details <i class="fas fa-chevron-right ml-1 text-xs"></i></span>
             </button>
           </div>
         </div>
@@ -194,36 +219,37 @@
         data-categories="web"
         data-tags="HTML CSS JavaScript Tailwind CSS Exhibition"
         data-title="TERAFEST"
+        data-title-id="TERAFEST"
       >
         <div class="relative overflow-hidden group cursor-pointer card-gallery-trigger" data-project-id="terafest">
           <img src="./img/terafest.png" alt="TERAFEST Exhibition Website" class="w-full h-52 object-cover object-top transition-transform duration-300 group-hover:scale-105">
           <div class="absolute inset-0 bg-blue-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-sm font-medium">
-            <span><i class="fas fa-eye mr-2"></i> View Case Study</span>
+            <span data-en="<i class=&quot;fas fa-eye mr-2&quot;></i> View Case Study" data-id="<i class=&quot;fas fa-eye mr-2&quot;></i> Lihat Studi Kasus"><i class="fas fa-eye mr-2"></i> View Case Study</span>
           </div>
-          <span class="absolute top-3 right-3 bg-blue-600 text-white text-xs font-semibold px-2.5 py-1 rounded shadow">Web App</span>
+          <span class="absolute top-3 right-3 bg-blue-600 text-white text-xs font-semibold px-2.5 py-1 rounded shadow" data-en="Web App" data-id="Aplikasi Web">Web App</span>
         </div>
         <div class="p-6 flex flex-col flex-grow">
           <div class="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 mb-2">
-            <span><i class="far fa-calendar-alt mr-1"></i> Exhibition Project</span>
-            <span>Organizer & Web Dev</span>
+            <span data-en="<i class=&quot;far fa-calendar-alt mr-1&quot;></i> Exhibition Project" data-id="<i class=&quot;far fa-calendar-alt mr-1&quot;></i> Proyek Pameran"><i class="far fa-calendar-alt mr-1"></i> Exhibition Project</span>
+            <span data-en="Organizer & Web Dev" data-id="Panitia & Web Dev">Organizer & Web Dev</span>
           </div>
           <h2 class="text-xl font-bold mb-2 hover:text-blue-500 cursor-pointer card-gallery-trigger" data-project-id="terafest">TERAFEST</h2>
-          <p class="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-3 flex-grow">
+          <p class="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-3 flex-grow" data-en="TERAFEST is an annual school exhibition showcasing engineering projects and student innovations. Built the digital event portal to showcase project lineups, schedules, and exhibitor information." data-id="TERAFEST adalah pameran tahunan sekolah yang menampilkan proyek rekayasa teknologi dan inovasi siswa. Membangun portal digital resmi acara untuk menampilkan jajaran proyek, jadwal, dan informasi pameran.">
             TERAFEST is an annual school exhibition showcasing engineering projects and student innovations. Built the digital event portal to showcase project lineups, schedules, and exhibitor information.
           </p>
           <div class="flex flex-wrap gap-1.5 mb-5">
             <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">HTML5</span>
             <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">Tailwind CSS</span>
             <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">JavaScript</span>
-            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">Responsive</span>
+            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded" data-en="Responsive" data-id="Responsif">Responsive</span>
           </div>
           <div class="pt-4 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between">
             <a href="https://terafest-website.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300">
-              <span>Live Site</span>
+              <span data-en="Live Site" data-id="Situs Langsung">Live Site</span>
               <i class="fas fa-external-link-alt ml-1.5 text-xs"></i>
             </a>
             <button class="card-gallery-trigger text-sm text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium" data-project-id="terafest">
-              Details <i class="fas fa-chevron-right ml-1 text-xs"></i>
+              <span data-en="Details <i class=&quot;fas fa-chevron-right ml-1 text-xs&quot;></i>" data-id="Detail <i class=&quot;fas fa-chevron-right ml-1 text-xs&quot;></i>">Details <i class="fas fa-chevron-right ml-1 text-xs"></i></span>
             </button>
           </div>
         </div>
@@ -235,36 +261,37 @@
         data-categories="web robotics"
         data-tags="React Tailwind CSS REST API Robotics FIRST Tech Challenge Competition"
         data-title="FIRST Tech Challenge Nusantara"
+        data-title-id="FIRST Tech Challenge Nusantara"
       >
         <div class="relative overflow-hidden group cursor-pointer card-gallery-trigger" data-project-id="ftc">
           <img src="./img/ifrfoundation.png" alt="FIRST Tech Challenge Nusantara Platform" class="w-full h-52 object-cover object-top transition-transform duration-300 group-hover:scale-105">
           <div class="absolute inset-0 bg-blue-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-sm font-medium">
-            <span><i class="fas fa-eye mr-2"></i> View Case Study</span>
+            <span data-en="<i class=&quot;fas fa-eye mr-2&quot;></i> View Case Study" data-id="<i class=&quot;fas fa-eye mr-2&quot;></i> Lihat Studi Kasus"><i class="fas fa-eye mr-2"></i> View Case Study</span>
           </div>
-          <span class="absolute top-3 right-3 bg-indigo-600 text-white text-xs font-semibold px-2.5 py-1 rounded shadow">Robotics & Web</span>
+          <span class="absolute top-3 right-3 bg-indigo-600 text-white text-xs font-semibold px-2.5 py-1 rounded shadow" data-en="Robotics & Web" data-id="Robotika & Web">Robotics & Web</span>
         </div>
         <div class="p-6 flex flex-col flex-grow">
           <div class="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 mb-2">
-            <span><i class="far fa-calendar-alt mr-1"></i> Robotics Portal</span>
-            <span>Volunteer & Web Developer</span>
+            <span data-en="<i class=&quot;far fa-calendar-alt mr-1&quot;></i> Robotics Portal" data-id="<i class=&quot;far fa-calendar-alt mr-1&quot;></i> Portal Robotika"><i class="far fa-calendar-alt mr-1"></i> Robotics Portal</span>
+            <span data-en="Volunteer & Web Developer" data-id="Relawan & Web Developer">Volunteer & Web Developer</span>
           </div>
           <h2 class="text-xl font-bold mb-2 hover:text-blue-500 cursor-pointer card-gallery-trigger" data-project-id="ftc">FIRST Tech Challenge Nusantara</h2>
-          <p class="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-3 flex-grow">
+          <p class="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-3 flex-grow" data-en="Official platform for the global robotics tournament in Indonesia. Provides match results, live game schedules, leaderboards, and detailed profiles of student robotics teams across Indonesia." data-id="Platform resmi kompetisi robotika global di Indonesia. Menyediakan hasil pertandingan, jadwal kompetisi langsung, klasemen, serta profil lengkap tim robotika siswa di seluruh Indonesia.">
             Official platform for the global robotics tournament in Indonesia. Provides match results, live game schedules, leaderboards, and detailed profiles of student robotics teams across Indonesia.
           </p>
           <div class="flex flex-wrap gap-1.5 mb-5">
             <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">React</span>
             <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">Tailwind CSS</span>
-            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">Robotics</span>
+            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded" data-en="Robotics" data-id="Robotika">Robotics</span>
             <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">API Integration</span>
           </div>
           <div class="pt-4 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between">
             <a href="https://ifrfoundation.org" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300">
-              <span>Live Site</span>
+              <span data-en="Live Site" data-id="Situs Langsung">Live Site</span>
               <i class="fas fa-external-link-alt ml-1.5 text-xs"></i>
             </a>
             <button class="card-gallery-trigger text-sm text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium" data-project-id="ftc">
-              Details <i class="fas fa-chevron-right ml-1 text-xs"></i>
+              <span data-en="Details <i class=&quot;fas fa-chevron-right ml-1 text-xs&quot;></i>" data-id="Detail <i class=&quot;fas fa-chevron-right ml-1 text-xs&quot;></i>">Details <i class="fas fa-chevron-right ml-1 text-xs"></i></span>
             </button>
           </div>
         </div>
@@ -276,13 +303,14 @@
         data-categories="web education"
         data-tags="React Tailwind CSS STEM Education Non-profit"
         data-title="GEARS UP! Platform"
+        data-title-id="Platform GEARS UP!"
       >
         <div class="relative overflow-hidden group cursor-pointer card-gallery-trigger" data-project-id="gearsup-web">
           <img src="./img/gearsup.png" alt="GEARS UP! STEM Organization Website" class="w-full h-52 object-cover object-top transition-transform duration-300 group-hover:scale-105">
           <div class="absolute inset-0 bg-blue-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-sm font-medium">
-            <span><i class="fas fa-eye mr-2"></i> View Case Study</span>
+            <span data-en="<i class=&quot;fas fa-eye mr-2&quot;></i> View Case Study" data-id="<i class=&quot;fas fa-eye mr-2&quot;></i> Lihat Studi Kasus"><i class="fas fa-eye mr-2"></i> View Case Study</span>
           </div>
-          <span class="absolute top-3 right-3 bg-teal-600 text-white text-xs font-semibold px-2.5 py-1 rounded shadow">Education & Web</span>
+          <span class="absolute top-3 right-3 bg-teal-600 text-white text-xs font-semibold px-2.5 py-1 rounded shadow" data-en="Education & Web" data-id="Pendidikan & Web">Education & Web</span>
         </div>
         <div class="p-6 flex flex-col flex-grow">
           <div class="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 mb-2">
@@ -290,7 +318,7 @@
             <span>Front End Developer</span>
           </div>
           <h2 class="text-xl font-bold mb-2 hover:text-blue-500 cursor-pointer card-gallery-trigger" data-project-id="gearsup-web">GEARS UP! Platform</h2>
-          <p class="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-3 flex-grow">
+          <p class="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-3 flex-grow" data-en="Built the public platform and STEM resource portal using React and Tailwind CSS. The modernized portal increased user engagement by 20% for students and educators seeking hands-on STEM resources." data-id="Membangun platform publik dan portal sumber daya STEM menggunakan React dan Tailwind CSS. Portal modern ini meningkatkan keterlibatan pengguna sebesar 20% bagi siswa dan pendidik yang mencari materi STEM interaktif.">
             Built the public platform and STEM resource portal using React and Tailwind CSS. The modernized portal increased user engagement by 20% for students and educators seeking hands-on STEM resources.
           </p>
           <div class="flex flex-wrap gap-1.5 mb-5">
@@ -301,11 +329,11 @@
           </div>
           <div class="pt-4 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between">
             <a href="https://gearsup.org" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300">
-              <span>Live Site</span>
+              <span data-en="Live Site" data-id="Situs Langsung">Live Site</span>
               <i class="fas fa-external-link-alt ml-1.5 text-xs"></i>
             </a>
             <button class="card-gallery-trigger text-sm text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium" data-project-id="gearsup-web">
-              Details <i class="fas fa-chevron-right ml-1 text-xs"></i>
+              <span data-en="Details <i class=&quot;fas fa-chevron-right ml-1 text-xs&quot;></i>" data-id="Detail <i class=&quot;fas fa-chevron-right ml-1 text-xs&quot;></i>">Details <i class="fas fa-chevron-right ml-1 text-xs"></i></span>
             </button>
           </div>
         </div>
@@ -317,24 +345,25 @@
         data-categories="web robotics"
         data-tags="Next.js React Tailwind CSS Python AI ML Hydrogen Hardware IoT"
         data-title="H2Nose AI & Hydrogen System"
+        data-title-id="Aplikasi Sistem Hidrogen & AI H2Nose"
       >
         <div class="relative overflow-hidden group cursor-pointer card-gallery-trigger" data-project-id="h2nose">
           <img src="./h2e/1.jpeg" alt="H2Nose UI/UX and Hardware System" class="w-full h-52 object-cover object-center transition-transform duration-300 group-hover:scale-105">
           <div class="absolute inset-0 bg-blue-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-sm font-medium">
-            <span><i class="fas fa-images mr-2"></i> View Gallery (8 photos)</span>
+            <span data-en="<i class=&quot;fas fa-images mr-2&quot;></i> View Gallery (8 photos)" data-id="<i class=&quot;fas fa-images mr-2&quot;></i> Lihat Galeri (8 foto)"><i class="fas fa-images mr-2"></i> View Gallery (8 photos)</span>
           </div>
-          <span class="absolute top-3 right-3 bg-purple-600 text-white text-xs font-semibold px-2.5 py-1 rounded shadow">AI & Hardware UI</span>
-          <span class="absolute bottom-3 left-3 bg-black/70 text-white text-xs px-2 py-0.5 rounded backdrop-blur-sm">
+          <span class="absolute top-3 right-3 bg-purple-600 text-white text-xs font-semibold px-2.5 py-1 rounded shadow" data-en="AI & Hardware UI" data-id="AI & UI Hardware">AI & Hardware UI</span>
+          <span class="absolute bottom-3 left-3 bg-black/70 text-white text-xs px-2 py-0.5 rounded backdrop-blur-sm" data-en="<i class=&quot;fas fa-camera mr-1&quot;></i> 8 Photos" data-id="<i class=&quot;fas fa-camera mr-1&quot;></i> 8 Foto">
             <i class="fas fa-camera mr-1"></i> 8 Photos
           </span>
         </div>
         <div class="p-6 flex flex-col flex-grow">
           <div class="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 mb-2">
-            <span><i class="far fa-calendar-alt mr-1"></i> Aug 2022 - Dec 2024</span>
-            <span>UI/UX & AI Developer</span>
+            <span data-en="<i class=&quot;far fa-calendar-alt mr-1&quot;></i> Aug 2022 - Dec 2024" data-id="<i class=&quot;far fa-calendar-alt mr-1&quot;></i> Agu 2022 - Des 2024"><i class="far fa-calendar-alt mr-1"></i> Aug 2022 - Dec 2024</span>
+            <span data-en="UI/UX & AI Developer" data-id="UI/UX & AI Developer">UI/UX & AI Developer</span>
           </div>
           <h2 class="text-xl font-bold mb-2 hover:text-blue-500 cursor-pointer card-gallery-trigger" data-project-id="h2nose">H2Nose AI & Hydrogen System</h2>
-          <p class="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-3 flex-grow">
+          <p class="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-3 flex-grow" data-en="Designed custom UI/UX and web application using Next.js, React, and Tailwind CSS for H2Nose, an intelligent hydrogen energy sensing device. Implemented AI detection algorithms with Python." data-id="Mendesain UI/UX khusus dan aplikasi web menggunakan Next.js, React, dan Tailwind CSS untuk H2Nose, perangkat pemantau energi hidrogen pintar. Menerapkan algoritma deteksi AI dengan Python.">
             Designed custom UI/UX and web application using Next.js, React, and Tailwind CSS for H2Nose, an intelligent hydrogen energy sensing device. Implemented AI detection algorithms with Python.
           </p>
           <div class="flex flex-wrap gap-1.5 mb-5">
@@ -345,7 +374,7 @@
           </div>
           <div class="pt-4 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between">
             <button class="card-gallery-trigger inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300" data-project-id="h2nose">
-              <i class="fas fa-images mr-1.5"></i> Gallery & Case Study
+              <i class="fas fa-images mr-1.5"></i> <span data-en="Gallery & Case Study" data-id="Galeri & Studi Kasus">Gallery & Case Study</span>
             </button>
             <span class="text-xs text-gray-500">H2E Energy</span>
           </div>
@@ -358,35 +387,36 @@
         data-categories="education robotics"
         data-tags="Robotics STEM Education Curriculum Design Mentorship Hardware"
         data-title="STEM Robotics Curriculum & Outreach"
+        data-title-id="Kurikulum Robotika STEM & Workshop Komunitas"
       >
         <div class="relative overflow-hidden group cursor-pointer card-gallery-trigger" data-project-id="gearsup-workshops">
           <img src="./gu/IMG_2715.jpg" alt="GEARS UP STEM Education Workshop" class="w-full h-52 object-cover object-center transition-transform duration-300 group-hover:scale-105">
           <div class="absolute inset-0 bg-blue-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-sm font-medium">
-            <span><i class="fas fa-images mr-2"></i> View Gallery (13 photos)</span>
+            <span data-en="<i class=&quot;fas fa-images mr-2&quot;></i> View Gallery (13 photos)" data-id="<i class=&quot;fas fa-images mr-2&quot;></i> Lihat Galeri (13 foto)"><i class="fas fa-images mr-2"></i> View Gallery (13 photos)</span>
           </div>
-          <span class="absolute top-3 right-3 bg-amber-600 text-white text-xs font-semibold px-2.5 py-1 rounded shadow">Education & STEM</span>
-          <span class="absolute bottom-3 left-3 bg-black/70 text-white text-xs px-2 py-0.5 rounded backdrop-blur-sm">
+          <span class="absolute top-3 right-3 bg-amber-600 text-white text-xs font-semibold px-2.5 py-1 rounded shadow" data-en="Education & STEM" data-id="Pendidikan & STEM">Education & STEM</span>
+          <span class="absolute bottom-3 left-3 bg-black/70 text-white text-xs px-2 py-0.5 rounded backdrop-blur-sm" data-en="<i class=&quot;fas fa-camera mr-1&quot;></i> 13 Photos" data-id="<i class=&quot;fas fa-camera mr-1&quot;></i> 13 Foto">
             <i class="fas fa-camera mr-1"></i> 13 Photos
           </span>
         </div>
         <div class="p-6 flex flex-col flex-grow">
           <div class="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 mb-2">
             <span><i class="far fa-calendar-alt mr-1"></i> Nov 2023 - Sep 2024</span>
-            <span>Educator & Designer</span>
+            <span data-en="Educator & Designer" data-id="Pendidik & Desainer">Educator & Designer</span>
           </div>
           <h2 class="text-xl font-bold mb-2 hover:text-blue-500 cursor-pointer card-gallery-trigger" data-project-id="gearsup-workshops">STEM Robotics Curriculum & Outreach</h2>
-          <p class="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-3 flex-grow">
+          <p class="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-3 flex-grow" data-en="Designed and implemented comprehensive hands-on STEM and robotics curricula tailored for students in schools with limited access to modern technology education. Mentored student teams." data-id="Merancang dan mengimplementasikan kurikulum STEM dan robotika praktis komprehensif bagi siswa di sekolah dengan akses terbatas terhadap pendidikan teknologi modern. Membimbing tim-tim siswa.">
             Designed and implemented comprehensive hands-on STEM and robotics curricula tailored for students in schools with limited access to modern technology education. Mentored student teams.
           </p>
           <div class="flex flex-wrap gap-1.5 mb-5">
-            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">Robotics</span>
-            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">Curriculum</span>
-            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">Mentorship</span>
+            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded" data-en="Robotics" data-id="Robotika">Robotics</span>
+            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded" data-en="Curriculum" data-id="Kurikulum">Curriculum</span>
+            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded" data-en="Mentorship" data-id="Bimbingan">Mentorship</span>
             <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">STEM</span>
           </div>
           <div class="pt-4 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between">
             <button class="card-gallery-trigger inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300" data-project-id="gearsup-workshops">
-              <i class="fas fa-images mr-1.5"></i> Gallery & Photos
+              <i class="fas fa-images mr-1.5"></i> <span data-en="Gallery & Photos" data-id="Galeri & Foto">Gallery & Photos</span>
             </button>
             <span class="text-xs text-gray-500">GEARS UP!</span>
           </div>
@@ -398,9 +428,9 @@
     <!-- Empty State -->
     <div id="no-results" class="hidden text-center py-16 bg-white dark:bg-gray-800 rounded-xl border border-dashed border-gray-300 dark:border-gray-700 my-6">
       <i class="fas fa-folder-open text-4xl text-gray-400 mb-3"></i>
-      <h3 class="text-lg font-bold text-gray-700 dark:text-gray-200">No projects match your filter</h3>
-      <p class="text-sm text-gray-500 dark:text-gray-400 mt-1 max-w-sm mx-auto">Try clearing your search query or selecting a different category tab.</p>
-      <button id="reset-filter-btn" class="mt-4 px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors">
+      <h3 class="text-lg font-bold text-gray-700 dark:text-gray-200" data-en="No projects match your filter" data-id="Tidak ada proyek yang sesuai filter">No projects match your filter</h3>
+      <p class="text-sm text-gray-500 dark:text-gray-400 mt-1 max-w-sm mx-auto" data-en="Try clearing your search query or selecting a different category tab." data-id="Coba bersihkan kata kunci pencarian atau pilih tab kategori lain.">Try clearing your search query or selecting a different category tab.</p>
+      <button id="reset-filter-btn" class="mt-4 px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors" data-en="Reset Filters" data-id="Reset Filter">
         Reset Filters
       </button>
     </div>
@@ -445,27 +475,27 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="md:col-span-2 space-y-4">
             <div>
-              <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Overview</h3>
+              <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2" data-en="Overview" data-id="Ringkasan Proyek">Overview</h3>
               <p id="modal-description" class="text-gray-700 dark:text-gray-300 leading-relaxed text-sm"></p>
             </div>
             <div>
-              <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">My Key Contributions</h3>
+              <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2" data-en="My Key Contributions" data-id="Kontribusi Utama Saya">My Key Contributions</h3>
               <ul id="modal-contributions" class="list-disc list-inside text-gray-700 dark:text-gray-300 text-sm space-y-1.5"></ul>
             </div>
           </div>
 
           <div class="space-y-4 bg-gray-50 dark:bg-gray-750 p-4 rounded-xl border border-gray-100 dark:border-gray-700">
             <div>
-              <h4 class="text-xs uppercase font-semibold text-gray-500 dark:text-gray-400 mb-1">Timeline & Role</h4>
+              <h4 class="text-xs uppercase font-semibold text-gray-500 dark:text-gray-400 mb-1" data-en="Timeline & Role" data-id="Periode & Peran">Timeline & Role</h4>
               <p id="modal-timeline-role" class="text-sm font-medium text-gray-800 dark:text-gray-200"></p>
             </div>
             <div>
-              <h4 class="text-xs uppercase font-semibold text-gray-500 dark:text-gray-400 mb-2">Technologies Used</h4>
+              <h4 class="text-xs uppercase font-semibold text-gray-500 dark:text-gray-400 mb-2" data-en="Technologies Used" data-id="Teknologi yang Digunakan">Technologies Used</h4>
               <div id="modal-tags" class="flex flex-wrap gap-1.5"></div>
             </div>
             <div id="modal-links-container" class="pt-3 border-t border-gray-200 dark:border-gray-700">
               <a id="modal-live-link" href="#" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-2 px-4 rounded-lg transition-colors">
-                <span>Visit Live Project</span>
+                <span data-en="Visit Live Project" data-id="Buka Proyek Langsung">Visit Live Project</span>
                 <i class="fas fa-external-link-alt ml-2 text-xs"></i>
               </a>
             </div>
@@ -476,7 +506,7 @@
 
       <!-- Modal Footer -->
       <div class="p-4 border-t border-gray-200 dark:border-gray-700 flex justify-end bg-gray-50 dark:bg-gray-850">
-        <button id="modal-close-bottom" class="px-5 py-2 text-sm font-medium bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 rounded-lg transition-colors">
+        <button id="modal-close-bottom" class="px-5 py-2 text-sm font-medium bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 rounded-lg transition-colors" data-en="Close" data-id="Tutup">
           Close
         </button>
       </div>
@@ -487,19 +517,19 @@
   <!-- Call to Action Section -->
   <section class="bg-gray-200/60 dark:bg-gray-800/60 py-16 border-t border-gray-200 dark:border-gray-700">
     <div class="container mx-auto px-4 text-center max-w-3xl">
-      <h2 class="text-2xl md:text-3xl font-bold mb-3">Interested in collaborating or discussing a project?</h2>
-      <p class="text-gray-600 dark:text-gray-300 text-sm md:text-base mb-6">
+      <h2 class="text-2xl md:text-3xl font-bold mb-3" data-en="Interested in collaborating or discussing a project?" data-id="Tertarik berkolaborasi atau mendiskusikan proyek?">Interested in collaborating or discussing a project?</h2>
+      <p class="text-gray-600 dark:text-gray-300 text-sm md:text-base mb-6" data-en="I'm always open to new software development challenges, UI/UX designs, robotics integrations, and educational initiatives." data-id="Saya selalu terbuka untuk tantangan pengembangan perangkat lunak baru, desain UI/UX, integrasi robotika, maupun inisiatif pendidikan.">
         I'm always open to new software development challenges, UI/UX designs, robotics integrations, and educational initiatives.
       </p>
       <div class="flex flex-wrap justify-center gap-4">
         <a href="mailto:alaikal.edu@gmail.com" class="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-5 py-2.5 rounded-lg shadow transition-colors">
-          <i class="fas fa-envelope mr-2"></i> Send an Email
+          <i class="fas fa-envelope mr-2"></i> <span data-en="Send an Email" data-id="Kirim Email">Send an Email</span>
         </a>
         <a href="https://www.linkedin.com/in/alaikal-hamdi" target="_blank" rel="noopener noreferrer" class="inline-flex items-center bg-white dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 text-gray-800 dark:text-white border border-gray-300 dark:border-gray-600 text-sm font-semibold px-5 py-2.5 rounded-lg shadow-sm transition-colors">
-          <i class="fab fa-linkedin mr-2 text-blue-500"></i> LinkedIn Profile
+          <i class="fab fa-linkedin mr-2 text-blue-500"></i> <span data-en="LinkedIn Profile" data-id="Profil LinkedIn">LinkedIn Profile</span>
         </a>
         <a href="./cv.html" class="inline-flex items-center bg-white dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 text-gray-800 dark:text-white border border-gray-300 dark:border-gray-600 text-sm font-semibold px-5 py-2.5 rounded-lg shadow-sm transition-colors">
-          <i class="fas fa-file-alt mr-2 text-blue-500"></i> View Full CV
+          <i class="fas fa-file-alt mr-2 text-blue-500"></i> <span data-en="View Full CV" data-id="Lihat CV Lengkap">View Full CV</span>
         </a>
       </div>
     </div>
@@ -510,7 +540,7 @@
     <div class="container mx-auto px-4 max-w-6xl">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
-          <h3 class="text-2xl font-bold mb-4">Get in Touch</h3>
+          <h3 class="text-2xl font-bold mb-4" data-en="Get in Touch" data-id="Kontak">Get in Touch</h3>
           <p class="mb-2"><i class="fas fa-envelope w-5 mr-1"></i> alaikal.edu@gmail.com</p>
           <p class="mb-2"><i class="fas fa-phone w-5 mr-1"></i> +62 823-5335-8664</p>
           <div class="flex space-x-4 mt-4">
@@ -526,98 +556,169 @@
           </div>
         </div>
         <div>
-          <h3 class="text-2xl font-bold mb-4">Site Navigation</h3>
+          <h3 class="text-2xl font-bold mb-4" data-en="Site Navigation" data-id="Navigasi Situs">Site Navigation</h3>
           <ul class="space-y-2">
-            <li><a href="./index.html" class="underline hover:text-gray-200">Portfolio Home</a></li>
-            <li><a href="./index.html#about" class="underline hover:text-gray-200">About Me</a></li>
-            <li><a href="./index.html#skills" class="underline hover:text-gray-200">Skills & Experiences</a></li>
-            <li><a href="./projects.html" class="underline hover:text-gray-200 font-semibold">Projects Showcase</a></li>
-            <li><a href="./cv.html" class="underline hover:text-gray-200">Curriculum Vitae (CV)</a></li>
+            <li><a href="./index.html" class="underline hover:text-gray-200" data-en="Portfolio Home" data-id="Beranda Portofolio">Portfolio Home</a></li>
+            <li><a href="./index.html#about" class="underline hover:text-gray-200" data-en="About Me" data-id="Tentang Saya">About Me</a></li>
+            <li><a href="./index.html#skills" class="underline hover:text-gray-200" data-en="Skills & Experiences" data-id="Keahlian & Pengalaman">Skills & Experiences</a></li>
+            <li><a href="./projects.html" class="underline hover:text-gray-200 font-semibold" data-en="Projects Showcase" data-id="Showcase Proyek">Projects Showcase</a></li>
+            <li><a href="./cv.html" class="underline hover:text-gray-200" data-en="Curriculum Vitae (CV)" data-id="Curriculum Vitae (CV)">Curriculum Vitae (CV)</a></li>
           </ul>
         </div>
       </div>
       <div class="border-t border-white/20 mt-8 pt-6 text-center text-xs text-gray-200">
-        &copy; 2026 Alaikal Hamdi. All rights reserved.
+        &copy; 2026 Alaikal Hamdi. <span data-en="All rights reserved." data-id="Hak cipta dilindungi undang-undang.">All rights reserved.</span>
       </div>
     </div>
   </footer>
 
   <!-- Scripts -->
   <script>
-    // Project Data for Modals & Interactive Details
+    // Project Data for Modals & Interactive Details (Bilingual: English & Indonesian)
     const projectDetails = {
       'kala-coffee': {
-        title: 'KALA Specialty Coffee & Roastery — Local Business Showcase',
-        category: 'Web Development / UMKM & Cafe',
-        timelineRole: 'Client Showcase | Web Designer & Developer',
-        description: 'KALA Specialty Coffee & Roastery is a high-converting digital storefront and brand showcase designed specifically for local Indonesian food and beverage businesses. Designed to turn casual web visitors into paying customers, it pairs a warm specialty coffee aesthetic with frictionless local commerce features: instant WhatsApp order dispatch, interactive tasting quiz, table reservation, and Google Maps integration.',
-        contributions: [
-          'Engineered a fast, responsive, and mobile-first static website using Tailwind CSS and vanilla JavaScript.',
-          'Built an automated WhatsApp ordering engine that formats item selections and customer notes directly into WhatsApp chat messages.',
-          'Created an interactive "Coffee Matcher Quiz" recommending personalized brews based on visitor flavor preferences and activities.',
-          'Implemented table reservation modal generating formatted booking messages with date, party size, and zone preferences.',
-          'Designed Work-From-Cafe (WFC) amenities cards, customer social proof reviews (Google 4.9 rating), and GrabFood / GoFood delivery links.'
-        ],
+        en: {
+          title: 'KALA Specialty Coffee & Roastery — Local Business Showcase',
+          category: 'Web Development / UMKM & Cafe',
+          timelineRole: 'Client Showcase | Web Designer & Developer',
+          description: 'KALA Specialty Coffee & Roastery is a high-converting digital storefront and brand showcase designed specifically for local Indonesian food and beverage businesses. Designed to turn casual web visitors into paying customers, it pairs a warm specialty coffee aesthetic with frictionless local commerce features: instant WhatsApp order dispatch, interactive tasting quiz, table reservation, and Google Maps integration.',
+          contributions: [
+            'Engineered a fast, responsive, and mobile-first static website using Tailwind CSS and vanilla JavaScript.',
+            'Built an automated WhatsApp ordering engine that formats item selections and customer notes directly into WhatsApp chat messages.',
+            'Created an interactive "Coffee Matcher Quiz" recommending personalized brews based on visitor flavor preferences and activities.',
+            'Implemented table reservation modal generating formatted booking messages with date, party size, and zone preferences.',
+            'Designed Work-From-Cafe (WFC) amenities cards, customer social proof reviews (Google 4.9 rating), and GrabFood / GoFood delivery links.'
+          ]
+        },
+        id: {
+          title: 'KALA Specialty Coffee & Roastery — Showcase Bisnis Lokal',
+          category: 'Pengembangan Web / UMKM & Cafe',
+          timelineRole: 'Showcase Klien | Web Designer & Developer',
+          description: 'KALA Specialty Coffee & Roastery adalah etalase digital dan showcase brand berorientasi konversi tinggi yang dirancang khusus untuk bisnis F&B lokal di Indonesia. Didesain untuk mengubah pengunjung web menjadi pelanggan dengan memadukan estetika hangat kedai kopi dan fitur belanja lokal tanpa hambatan: pemesanan instan via WhatsApp, kuis rekomendasi kopi interaktif, reservasi meja, dan integrasi Google Maps.',
+          contributions: [
+            'Membangun website statis yang cepat, responsif, dan mobile-first menggunakan Tailwind CSS dan vanilla JavaScript.',
+            'Mengembangkan sistem pemesanan otomatis WhatsApp yang memformat pilihan menu dan catatan pelanggan langsung ke pesan chat WhatsApp.',
+            'Membuat kuis interaktif "Coffee Matcher" yang merekomendasikan racikan kopi sesuai preferensi rasa dan aktivitas pengunjung.',
+            'Menerapkan modal reservasi meja yang menghasilkan pesan booking terformat lengkap dengan tanggal, jumlah tamu, dan pilihan area.',
+            'Mendesain kartu fasilitas WFC, ulasan pelanggan (rating Google 4.9★), serta tautan pemesanan GrabFood & GoFood.'
+          ]
+        },
         tags: ['Tailwind CSS', 'JavaScript', 'WhatsApp API', 'Responsive Design', 'Local SEO & Maps', 'F&B Business'],
         liveLink: './cafe/index.html',
         images: ['./img/kala-coffee.jpg']
       },
       'terafest': {
-        title: 'TERAFEST Exhibition Platform',
-        category: 'Web Development / Exhibition',
-        timelineRole: 'School Exhibition | Organizer & Web Developer',
-        description: 'TERAFEST is an annual premier engineering exhibition at my school where students present cutting-edge automation, electrical, and mechanical engineering projects. As both an event organizer and frontend developer, I built the official event website to provide attendees and judges with an interactive digital guide to the exhibitions.',
-        contributions: [
-          'Engineered a fast, responsive user interface with Tailwind CSS and JavaScript.',
-          'Built the interactive exhibition project catalog with team summaries and showcase galleries.',
-          'Created schedule timetables and interactive visitor guidelines to improve on-site event navigation.',
-          'Optimized asset loading and mobile layout for smartphone visitors at the exhibition venue.'
-        ],
+        en: {
+          title: 'TERAFEST Exhibition Platform',
+          category: 'Web Development / Exhibition',
+          timelineRole: 'School Exhibition | Organizer & Web Developer',
+          description: 'TERAFEST is an annual premier engineering exhibition at my school where students present cutting-edge automation, electrical, and mechanical engineering projects. As both an event organizer and frontend developer, I built the official event website to provide attendees and judges with an interactive digital guide to the exhibitions.',
+          contributions: [
+            'Engineered a fast, responsive user interface with Tailwind CSS and JavaScript.',
+            'Built the interactive exhibition project catalog with team summaries and showcase galleries.',
+            'Created schedule timetables and interactive visitor guidelines to improve on-site event navigation.',
+            'Optimized asset loading and mobile layout for smartphone visitors at the exhibition venue.'
+          ]
+        },
+        id: {
+          title: 'Platform Pameran TERAFEST',
+          category: 'Pengembangan Web / Pameran',
+          timelineRole: 'Pameran Sekolah | Panitia & Web Developer',
+          description: 'TERAFEST adalah pameran teknik bergengsi tahunan di sekolah saya tempat para siswa mempresentasikan proyek teknik otomasi, elektro, dan mesin mutakhir. Sebagai panitia acara sekaligus pengembang frontend, saya membangun website resmi acara untuk memandu pengunjung dan dewan juri secara interaktif.',
+          contributions: [
+            'Membangun antarmuka pengguna yang cepat dan responsif dengan Tailwind CSS dan JavaScript.',
+            'Membuat katalog proyek pameran interaktif yang dilengkapi ringkasan tim dan galeri karya.',
+            'Merancang tabel jadwal acara dan panduan interaktif pengunjung untuk memudahkan navigasi di lokasi acara.',
+            'Mengoptimalkan pemuatan aset dan tampilan mobile bagi pengunjung yang mengakses lewat smartphone di lokasi pameran.'
+          ]
+        },
         tags: ['HTML5', 'Tailwind CSS', 'JavaScript', 'Responsive Web Design', 'Event Showcase'],
         liveLink: 'https://terafest-website.com',
         images: ['./img/terafest.png']
       },
       'ftc': {
-        title: 'FIRST Tech Challenge (FTC) Nusantara',
-        category: 'Web Development & Robotics',
-        timelineRole: 'Robotics Tournament | Volunteer & Web Developer',
-        description: 'The FIRST Tech Challenge (FTC) is an internationally celebrated robotics tournament where student teams design, build, and code robots to compete in an alliance format. I volunteered for the Indonesian championship, contributing to its digital infrastructure by engineering the central competition portal.',
-        contributions: [
-          'Developed a modern web portal using React and Tailwind CSS for the national championship.',
-          'Implemented real-time match schedule viewers, tournament brackets, and live score reporting.',
-          'Created comprehensive team directories highlighting school participants and alliance pairings.',
-          'Facilitated public streaming links and match archive documentation for teams and mentors.'
-        ],
+        en: {
+          title: 'FIRST Tech Challenge (FTC) Nusantara',
+          category: 'Web Development & Robotics',
+          timelineRole: 'Robotics Tournament | Volunteer & Web Developer',
+          description: 'The FIRST Tech Challenge (FTC) is an internationally celebrated robotics tournament where student teams design, build, and code robots to compete in an alliance format. I volunteered for the Indonesian championship, contributing to its digital infrastructure by engineering the central competition portal.',
+          contributions: [
+            'Developed a modern web portal using React and Tailwind CSS for the national championship.',
+            'Implemented real-time match schedule viewers, tournament brackets, and live score reporting.',
+            'Created comprehensive team directories highlighting school participants and alliance pairings.',
+            'Facilitated public streaming links and match archive documentation for teams and mentors.'
+          ]
+        },
+        id: {
+          title: 'FIRST Tech Challenge (FTC) Nusantara',
+          category: 'Pengembangan Web & Robotika',
+          timelineRole: 'Turnamen Robotika | Relawan & Web Developer',
+          description: 'FIRST Tech Challenge (FTC) adalah turnamen robotika internasional bergengsi di mana tim siswa merancang, merakit, dan memprogram robot untuk bertanding dalam format aliansi. Saya menjadi relawan pada kejuaraan tingkat nasional di Indonesia dan membangun portal web utama kompetisi.',
+          contributions: [
+            'Mengembangkan portal web modern menggunakan React dan Tailwind CSS untuk kejuaraan nasional.',
+            'Mengimplementasikan penampil jadwal pertandingan real-time, bagan turnamen, dan pembaruan skor langsung.',
+            'Membuat direktori tim komprehensif yang menampilkan sekolah peserta dan pasangan aliansi.',
+            'Menyediakan tautan siaran langsung publik dan dokumentasi arsip pertandingan untuk tim dan mentor.'
+          ]
+        },
         tags: ['React', 'Tailwind CSS', 'Robotics', 'REST API', 'Event Platform'],
         liveLink: 'https://ifrfoundation.org',
         images: ['./img/ifrfoundation.png']
       },
       'gearsup-web': {
-        title: 'GEARS UP! STEM Organization Platform',
-        category: 'Web Development & Education',
-        timelineRole: 'Nov 2023 - Sep 2024 | Front End Developer',
-        description: 'GEARS UP! is a non-profit organization focused on making high-quality STEM education and robotics accessible to students in schools with limited access to modern resources across Indonesia. I designed and built the primary web platform that serves as their public identity and educational content portal.',
-        contributions: [
-          'Architected and deployed the responsive website utilizing React and Tailwind CSS.',
-          'Increased user engagement by 20% for online STEM education resources and volunteer registrations.',
-          'Designed intuitive UI layouts that communicate complex STEM curricula to young learners.',
-          'Collaborated with educators to structure modular curriculum downloads and event calendars.'
-        ],
+        en: {
+          title: 'GEARS UP! STEM Organization Platform',
+          category: 'Web Development & Education',
+          timelineRole: 'Nov 2023 - Sep 2024 | Front End Developer',
+          description: 'GEARS UP! is a non-profit organization focused on making high-quality STEM education and robotics accessible to students in schools with limited access to modern resources across Indonesia. I designed and built the primary web platform that serves as their public identity and educational content portal.',
+          contributions: [
+            'Architected and deployed the responsive website utilizing React and Tailwind CSS.',
+            'Increased user engagement by 20% for online STEM education resources and volunteer registrations.',
+            'Designed intuitive UI layouts that communicate complex STEM curricula to young learners.',
+            'Collaborated with educators to structure modular curriculum downloads and event calendars.'
+          ]
+        },
+        id: {
+          title: 'Platform Organisasi STEM GEARS UP!',
+          category: 'Pengembangan Web & Pendidikan',
+          timelineRole: 'Nov 2023 - Sep 2024 | Front End Developer',
+          description: 'GEARS UP! adalah organisasi nirlaba yang berfokus memperluas akses pendidikan STEM dan robotika berkualitas tinggi bagi siswa di sekolah-sekolah dengan keterbatasan fasilitas di seluruh Indonesia. Saya mendesain dan membangun platform web utama sebagai profil publik dan portal konten pendidikan.',
+          contributions: [
+            'Merancang arsitektur dan meluncurkan situs web responsif menggunakan React dan Tailwind CSS.',
+            'Meningkatkan interaksi pengguna sebesar 20% untuk materi pembelajaran STEM daring dan pendaftaran relawan.',
+            'Mendesain tata letak antarmuka intuitif yang memudahkan pemahaman kurikulum STEM bagi siswa muda.',
+            'Berkolaborasi dengan para pendidik untuk menyusun unduhan kurikulum modular dan kalender kegiatan.'
+          ]
+        },
         tags: ['React', 'Tailwind CSS', 'UI/UX Design', 'STEM Education', 'Community Platform'],
         liveLink: 'https://gearsup.org',
         images: ['./img/gearsup.png']
       },
       'h2nose': {
-        title: 'H2Nose AI & Hydrogen System App',
-        category: 'Robotics, AI & Hardware UI',
-        timelineRole: 'Aug 2022 - Dec 2024 | Core Developer, UI/UX & AI Scientist',
-        description: 'H2Nose is an intelligent hydrogen energy sensing and diagnostics device developed by H2E Energy. As core developer, UI/UX designer, and AI scientist, I engineered both the application interface and the intelligent analytical algorithms that process sensor metrics for safety and performance monitoring.',
-        contributions: [
-          'Designed intuitive, high-performance user interface and dashboard using Next.js, React, and Tailwind CSS.',
-          'Developed AI detection and data visualization pipelines in Python for hydrogen sensor telemetry.',
-          'Collaborated closely with engineers on hardware-software communication protocols and diagnostics.',
-          'Created real-time graphs and alert dashboards for experimental energy monitoring.'
-        ],
+        en: {
+          title: 'H2Nose AI & Hydrogen System App',
+          category: 'Robotics, AI & Hardware UI',
+          timelineRole: 'Aug 2022 - Dec 2024 | Core Developer, UI/UX & AI Scientist',
+          description: 'H2Nose is an intelligent hydrogen energy sensing and diagnostics device developed by H2E Energy. As core developer, UI/UX designer, and AI scientist, I engineered both the application interface and the intelligent analytical algorithms that process sensor metrics for safety and performance monitoring.',
+          contributions: [
+            'Designed intuitive, high-performance user interface and dashboard using Next.js, React, and Tailwind CSS.',
+            'Developed AI detection and data visualization pipelines in Python for hydrogen sensor telemetry.',
+            'Collaborated closely with engineers on hardware-software communication protocols and diagnostics.',
+            'Created real-time graphs and alert dashboards for experimental energy monitoring.'
+          ]
+        },
+        id: {
+          title: 'Aplikasi Sistem Hidrogen & AI H2Nose',
+          category: 'Robotika, AI & UI Hardware',
+          timelineRole: 'Agu 2022 - Des 2024 | Pengembang Inti, UI/UX & AI Scientist',
+          description: 'H2Nose adalah perangkat pintar pendeteksi dan diagnostik energi hidrogen yang dikembangkan oleh H2E Energy. Sebagai pengembang inti, desainer UI/UX, dan AI scientist, saya merancang antarmuka aplikasi sekaligus algoritma analitik cerdas yang memproses data sensor untuk pemantauan keamanan dan performa.',
+          contributions: [
+            'Mendesain antarmuka pengguna dan dasbor performa tinggi yang intuitif menggunakan Next.js, React, dan Tailwind CSS.',
+            'Mengembangkan alur deteksi AI dan visualisasi data dalam Python untuk telemetri sensor hidrogen.',
+            'Berkolaborasi erat dengan insinyur perangkat keras mengenai protokol komunikasi dan diagnostik sistem.',
+            'Membuat grafik visualisasi real-time dan dasbor peringatan untuk pemantauan energi eksperimental.'
+          ]
+        },
         tags: ['Next.js', 'React', 'Tailwind CSS', 'Python', 'AI / ML', 'Hardware IoT', 'Sensor Analytics'],
         liveLink: null,
         images: [
@@ -632,16 +733,30 @@
         ]
       },
       'gearsup-workshops': {
-        title: 'STEM Robotics Curriculum & Outreach Workshops',
-        category: 'Education & Robotics',
-        timelineRole: 'Nov 2023 - Sep 2024 | Educator & Curriculum Designer',
-        description: 'Through GEARS UP!, I designed and led hands-on STEM and robotics workshops directly in classrooms and community centers. The initiative focused on students in schools with minimal access to STEM education, providing them with mentorship, robotic kits, and programming instruction.',
-        contributions: [
-          'Designed step-by-step curriculum modules covering mechanical robot assembly, sensors, and basic logic.',
-          'Taught dozens of hands-on interactive workshop sessions across diverse educational institutions.',
-          'Mentored student teams in problem solving, algorithmic thinking, and collaborative engineering.',
-          'Documented workshops and evaluated student learning outcomes to continuously refine teaching materials.'
-        ],
+        en: {
+          title: 'STEM Robotics Curriculum & Outreach Workshops',
+          category: 'Education & Robotics',
+          timelineRole: 'Nov 2023 - Sep 2024 | Educator & Curriculum Designer',
+          description: 'Through GEARS UP!, I designed and led hands-on STEM and robotics workshops directly in classrooms and community centers. The initiative focused on students in schools with minimal access to STEM education, providing them with mentorship, robotic kits, and programming instruction.',
+          contributions: [
+            'Designed step-by-step curriculum modules covering mechanical robot assembly, sensors, and basic logic.',
+            'Taught dozens of hands-on interactive workshop sessions across diverse educational institutions.',
+            'Mentored student teams in problem solving, algorithmic thinking, and collaborative engineering.',
+            'Documented workshops and evaluated student learning outcomes to continuously refine teaching materials.'
+          ]
+        },
+        id: {
+          title: 'Kurikulum Robotika STEM & Workshop Komunitas',
+          category: 'Pendidikan & Robotika',
+          timelineRole: 'Nov 2023 - Sep 2024 | Pendidik & Perancang Kurikulum',
+          description: 'Melalui GEARS UP!, saya merancang dan memimpin workshop interaktif STEM dan robotika langsung di ruang kelas dan pusat komunitas. Inisiatif ini berfokus pada siswa di sekolah dengan akses minim terhadap pendidikan STEM, memberikan bimbingan, kit robotika, dan pelatihan pemrograman.',
+          contributions: [
+            'Merancang modul kurikulum bertahap yang mencakup perakitan mekanik robot, sensor, dan logika dasar.',
+            'Mengajar puluhan sesi workshop interaktif di berbagai institusi pendidikan.',
+            'Membimbing tim siswa dalam pemecahan masalah, berpikir algoritmik, dan kerja sama tim rekayasa.',
+            'Mendokumentasikan kegiatan dan mengevaluasi hasil belajar siswa untuk terus menyempurnakan materi ajar.'
+          ]
+        },
         tags: ['Robotics', 'STEM Outreach', 'Curriculum Design', 'Mentorship', 'Workshops'],
         liveLink: null,
         images: [
@@ -712,12 +827,14 @@
         cards.forEach(card => {
           const categories = card.dataset.categories || '';
           const tags = card.dataset.tags || '';
-          const title = card.dataset.title || '';
+          const titleEn = card.dataset.title || '';
+          const titleId = card.dataset.titleId || titleEn;
           const textContent = card.innerText || '';
 
           const matchesCategory = currentCategory === 'all' || categories.split(' ').includes(currentCategory);
           const matchesQuery = query === '' || 
-            title.toLowerCase().includes(query) || 
+            titleEn.toLowerCase().includes(query) || 
+            titleId.toLowerCase().includes(query) || 
             tags.toLowerCase().includes(query) || 
             textContent.toLowerCase().includes(query);
 
@@ -799,6 +916,47 @@
 
       let currentSlides = [];
       let currentSlideIdx = 0;
+      let currentModalProjectId = null;
+
+      function renderModalContent(projectId) {
+        const data = projectDetails[projectId];
+        if (!data) return;
+
+        const lang = (typeof window.getLanguage === 'function') ? window.getLanguage() : 'en';
+        const content = data[lang] || data['en'] || data;
+
+        modalCategory.textContent = content.category;
+        modalTitle.textContent = content.title;
+        modalTimelineRole.textContent = content.timelineRole;
+        modalDescription.textContent = content.description;
+
+        // Contributions list
+        modalContributions.innerHTML = '';
+        content.contributions.forEach(item => {
+          const li = document.createElement('li');
+          li.textContent = item;
+          modalContributions.appendChild(li);
+        });
+
+        // Tags
+        modalTags.innerHTML = '';
+        data.tags.forEach(tag => {
+          const span = document.createElement('span');
+          span.className = 'bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs px-2.5 py-0.5 rounded font-medium';
+          span.textContent = tag;
+          modalTags.appendChild(span);
+        });
+
+        // Live Link
+        if (data.liveLink) {
+          modalLiveLink.href = data.liveLink;
+          modalLiveLink.classList.remove('hidden');
+          modalLinksContainer.classList.remove('hidden');
+        } else {
+          modalLiveLink.classList.add('hidden');
+          modalLinksContainer.classList.add('hidden');
+        }
+      }
 
       function updateSlide(idx) {
         if (currentSlides.length === 0) return;
@@ -825,46 +983,19 @@
       function openModal(projectId) {
         const data = projectDetails[projectId];
         if (!data) return;
+        currentModalProjectId = projectId;
 
-        modalCategory.textContent = data.category;
-        modalTitle.textContent = data.title;
-        modalTimelineRole.textContent = data.timelineRole;
-        modalDescription.textContent = data.description;
-
-        // Contributions list
-        modalContributions.innerHTML = '';
-        data.contributions.forEach(item => {
-          const li = document.createElement('li');
-          li.textContent = item;
-          modalContributions.appendChild(li);
-        });
-
-        // Tags
-        modalTags.innerHTML = '';
-        data.tags.forEach(tag => {
-          const span = document.createElement('span');
-          span.className = 'bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs px-2.5 py-0.5 rounded font-medium';
-          span.textContent = tag;
-          modalTags.appendChild(span);
-        });
-
-        // Live Link
-        if (data.liveLink) {
-          modalLiveLink.href = data.liveLink;
-          modalLiveLink.classList.remove('hidden');
-          modalLinksContainer.classList.remove('hidden');
-        } else {
-          modalLiveLink.classList.add('hidden');
-          modalLinksContainer.classList.add('hidden');
-        }
+        renderModalContent(projectId);
 
         // Slideshow
         modalSlideshow.innerHTML = '';
         currentSlides = data.images || [];
+        const lang = (typeof window.getLanguage === 'function') ? window.getLanguage() : 'en';
+        const projectTitle = (data[lang] || data['en']).title;
         currentSlides.forEach((src, i) => {
           const img = document.createElement('img');
           img.src = src;
-          img.alt = `${data.title} screenshot ${i + 1}`;
+          img.alt = `${projectTitle} screenshot ${i + 1}`;
           img.className = `w-full h-full object-contain absolute inset-0 ${i !== 0 ? 'hidden' : ''}`;
           modalSlideshow.appendChild(img);
         });
@@ -879,6 +1010,7 @@
       function closeModal() {
         modal.classList.add('hidden');
         document.body.classList.remove('overflow-hidden');
+        currentModalProjectId = null;
       }
 
       // Attach click events to card gallery triggers
@@ -916,6 +1048,13 @@
           if (e.key === 'Escape') closeModal();
           if (e.key === 'ArrowLeft') updateSlide(currentSlideIdx - 1);
           if (e.key === 'ArrowRight') updateSlide(currentSlideIdx + 1);
+        }
+      });
+
+      // Listen for language switch events to update open modal content dynamically
+      window.addEventListener('languageChanged', (e) => {
+        if (!modal.classList.contains('hidden') && currentModalProjectId) {
+          renderModalContent(currentModalProjectId);
         }
       });
     });

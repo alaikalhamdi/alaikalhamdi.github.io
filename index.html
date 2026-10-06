@@ -10,9 +10,10 @@
   <link rel="icon" type="image/png" sizes="32x32" href="ico/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="ico/favicon-16x16.png">
   <link rel="manifest" href="ico/site.webmanifest">
-  <title>Alaikal's Portfolio</title>
+  <title data-en="Alaikal's Portfolio" data-id="Portofolio Alaikal">Alaikal's Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://kit.fontawesome.com/5ad3573202.js" crossorigin="anonymous"></script>
+  <script src="./lang.js"></script>
   <style>
     @layer utilities {
       .hero-bg {
@@ -69,6 +70,7 @@
         document.getElementById('home'),
         document.getElementById('about'),
         document.getElementById('skills'),
+        document.getElementById('client-showcase'),
         document.getElementById('projects'),
         document.getElementById('contact')
       ].filter(Boolean);
@@ -105,50 +107,73 @@
   <nav class="bg-white/95 dark:bg-gray-800/95 backdrop-blur-md shadow-md py-4 fixed w-full top-0 z-40 transition-colors" id="navbar">
     <div class="container mx-auto flex justify-between items-center px-4">
       <a href="#home" class="text-2xl font-bold hover:text-blue-500 transition-colors">Alaikal Hamdi</a>
-      <ul class="hidden md:flex items-center space-x-6 text-sm font-medium">
-        <li><a href="#home" class="text-blue-600 dark:text-blue-400 font-semibold border-b-2 border-blue-500 pb-0.5 transition-colors">Home</a></li>
-        <li><a href="#about" class="hover:text-blue-500 transition-colors">About</a></li>
-        <li><a href="#skills" class="hover:text-blue-500 transition-colors">Skills & Experiences</a></li>
-        <li><a href="./projects.html" class="hover:text-blue-500 transition-colors">Projects</a></li>
-        <li><a href="#contact" class="hover:text-blue-500 transition-colors">Contact</a></li>
-        <li><a href="./cv.html" class="hover:text-blue-500 transition-colors">CV</a></li>
-      </ul>
-      <button id="hamburger-btn" class="md:hidden w-10 h-8 text-xl" aria-label="Toggle navigation menu">☰</button>
+      <div class="hidden md:flex items-center space-x-6 text-sm font-medium">
+        <ul class="flex items-center space-x-6">
+          <li><a href="#home" class="text-blue-600 dark:text-blue-400 font-semibold border-b-2 border-blue-500 pb-0.5 transition-colors" data-en="Home" data-id="Beranda">Home</a></li>
+          <li><a href="#about" class="hover:text-blue-500 transition-colors" data-en="About" data-id="Tentang">About</a></li>
+          <li><a href="#skills" class="hover:text-blue-500 transition-colors" data-en="Skills & Experiences" data-id="Keahlian & Pengalaman">Skills & Experiences</a></li>
+          <li><a href="#client-showcase" class="hover:text-blue-500 transition-colors" data-en="Client Showcase" data-id="Showcase Klien">Client Showcase</a></li>
+          <li><a href="./projects.html" class="hover:text-blue-500 transition-colors" data-en="Projects" data-id="Proyek">Projects</a></li>
+          <li><a href="#contact" class="hover:text-blue-500 transition-colors" data-en="Contact" data-id="Kontak">Contact</a></li>
+          <li><a href="./cv.html" class="hover:text-blue-500 transition-colors" data-en="CV" data-id="CV">CV</a></li>
+        </ul>
+        <!-- Language Switcher Pill -->
+        <div class="flex items-center bg-gray-100 dark:bg-gray-700/80 rounded-full p-1 border border-gray-200 dark:border-gray-600 text-xs shadow-inner">
+          <button type="button" onclick="setLanguage('en')" class="lang-btn-en px-2.5 py-0.5 rounded-full font-semibold transition-all" title="English">EN</button>
+          <button type="button" onclick="setLanguage('id')" class="lang-btn-id px-2.5 py-0.5 rounded-full font-semibold transition-all" title="Bahasa Indonesia">ID</button>
+        </div>
+      </div>
+      <!-- Mobile Right Controls (Switcher & Hamburger) -->
+      <div class="flex items-center space-x-2.5 md:hidden">
+        <div class="flex items-center bg-gray-100 dark:bg-gray-700/80 rounded-full p-0.5 border border-gray-200 dark:border-gray-600 text-xs shadow-inner">
+          <button type="button" onclick="setLanguage('en')" class="lang-btn-en px-2 py-0.5 rounded-full font-semibold transition-all" title="English">EN</button>
+          <button type="button" onclick="setLanguage('id')" class="lang-btn-id px-2 py-0.5 rounded-full font-semibold transition-all" title="Bahasa Indonesia">ID</button>
+        </div>
+        <button id="hamburger-btn" class="w-10 h-8 text-xl" aria-label="Toggle navigation menu">☰</button>
+      </div>
     </div>
   </nav>
 
   <!-- Mobile Menu -->
-  <nav class="hidden bg-white dark:bg-gray-800 shadow-xl rounded-lg py-4 fixed top-16 right-4 z-50 w-56 border border-gray-200 dark:border-gray-700 md:hidden" id="nav-menu">
+  <nav class="hidden bg-white dark:bg-gray-800 shadow-xl rounded-lg py-4 fixed top-16 right-4 z-50 w-60 border border-gray-200 dark:border-gray-700 md:hidden" id="nav-menu">
     <ul class="px-5 space-y-3 text-sm font-medium">
-      <li><a href="#home" class="block py-1 hover:text-blue-500">Home</a></li>
-      <li><a href="#about" class="block py-1 hover:text-blue-500">About</a></li>
-      <li><a href="#skills" class="block py-1 hover:text-blue-500">Skills & Experiences</a></li>
-      <li><a href="./projects.html" class="block py-1 hover:text-blue-500">Projects</a></li>
-      <li><a href="#contact" class="block py-1 hover:text-blue-500">Contact</a></li>
-      <li><a href="./cv.html" class="block py-1 hover:text-blue-500">CV</a></li>
+      <li><a href="#home" class="block py-1 hover:text-blue-500" data-en="Home" data-id="Beranda">Home</a></li>
+      <li><a href="#about" class="block py-1 hover:text-blue-500" data-en="About" data-id="Tentang">About</a></li>
+      <li><a href="#skills" class="block py-1 hover:text-blue-500" data-en="Skills & Experiences" data-id="Keahlian & Pengalaman">Skills & Experiences</a></li>
+      <li><a href="#client-showcase" class="block py-1 hover:text-blue-500" data-en="Client Showcase" data-id="Showcase Klien">Client Showcase</a></li>
+      <li><a href="./projects.html" class="block py-1 hover:text-blue-500" data-en="Projects" data-id="Proyek">Projects</a></li>
+      <li><a href="#contact" class="block py-1 hover:text-blue-500" data-en="Contact" data-id="Kontak">Contact</a></li>
+      <li><a href="./cv.html" class="block py-1 hover:text-blue-500" data-en="CV" data-id="CV">CV</a></li>
     </ul>
+    <div class="mt-3 pt-3 border-t border-gray-100 dark:border-gray-700 px-5 flex items-center justify-between text-xs">
+      <span class="text-gray-500 dark:text-gray-400 font-medium" data-en="Language:" data-id="Bahasa:">Language:</span>
+      <div class="flex items-center bg-gray-100 dark:bg-gray-700/80 rounded-full p-0.5 border border-gray-200 dark:border-gray-600">
+        <button type="button" onclick="setLanguage('en')" class="lang-btn-en px-2 py-0.5 rounded-full font-semibold transition-all">EN</button>
+        <button type="button" onclick="setLanguage('id')" class="lang-btn-id px-2 py-0.5 rounded-full font-semibold transition-all">ID</button>
+      </div>
+    </div>
   </nav>
 
   <!-- Hero Section -->
   <section id="home" class="hero-bg text-white h-screen flex items-center justify-center">
     <div class="container mx-auto text-center px-4">
       <h2 class="text-4xl font-bold mb-4">Alaikal Hamdi A'asifa Hamdani</h2>
-      <p class="mb-6">Student, Developer & Engineer</p>
+      <p class="mb-6 text-lg" data-en="Student, Developer & Engineer" data-id="Mahasiswa, Developer & Engineer">Student, Developer & Engineer</p>
       <div class="flex justify-center items-center space-x-4">
-      <a href="#contact" class="bg-white text-blue-500 px-6 py-2 rounded hover:bg-gray-100">Contact Me</a>
-      <a href="https://www.linkedin.com/in/alaikal-hamdi" class="text-white hover:text-gray-300" target="_blank">
+      <a href="#contact" class="bg-white text-blue-500 font-semibold px-6 py-2 rounded hover:bg-gray-100 transition shadow" data-en="Contact Me" data-id="Hubungi Saya">Contact Me</a>
+      <a href="https://www.linkedin.com/in/alaikal-hamdi" class="text-white hover:text-gray-300" target="_blank" aria-label="LinkedIn">
         <i class="fab fa-linkedin fa-2x"></i>
       </a>
-      <a href="https://github.com/alaikalhamdi" class="text-white hover:text-gray-300" target="_blank">
+      <a href="https://github.com/alaikalhamdi" class="text-white hover:text-gray-300" target="_blank" aria-label="GitHub">
         <i class="fab fa-github fa-2x"></i>
       </a>
-      <a href="https://instagram.com/yuan.arib" class="text-white hover:text-gray-300" target="_blank">
+      <a href="https://instagram.com/yuan.arib" class="text-white hover:text-gray-300" target="_blank" aria-label="Instagram">
         <i class="fab fa-instagram fa-2x"></i>
       </a>
       </div>
     </div>
     <div class="absolute bottom-5 w-full text-center animate-bounce">
-      <p class="text-white">Scroll Down</p>
+      <p class="text-white text-sm" data-en="Scroll Down" data-id="Gulir ke Bawah">Scroll Down</p>
       <i class="fas fa-chevron-down text-white mt-2"></i>
     </div>
   </section>
@@ -156,20 +181,20 @@
   <!-- About Section -->
   <section id="about" class="py-16 bg-gray-100 dark:bg-gray-800">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-8">About Me</h2>
+      <h2 class="text-3xl font-bold text-center mb-8" data-en="About Me" data-id="Tentang Saya">About Me</h2>
       <div class="flex flex-col md:flex-row items-center">
         <img src="./img/ale.png" alt="Profile Picture" class="rounded-full w-32 h-32 mb-6 md:mb-0 md:mr-6">
         <div>
-          <p class="text-center md:text-left mb-4">Hello! I'm a developer with a passion for creating sleek, functional, and user-friendly websites and software. I have experience with various web technologies and always strive to improve my skills and learn new ones.</p>
-          <p class="text-center md:text-left mb-4">I am currently pursuing a Bachelor's degree in Automation Engineering at Sepuluh Nopember Institute of Technology, where I have been actively involved in various projects and organizations. My journey in tech started with a curiosity for how things work, which led me to explore programming and web development.</p>
-          <p class="text-center md:text-left mb-4">In addition to my technical skills, I have a strong interest in design and user experience. I believe that a great product is not only functional but also visually appealing and easy to use. This belief drives me to continuously improve my design skills and stay updated with the latest trends in UI/UX.</p>
-          <p class="text-center md:text-left mb-4">I also enjoy participating in hackathons, attending tech meetups, and contributing to open-source projects. Outside of tech, I also enjoy robotics and games! I would also come to comic conventions as an <span class="italic">otaku</span>!</p>
-          <p class="text-center md:text-left">Feel free to reach out to me if you'd like to collaborate on a project or just have a chat about technology and innovation!</p>
+          <p class="text-center md:text-left mb-4" data-en="Hello! I'm a developer with a passion for creating sleek, functional, and user-friendly websites and software. I have experience with various web technologies and always strive to improve my skills and learn new ones." data-id="Halo! Saya seorang developer yang berdedikasi menciptakan situs web dan perangkat lunak yang elegan, fungsional, dan mudah digunakan. Saya berpengalaman dengan berbagai teknologi web dan selalu berusaha meningkatkan keahlian serta mempelajari hal-hal baru.">Hello! I'm a developer with a passion for creating sleek, functional, and user-friendly websites and software. I have experience with various web technologies and always strive to improve my skills and learn new ones.</p>
+          <p class="text-center md:text-left mb-4" data-en="I am currently pursuing a Bachelor's degree in Automation Engineering at Sepuluh Nopember Institute of Technology, where I have been actively involved in various projects and organizations. My journey in tech started with a curiosity for how things work, which led me to explore programming and web development." data-id="Saat ini saya sedang menempuh studi S1 Teknik Elektro Otomasi di Institut Teknologi Sepuluh Nopember (ITS), di mana saya aktif terlibat dalam berbagai proyek dan organisasi. Perjalanan saya di dunia teknologi berawal dari rasa ingin tahu tentang cara kerja berbagai hal, yang kemudian mendorong saya mendalami pemrograman dan pengembangan web.">I am currently pursuing a Bachelor's degree in Automation Engineering at Sepuluh Nopember Institute of Technology, where I have been actively involved in various projects and organizations. My journey in tech started with a curiosity for how things work, which led me to explore programming and web development.</p>
+          <p class="text-center md:text-left mb-4" data-en="In addition to my technical skills, I have a strong interest in design and user experience. I believe that a great product is not only functional but also visually appealing and easy to use. This belief drives me to continuously improve my design skills and stay updated with the latest trends in UI/UX." data-id="Selain keahlian teknis, saya memiliki minat besar dalam desain dan pengalaman pengguna (UI/UX). Saya percaya bahwa produk yang hebat bukan hanya fungsional tetapi juga menarik secara visual dan mudah digunakan. Keyakinan ini mendorong saya untuk terus mengasah keterampilan desain dan mengikuti tren terbaru dalam UI/UX.">In addition to my technical skills, I have a strong interest in design and user experience. I believe that a great product is not only functional but also visually appealing and easy to use. This belief drives me to continuously improve my design skills and stay updated with the latest trends in UI/UX.</p>
+          <p class="text-center md:text-left mb-4" data-en="I also enjoy participating in hackathons, attending tech meetups, and contributing to open-source projects. Outside of tech, I also enjoy robotics and games! I would also come to comic conventions as an <span class=&quot;italic&quot;>otaku</span>!" data-id="Saya juga senang berpartisipasi dalam hackathon, menghadiri meetup teknologi, dan berkontribusi pada proyek open-source. Di luar dunia teknologi, saya menyukai robotika dan game! Saya juga kerap datang ke festival komik/jejepangan sebagai seorang <span class=&quot;italic&quot;>otaku</span>!">I also enjoy participating in hackathons, attending tech meetups, and contributing to open-source projects. Outside of tech, I also enjoy robotics and games! I would also come to comic conventions as an <span class="italic">otaku</span>!</p>
+          <p class="text-center md:text-left" data-en="Feel free to reach out to me if you'd like to collaborate on a project or just have a chat about technology and innovation!" data-id="Jangan ragu untuk menghubungi saya jika Anda ingin berkolaborasi dalam proyek atau sekadar berbincang santai tentang teknologi dan inovasi!">Feel free to reach out to me if you'd like to collaborate on a project or just have a chat about technology and innovation!</p>
           <div class="mt-6">
-            <h3 class="text-xl font-bold mb-4 text-center md:text-left">Language Proficiency</h3>
+            <h3 class="text-xl font-bold mb-4 text-center md:text-left" data-en="Language Proficiency" data-id="Kemahiran Bahasa">Language Proficiency</h3>
             <div class="grid grid-cols-3 gap-4 text-center">
               <div class="mb-2 md:flex items-center">
-                <span class="md:mr-2">English</span>
+                <span class="md:mr-2" data-en="English" data-id="Bahasa Inggris">English</span>
                 <div class="flex justify-center">
                   <i class="fas fa-star text-yellow-500"></i>
                   <i class="fas fa-star text-yellow-500"></i>
@@ -179,7 +204,7 @@
                 </div>
               </div>
               <div class="mb-2 md:flex items-center">
-                <span class="md:mr-2">Indonesian</span>
+                <span class="md:mr-2" data-en="Indonesian" data-id="Bahasa Indonesia">Indonesian</span>
                 <div class="flex justify-center">
                   <i class="fas fa-star text-yellow-500"></i>
                   <i class="fas fa-star text-yellow-500"></i>
@@ -189,7 +214,7 @@
                 </div>
               </div>
               <div class="mb-2 md:flex items-center">
-                <span class="md:mr-2">Japanese</span>
+                <span class="md:mr-2" data-en="Japanese" data-id="Bahasa Jepang">Japanese</span>
                 <div class="flex justify-center">
                   <i class="fas fa-star text-yellow-500"></i>
                   <i class="fas fa-star-half-alt text-yellow-500"></i>
@@ -208,50 +233,50 @@
   <!-- Skills & Experiences Section -->
   <section id="skills" class="py-16 bg-white dark:bg-gray-900">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-8">Skills & Experiences</h2>
+      <h2 class="text-3xl font-bold text-center mb-8" data-en="Skills & Experiences" data-id="Keahlian & Pengalaman">Skills & Experiences</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <!-- Skills List -->
         <div>
-          <h3 class="text-xl font-bold mb-4">Skills</h3>
+          <h3 class="text-xl font-bold mb-4" data-en="Skills" data-id="Keahlian">Skills</h3>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="mb-4">
-              <h4 class="font-semibold">HTML, CSS, and JavaScript</h4>
+              <h4 class="font-semibold" data-en="HTML, CSS, and JavaScript" data-id="HTML, CSS, dan JavaScript">HTML, CSS, and JavaScript</h4>
               <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
                 <div class="hero-bg h-2.5 rounded-full" style="width: 85%"></div>
               </div>
             </div>
             <div class="mb-4">
-              <h4 class="font-semibold">React and Tailwind CSS</h4>
+              <h4 class="font-semibold" data-en="React and Tailwind CSS" data-id="React dan Tailwind CSS">React and Tailwind CSS</h4>
               <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
                 <div class="hero-bg h-2.5 rounded-full" style="width: 65%"></div>
               </div>
             </div>
             <div class="mb-4">
-              <h4 class="font-semibold">Cordova & Electron.js</h4>
+              <h4 class="font-semibold" data-en="Cordova & Electron.js" data-id="Cordova & Electron.js">Cordova & Electron.js</h4>
               <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
                 <div class="hero-bg h-2.5 rounded-full" style="width: 50%"></div>
               </div>
             </div>
             <div class="mb-4">
-              <h4 class="font-semibold">Backend Development with Node.js</h4>
+              <h4 class="font-semibold" data-en="Backend Development with Node.js" data-id="Pengembangan Backend dengan Node.js">Backend Development with Node.js</h4>
               <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
                 <div class="hero-bg h-2.5 rounded-full" style="width: 80%"></div>
               </div>
             </div>
             <div class="mb-4">
-              <h4 class="font-semibold">Python, Django & Flask</h4>
+              <h4 class="font-semibold" data-en="Python, Django & Flask" data-id="Python, Django & Flask">Python, Django & Flask</h4>
               <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
                 <div class="hero-bg h-2.5 rounded-full" style="width: 65%"></div>
               </div>
             </div>
             <div class="mb-4">
-              <h4 class="font-semibold">Version Control with Git and GitHub</h4>
+              <h4 class="font-semibold" data-en="Version Control with Git and GitHub" data-id="Version Control dengan Git & GitHub">Version Control with Git and GitHub</h4>
               <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
                 <div class="hero-bg h-2.5 rounded-full" style="width: 70%"></div>
               </div>
             </div>
             <div class="mb-4">
-              <h4 class="font-semibold">Responsive and Accessible Web Design</h4>
+              <h4 class="font-semibold" data-en="Responsive and Accessible Web Design" data-id="Desain Web Responsif & Aksesibel">Responsive and Accessible Web Design</h4>
               <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
                 <div class="hero-bg h-2.5 rounded-full" style="width: 75%"></div>
               </div>
@@ -260,29 +285,173 @@
         </div>
         <!-- Experiences -->
         <div>
-          <h3 class="text-xl font-bold mb-4">Experiences</h3>
+          <h3 class="text-xl font-bold mb-4" data-en="Experiences" data-id="Pengalaman">Experiences</h3>
           <div class="space-y-4">
             <div 
               class="bg-gray-100 dark:bg-gray-800 p-4 rounded shadow cursor-pointer experience" 
               data-images='["./gu/IMG_2715.jpg", "./gu/IMG_2723.jpg", "./gu/IMG_2749.jpg", "./gu/IMG_2751.jpg", "./gu/IMG_2663.jpg", "./gu/IMG_2620.jpg", "./gu/IMG_2621.jpg", "./gu/IMG_2622.jpg", "./gu/IMG_2646.jpg", "./gu/IMG_2653.jpg", "./gu/IMG_2658.jpg", "./gu/IMG_2662.jpg", "./gu/IMG_2663.jpg"]'
             >
-              <h4 class="font-bold">Educator and Curriculum Designer</h4>
+              <h4 class="font-bold" data-en="Educator and Curriculum Designer" data-id="Pendidik & Perancang Kurikulum">Educator and Curriculum Designer</h4>
               <p class="text-sm text-gray-600 dark:text-gray-400">GEARS UP! | Nov 2023 - Sep 2024</p>
-              <p>Designed and implemented comprehensive STEM educational programs tailored for students in school with limited access to STEM.</p>
-              <p class="text-sm text-gray-600 mt-2"><i class="fa-solid fa-image"></i> Click to show images</p>
+              <p data-en="Designed and implemented comprehensive STEM educational programs tailored for students in school with limited access to STEM." data-id="Merancang dan menerapkan program pendidikan STEM komprehensif untuk siswa di sekolah dengan akses terbatas terhadap STEM.">Designed and implemented comprehensive STEM educational programs tailored for students in school with limited access to STEM.</p>
+              <p class="text-sm text-gray-600 mt-2"><i class="fa-solid fa-image"></i> <span data-en="Click to show images" data-id="Klik untuk melihat foto">Click to show images</span></p>
             </div>
             <div 
               class="bg-gray-100 dark:bg-gray-800 p-4 rounded shadow cursor-pointer experience" 
               data-images='["./h2e/1.jpeg", "./h2e/2.jpeg", "./h2e/3.jpeg", "./h2e/4.jpeg", "./h2e/5.jpeg", "./h2e/6.jpeg", "./h2e/7.jpeg", "./h2e/8.jpeg"]'
             >
-              <h4 class="font-bold">UI/UX Developer</h4>
-              <p class="text-sm text-gray-600 dark:text-gray-400">H2E | Aug 2022 - Dec 2024</p>
-              <p>Designed and developed a custom UI/UX for products, and collaborated with the team to design an ideal app.</p>
-              <p class="text-sm text-gray-600 mt-2"><i class="fa-solid fa-image"></i> Click to show images</p>
+              <h4 class="font-bold" data-en="UI/UX Developer" data-id="Pengembang UI/UX">UI/UX Developer</h4>
+              <p class="text-sm text-gray-600 dark:text-gray-400" data-en="H2E | Aug 2022 - Dec 2024" data-id="H2E | Agu 2022 - Des 2024">H2E | Aug 2022 - Dec 2024</p>
+              <p data-en="Designed and developed a custom UI/UX for products, and collaborated with the team to design an ideal app." data-id="Mendesain dan mengembangkan UI/UX kustom untuk produk, serta berkolaborasi dengan tim untuk merealisasikan aplikasi yang ideal.">Designed and developed a custom UI/UX for products, and collaborated with the team to design an ideal app.</p>
+              <p class="text-sm text-gray-600 mt-2"><i class="fa-solid fa-image"></i> <span data-en="Click to show images" data-id="Klik untuk melihat foto">Click to show images</span></p>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Client Showcase & Web Solutions Section -->
+  <section id="client-showcase" class="py-16 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10">
+        <div>
+          <span class="inline-flex items-center space-x-1.5 text-xs font-bold text-amber-600 dark:text-amber-400 uppercase tracking-widest bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20 mb-3">
+            <i class="fas fa-store text-xs"></i>
+            <span data-en="Business & SME Web Solutions" data-id="Layanan Web Bisnis & UMKM">Business & SME Web Solutions</span>
+          </span>
+          <h2 class="text-3xl font-bold" data-en="Client Showcase & Web Solutions" data-id="Showcase Klien & Solusi Web">Client Showcase & Web Solutions</h2>
+          <p class="text-gray-600 dark:text-gray-400 mt-2 max-w-2xl text-sm md:text-base" data-en="Professional, aesthetic, and high-performance website solutions for local businesses, cafes, restaurants, and SMEs in Indonesia — connected directly to WhatsApp to boost sales." data-id="Solusi website profesional, estetik, dan berkecepatan tinggi untuk bisnis lokal, cafe, restoran, dan UMKM di Indonesia — terhubung langsung ke WhatsApp untuk meningkatkan transaksi.">
+            Professional, aesthetic, and high-performance website solutions for local businesses, cafes, restaurants, and SMEs in Indonesia — connected directly to WhatsApp to boost sales.
+          </p>
+        </div>
+        <div class="mt-4 md:mt-0">
+          <a href="https://wa.me/6282353358664?text=Halo%20Alaikal,%20saya%20tertarik%20konsultasi%20pembuatan%20website%20untuk%20usaha%20saya..." 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="inline-flex items-center space-x-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-4 py-2 rounded-lg text-sm transition shadow-sm">
+            <i class="fab fa-whatsapp text-base"></i>
+            <span data-en="Website Consultation" data-id="Konsultasi Pembuatan Website">Website Consultation</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Featured Client Showcase Card (Wide Layout) -->
+      <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg border border-amber-500/30 dark:border-amber-500/30 p-6 md:p-8 mb-10 transition-all hover:shadow-xl">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <!-- Image Container with Clean, Non-Clipping Badges -->
+          <div class="lg:col-span-5 relative rounded-xl overflow-hidden shadow-md group">
+            <img src="./img/kala-coffee.jpg" alt="KALA Coffee & Roastery" class="w-full h-64 lg:h-80 object-cover object-center group-hover:scale-105 transition duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
+              <span class="text-xs text-white/90 font-medium" data-en="Mockup Preview: F&B Specialty Coffee & Roastery" data-id="Contoh Mockup: F&B Specialty Coffee & Roastery">Mockup Preview: F&B Specialty Coffee & Roastery</span>
+            </div>
+            <!-- Badges neatly positioned inside with clean padding -->
+            <div class="absolute top-3 left-3">
+              <span class="bg-amber-500 text-gray-950 text-xs font-bold px-3 py-1 rounded-full shadow-md" data-en="Client Showcase" data-id="Showcase Klien">
+                Client Showcase
+              </span>
+            </div>
+            <div class="absolute top-3 right-3">
+              <span class="bg-black/70 backdrop-blur-sm text-amber-300 text-xs font-semibold px-2.5 py-1 rounded-full border border-amber-400/30" data-en="Live Demo Ready" data-id="Live Demo Siap">
+                Live Demo Ready
+              </span>
+            </div>
+          </div>
+
+          <!-- Content Details -->
+          <div class="lg:col-span-7 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center space-x-2 text-xs text-amber-600 dark:text-amber-400 font-bold mb-2">
+                <span><i class="fas fa-coffee mr-1"></i> F&B / Coffee Shop & Roastery</span>
+                <span>•</span>
+                <span data-en="Responsive Web App" data-id="Aplikasi Web Responsif">Responsive Web App</span>
+              </div>
+              <h3 class="text-2xl lg:text-3xl font-bold mb-3">KALA Specialty Coffee & Roastery</h3>
+              <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed mb-5" data-en="An interactive showcase website and digital catalog tailored for cafes and coffee shops in Indonesia. Helps business owners maximize direct orders without third-party commission fees through automated WhatsApp ordering." data-id="Website showcase dan katalog interaktif yang dirancang khusus untuk cafe dan coffee shop di Indonesia. Membantu pelaku bisnis memaksimalkan pesanan tanpa terpotong komisi aplikasi pihak ketiga lewat sistem pemesanan langsung WhatsApp yang terotomatisasi.">
+                An interactive showcase website and digital catalog tailored for cafes and coffee shops in Indonesia. Helps business owners maximize direct orders without third-party commission fees through automated WhatsApp ordering.
+              </p>
+
+              <!-- Business Features Grid -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 text-xs text-gray-700 dark:text-gray-300">
+                <div class="flex items-center space-x-2">
+                  <i class="fas fa-check-circle text-emerald-500 text-sm"></i>
+                  <span data-en="<strong>WhatsApp Order:</strong> Automated order message format" data-id="<strong>Order WhatsApp:</strong> Format chat pesanan otomatis"><strong>WhatsApp Order:</strong> Automated order message format</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <i class="fas fa-check-circle text-emerald-500 text-sm"></i>
+                  <span data-en="<strong>Interactive Menu:</strong> Category filters & Rupiah pricing" data-id="<strong>Menu Interaktif:</strong> Filter kategori & harga Rupiah"><strong>Interactive Menu:</strong> Category filters & Rupiah pricing</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <i class="fas fa-check-circle text-emerald-500 text-sm"></i>
+                  <span data-en="<strong>Flavor Quiz:</strong> Guides visitors to pick their coffee" data-id="<strong>Kuis Rekomendasi:</strong> Bantu pengunjung pilih kopi"><strong>Flavor Quiz:</strong> Guides visitors to pick their coffee</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <i class="fas fa-check-circle text-emerald-500 text-sm"></i>
+                  <span data-en="<strong>Table Reservation:</strong> Booking form for tables & meetings" data-id="<strong>Reservasi Meja:</strong> Formulir booking meja & meeting"><strong>Table Reservation:</strong> Booking form for tables & meetings</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <i class="fas fa-check-circle text-emerald-500 text-sm"></i>
+                  <span data-en="<strong>WFC Amenities:</strong> 150 Mbps Wi-Fi & power outlet info" data-id="<strong>Fasilitas WFC:</strong> Info Wi-Fi 150 Mbps & Stopkontak"><strong>WFC Amenities:</strong> 150 Mbps Wi-Fi & power outlet info</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <i class="fas fa-check-circle text-emerald-500 text-sm"></i>
+                  <span data-en="<strong>Google Maps:</strong> Directions map & 4.9★ rating badge" data-id="<strong>Google Maps:</strong> Peta lokasi & badge rating 4.9★"><strong>Google Maps:</strong> Directions map & 4.9★ rating badge</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action CTAs -->
+            <div class="flex flex-wrap items-center gap-3 pt-4 border-t border-gray-200 dark:border-gray-700">
+              <a href="./cafe/index.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center bg-amber-600 hover:bg-amber-700 text-white font-bold text-sm px-5 py-2.5 rounded-lg shadow transition">
+                <i class="fas fa-external-link-alt mr-2 text-xs"></i> <span data-en="Open Live Demo" data-id="Buka Live Demo">Open Live Demo</span>
+              </a>
+              <a href="https://wa.me/6282353358664?text=Halo%20Alaikal,%20saya%20tertarik%20dengan%20layanan%20pembuatan%20website%20untuk%20bisnis%20saya..." target="_blank" rel="noopener noreferrer" class="inline-flex items-center bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm px-5 py-2.5 rounded-lg shadow transition">
+                <i class="fab fa-whatsapp mr-2 text-base"></i> <span data-en="Order Similar Website" data-id="Pesan Website Serupa">Order Similar Website</span>
+              </a>
+              <a href="./projects.html" class="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-400 py-2.5 px-3">
+                <span data-en="Full Case Study" data-id="Studi Kasus Lengkap">Full Case Study</span>
+                <i class="fas fa-arrow-right ml-1.5 text-xs"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Service Highlights / Value Props for Local Business Clients -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
+        <div class="p-5 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+          <div class="w-10 h-10 rounded-lg bg-amber-100 dark:bg-amber-900/40 text-amber-600 dark:text-amber-400 flex items-center justify-center text-lg mb-3">
+            <i class="fab fa-whatsapp"></i>
+          </div>
+          <h4 class="font-bold text-base mb-1" data-en="0% Commission Cut" data-id="0% Potongan Komisi">0% Commission Cut</h4>
+          <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed" data-en="Orders go straight to your cashier or admin WhatsApp without paying platform cuts to third-party delivery apps." data-id="Pemesanan langsung masuk ke WhatsApp kasir/admin Anda tanpa biaya bagi hasil aplikasi pihak ketiga.">
+            Orders go straight to your cashier or admin WhatsApp without paying platform cuts to third-party delivery apps.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+          <div class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 flex items-center justify-center text-lg mb-3">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h4 class="font-bold text-base mb-1" data-en="Super Fast & Lightweight" data-id="Loading Super Cepat & Ringan">Super Fast & Lightweight</h4>
+          <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed" data-en="Built with clean static code and Tailwind CSS, loading instantly on customers' smartphones with zero lag." data-id="Dibuat menggunakan clean static code dan Tailwind CSS, website terbuka instan di smartphone pelanggan tanpa lag.">
+            Built with clean static code and Tailwind CSS, loading instantly on customers' smartphones with zero lag.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+          <div class="w-10 h-10 rounded-lg bg-purple-100 dark:bg-purple-900/40 text-purple-600 dark:text-purple-400 flex items-center justify-center text-lg mb-3">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h4 class="font-bold text-base mb-1" data-en="Mobile-First & Google Maps Ready" data-id="Mobile-First & Google Maps Ready">Mobile-First & Google Maps Ready</h4>
+          <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed" data-en="Optimized specifically for mobile screens with integrated directions map so customers can find your store easily." data-id="Tampilan dioptimalkan khusus layar HP dengan integrasi peta petunjuk arah agar tempat usaha mudah ditemukan.">
+            Optimized specifically for mobile screens with integrated directions map so customers can find your store easily.
+          </p>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -291,37 +460,15 @@
     <div class="container mx-auto px-4">
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
         <div>
-          <h2 class="text-3xl font-bold">Featured Projects</h2>
-          <p class="text-gray-600 dark:text-gray-400 mt-2">Highlights of web applications and engineering works.</p>
+          <h2 class="text-3xl font-bold" data-en="Featured Projects" data-id="Proyek Unggulan">Featured Projects</h2>
+          <p class="text-gray-600 dark:text-gray-400 mt-2" data-en="Highlights of web applications and engineering works." data-id="Sorotan karya aplikasi web dan proyek rekayasa teknologi.">Highlights of web applications and engineering works.</p>
         </div>
         <a href="./projects.html" class="mt-4 md:mt-0 inline-flex items-center text-blue-500 hover:text-blue-600 font-semibold group">
-          <span>View all projects & case studies</span>
+          <span data-en="View all projects & case studies" data-id="Lihat semua proyek & studi kasus">View all projects & case studies</span>
           <i class="fas fa-arrow-right ml-2 transition-transform duration-200 group-hover:translate-x-1"></i>
         </a>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Project: KALA Coffee & Roastery (Client Showcase) -->
-        <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded shadow flex flex-col justify-between border-2 border-amber-500/40 relative">
-          <div class="absolute -top-3 right-4 bg-amber-500 text-gray-900 text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full shadow">
-            Client Showcase / UMKM
-          </div>
-          <div>
-            <div class="relative -mx-6 -mt-6 mb-4">
-              <img src="./img/kala-coffee.jpg" alt="KALA Coffee & Roastery" class="w-full h-48 object-cover rounded-t">
-            </div>
-            <div class="flex items-center space-x-2 text-xs text-amber-600 dark:text-amber-400 font-semibold mb-1">
-              <span>Web Development • F&B & UMKM</span>
-            </div>
-            <h3 class="text-xl font-bold mb-2">KALA Coffee & Roastery</h3>
-            <p class="text-sm text-gray-700 dark:text-gray-300">Modern static website & digital presence designed for Indonesian cafes & local F&B businesses. Features interactive filterable menu, pre-formatted WhatsApp direct ordering, taste quiz, and table reservations.</p>
-          </div>
-          <div class="mt-4 flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-600">
-            <a href="./cafe/index.html" class="bg-amber-600 text-white px-4 py-2 rounded text-sm hover:bg-amber-700 inline-block font-semibold" target="_blank">
-              <i class="fas fa-external-link-alt mr-1"></i> Live Demo
-            </a>
-            <a href="./projects.html" class="text-sm text-blue-500 hover:underline font-medium">Case Study &rarr;</a>
-          </div>
-        </div>
         <!-- Project 1 -->
         <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded shadow flex flex-col justify-between">
           <div>
@@ -329,14 +476,18 @@
               <img src="./img/terafest.png" alt="TERAFEST" class="w-full h-48 object-cover rounded-t">
             </div>
             <div class="flex items-center space-x-2 text-xs text-blue-500 font-semibold mb-1">
-              <span>Web Development</span>
+              <span data-en="Web Development" data-id="Pengembangan Web">Web Development</span>
             </div>
             <h3 class="text-xl font-bold mb-2">TERAFEST</h3>
-            <p class="text-sm text-gray-700 dark:text-gray-300">TERAFEST is an exhibition showcasing our engineering projects and products. As one of the organizers, I contributed by developing the event's website.</p>
+            <p class="text-sm text-gray-700 dark:text-gray-300" data-en="TERAFEST is an exhibition showcasing our engineering projects and products. As one of the organizers, I contributed by developing the event's website." data-id="TERAFEST adalah pameran karya dan produk rekayasa teknologi. Sebagai salah satu panitia, saya berkontribusi dengan mengembangkan situs web resmi acara tersebut.">TERAFEST is an exhibition showcasing our engineering projects and products. As one of the organizers, I contributed by developing the event's website.</p>
           </div>
           <div class="mt-4 flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-600">
-            <a href="https://terafest-website.com" class="bg-blue-500 text-white px-4 py-2 rounded text-sm hover:bg-blue-600 inline-block" target="_blank">View Project</a>
-            <a href="./projects.html" class="text-sm text-blue-500 hover:underline font-medium">Case Study &rarr;</a>
+            <a href="https://terafest-website.com" class="bg-blue-500 text-white px-4 py-2 rounded text-sm hover:bg-blue-600 inline-block" target="_blank">
+              <span data-en="View Project" data-id="Buka Proyek">View Project</span>
+            </a>
+            <a href="./projects.html" class="text-sm text-blue-500 hover:underline font-medium">
+              <span data-en="Case Study &rarr;" data-id="Studi Kasus &rarr;">Case Study &rarr;</span>
+            </a>
           </div>
         </div>
         <!-- Project 2 -->
@@ -346,14 +497,18 @@
               <img src="./img/ifrfoundation.png" alt="FIRST Tech Challenge Nusantara" class="w-full h-48 object-cover rounded-t">
             </div>
             <div class="flex items-center space-x-2 text-xs text-indigo-500 font-semibold mb-1">
-              <span>Robotics & Web</span>
+              <span data-en="Robotics & Web" data-id="Robotika & Web">Robotics & Web</span>
             </div>
             <h3 class="text-xl font-bold mb-2">FIRST Tech Challenge Nusantara</h3>
-            <p class="text-sm text-gray-700 dark:text-gray-300">The FIRST Tech Challenge (FTC) is an annual global robotics competition. I contributed by creating a website that showcases match history, live schedules, and team lists.</p>
+            <p class="text-sm text-gray-700 dark:text-gray-300" data-en="The FIRST Tech Challenge (FTC) is an annual global robotics competition. I contributed by creating a website that showcases match history, live schedules, and team lists." data-id="FIRST Tech Challenge (FTC) adalah kompetisi robotika global tahunan. Saya berkontribusi dengan membuat website yang menampilkan riwayat pertandingan, jadwal langsung, dan daftar tim.">The FIRST Tech Challenge (FTC) is an annual global robotics competition. I contributed by creating a website that showcases match history, live schedules, and team lists.</p>
           </div>
           <div class="mt-4 flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-600">
-            <a href="https://ifrfoundation.org" class="bg-blue-500 text-white px-4 py-2 rounded text-sm hover:bg-blue-600 inline-block" target="_blank">View Project</a>
-            <a href="./projects.html" class="text-sm text-blue-500 hover:underline font-medium">Case Study &rarr;</a>
+            <a href="https://ifrfoundation.org" class="bg-blue-500 text-white px-4 py-2 rounded text-sm hover:bg-blue-600 inline-block" target="_blank">
+              <span data-en="View Project" data-id="Buka Proyek">View Project</span>
+            </a>
+            <a href="./projects.html" class="text-sm text-blue-500 hover:underline font-medium">
+              <span data-en="Case Study &rarr;" data-id="Studi Kasus &rarr;">Case Study &rarr;</span>
+            </a>
           </div>
         </div>
         <!-- Project 3 -->
@@ -363,20 +518,24 @@
               <img src="./img/gearsup.png" alt="GEARS UP!" class="w-full h-48 object-cover rounded-t">
             </div>
             <div class="flex items-center space-x-2 text-xs text-teal-500 font-semibold mb-1">
-              <span>Education & Community</span>
+              <span data-en="Education & Community" data-id="Pendidikan & Komunitas">Education & Community</span>
             </div>
             <h3 class="text-xl font-bold mb-2">GEARS UP!</h3>
-            <p class="text-sm text-gray-700 dark:text-gray-300">GEARS UP! is a non-profit dedicated to introducing students across Indonesia to STEM. I contributed to establishing its presence by developing their website.</p>
+            <p class="text-sm text-gray-700 dark:text-gray-300" data-en="GEARS UP! is a non-profit dedicated to introducing students across Indonesia to STEM. I contributed to establishing its presence by developing their website." data-id="GEARS UP! adalah organisasi nirlaba yang berfokus memperkenalkan STEM kepada siswa di seluruh Indonesia. Saya berkontribusi membangun kehadiran digital mereka dengan mengembangkan situs web resminya.">GEARS UP! is a non-profit dedicated to introducing students across Indonesia to STEM. I contributed to establishing its presence by developing their website.</p>
           </div>
           <div class="mt-4 flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-600">
-            <a href="https://gearsup.org" class="bg-blue-500 text-white px-4 py-2 rounded text-sm hover:bg-blue-600 inline-block" target="_blank">View Project</a>
-            <a href="./projects.html" class="text-sm text-blue-500 hover:underline font-medium">Case Study &rarr;</a>
+            <a href="https://gearsup.org" class="bg-blue-500 text-white px-4 py-2 rounded text-sm hover:bg-blue-600 inline-block" target="_blank">
+              <span data-en="View Project" data-id="Buka Proyek">View Project</span>
+            </a>
+            <a href="./projects.html" class="text-sm text-blue-500 hover:underline font-medium">
+              <span data-en="Case Study &rarr;" data-id="Studi Kasus &rarr;">Case Study &rarr;</span>
+            </a>
           </div>
         </div>
       </div>
       <div class="mt-10 text-center">
         <a href="./projects.html" class="inline-flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition duration-200">
-          <span>Explore All Projects & Galleries</span>
+          <span data-en="Explore All Projects & Galleries" data-id="Jelajahi Semua Proyek & Galeri">Explore All Projects & Galleries</span>
           <i class="fas fa-arrow-right"></i>
         </a>
       </div>
@@ -389,7 +548,7 @@
       <div id="slideshow" class="w-full h-full flex items-center justify-center"></div>
       <button id="prev-slide" class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-2xl">&lt;</button>
       <button id="next-slide" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-2xl">&gt;</button>
-      <button id="close-popup" class="absolute top-4 right-4 bg-white text-black px-3 py-2 rounded">Close</button>
+      <button id="close-popup" class="absolute top-4 right-4 bg-white text-black px-3 py-2 rounded" data-en="Close" data-id="Tutup">Close</button>
     </div>
   </div>
 
@@ -398,16 +557,17 @@
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
-          <h3 class="text-2xl font-bold mb-4">Get in Touch</h3>
-          <p>Email: alaikal.edu@gmail.com</p>
-          <p>Phone: +62 823-5335-8664</p>
-          <p>Follow me on <a href="https://www.linkedin.com/in/alaikal-hamdi" class="underline hover:text-gray-300" target="_blank">LinkedIn</a> or <a href="https://github.com/alaikalhamdi" class="underline hover:text-gray-300" target="_blank">GitHub</a>.</p>
+          <h3 class="text-2xl font-bold mb-4" data-en="Get in Touch" data-id="Kontak">Get in Touch</h3>
+          <p data-en="Email: alaikal.edu@gmail.com" data-id="Email: alaikal.edu@gmail.com">Email: alaikal.edu@gmail.com</p>
+          <p data-en="Phone: +62 823-5335-8664" data-id="Telepon: +62 823-5335-8664">Phone: +62 823-5335-8664</p>
+          <p data-en="Follow me on <a href=&quot;https://www.linkedin.com/in/alaikal-hamdi&quot; class=&quot;underline hover:text-gray-300&quot; target=&quot;_blank&quot;>LinkedIn</a> or <a href=&quot;https://github.com/alaikalhamdi&quot; class=&quot;underline hover:text-gray-300&quot; target=&quot;_blank&quot;>GitHub</a>." data-id="Ikuti saya di <a href=&quot;https://www.linkedin.com/in/alaikal-hamdi&quot; class=&quot;underline hover:text-gray-300&quot; target=&quot;_blank&quot;>LinkedIn</a> atau <a href=&quot;https://github.com/alaikalhamdi&quot; class=&quot;underline hover:text-gray-300&quot; target=&quot;_blank&quot;>GitHub</a>.">Follow me on <a href="https://www.linkedin.com/in/alaikal-hamdi" class="underline hover:text-gray-300" target="_blank">LinkedIn</a> or <a href="https://github.com/alaikalhamdi" class="underline hover:text-gray-300" target="_blank">GitHub</a>.</p>
         </div>
         <div>
-          <h3 class="text-2xl font-bold mb-4">Site Navigation</h3>
-          <p><a href="./index.html" class="underline hover:text-gray-300">Portfolio Home</a></p>
-          <p><a href="./projects.html" class="underline hover:text-gray-300">Projects Showcase</a></p>
-          <p><a href="./cv.html" class="underline hover:text-gray-300">Curriculum Vitae (CV)</a></p>
+          <h3 class="text-2xl font-bold mb-4" data-en="Site Navigation" data-id="Navigasi Situs">Site Navigation</h3>
+          <p><a href="./index.html" class="underline hover:text-gray-300" data-en="Portfolio Home" data-id="Beranda Portofolio">Portfolio Home</a></p>
+          <p><a href="#client-showcase" class="underline hover:text-gray-300" data-en="Client Showcase (UMKM)" data-id="Showcase Klien (UMKM)">Client Showcase (UMKM)</a></p>
+          <p><a href="./projects.html" class="underline hover:text-gray-300" data-en="Projects Showcase" data-id="Showcase Proyek">Projects Showcase</a></p>
+          <p><a href="./cv.html" class="underline hover:text-gray-300" data-en="Curriculum Vitae (CV)" data-id="Curriculum Vitae (CV)">Curriculum Vitae (CV)</a></p>
         </div>
       </div>
     </div>

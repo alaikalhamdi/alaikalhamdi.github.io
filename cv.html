@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Alaikal Hamdi</title>
+    <title data-en="CV - Alaikal Hamdi" data-id="CV - Alaikal Hamdi">CV - Alaikal Hamdi</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./lang.js"></script>
     <style>
         @media print {
             .action-buttons {
@@ -20,15 +21,19 @@
             <div class="flex flex-wrap items-center justify-between gap-2 mb-3 pb-2 border-b border-gray-100">
                 <!-- Navigation Links -->
                 <div class="flex items-center space-x-2">
-                    <a href="./index.html" class="inline-flex items-center text-xs md:text-sm font-semibold text-gray-700 hover:text-blue-600 bg-gray-100 hover:bg-gray-200 py-1 px-3 rounded transition-colors">
+                    <a href="./index.html" class="inline-flex items-center text-xs md:text-sm font-semibold text-gray-700 hover:text-blue-600 bg-gray-100 hover:bg-gray-200 py-1 px-3 rounded transition-colors" data-en="&larr; Portfolio Home" data-id="&larr; Beranda Portofolio">
                         &larr; Portfolio Home
                     </a>
-                    <a href="./projects.html" class="inline-flex items-center text-xs md:text-sm font-semibold text-gray-700 hover:text-blue-600 bg-gray-100 hover:bg-gray-200 py-1 px-3 rounded transition-colors">
+                    <a href="./projects.html" class="inline-flex items-center text-xs md:text-sm font-semibold text-gray-700 hover:text-blue-600 bg-gray-100 hover:bg-gray-200 py-1 px-3 rounded transition-colors" data-en="Projects" data-id="Proyek">
                         Projects
                     </a>
                 </div>
                 <!-- Action Controls (Language Switch & Print) -->
                 <div class="flex items-center space-x-2">
+                    <div class="flex items-center bg-gray-100 rounded-full p-0.5 border border-gray-300 text-xs">
+                        <button type="button" onclick="setLanguage('en')" class="lang-btn-en px-2.5 py-0.5 rounded-full font-semibold transition-all" title="English">EN</button>
+                        <button type="button" onclick="setLanguage('id')" class="lang-btn-id px-2.5 py-0.5 rounded-full font-semibold transition-all" title="Bahasa Indonesia">ID</button>
+                    </div>
                     <button 
                         id="language-switch"
                         class="bg-blue-500 text-white text-xs md:text-sm font-semibold py-1 px-3 rounded hover:bg-blue-600 transition-colors"
@@ -40,7 +45,7 @@
                         class="bg-blue-500 text-white text-xs md:text-sm font-semibold py-1 px-3 md:px-4 rounded hover:bg-blue-600 transition-colors"
                         onclick="window.print()"
                     >
-                        Print
+                        <span data-en="Print" data-id="Cetak">Print</span>
                     </button>
                 </div>
             </div>
@@ -141,7 +146,7 @@
             <h2 class="text-lg font-semibold text-gray-900 border-b pb-2" data-en="Education" data-id="Pendidikan">Education</h2>
             <div class="mt-2">
                 <h3 class="font-bold text-gray-800" data-en="Automation and Control Engineering" data-id="Teknik Elektro Otomasi">Automation and Control Engineering</h3>
-                <p class="text-sm text-gray-500" data-en="Sepuluh Nopember Institute of Technology | 2025-2029 (expected)" data-id="Insitut Teknologi Sepuluh Nopember | 2025-2029 (diperkirakan)">
+                <p class="text-sm text-gray-500" data-en="Sepuluh Nopember Institute of Technology | 2025-2029 (expected)" data-id="Institut Teknologi Sepuluh Nopember | 2025-2029 (diperkirakan)">
                     Sepuluh Nopember Institute of Technology | 2025-2029 (expected)
                 </p>
                 <p class="text-gray-600 mt-2" data-en="" 
@@ -163,21 +168,5 @@
             </div>
         </section>
     </div>
-
-    <script>
-        let isEnglish = true;
-
-        function toggleLanguage() {
-            const elements = document.querySelectorAll('[data-en]');
-            isEnglish = !isEnglish;
-
-            elements.forEach(el => {
-                el.textContent = el.getAttribute(isEnglish ? 'data-en' : 'data-id');
-            });
-
-            const button = document.getElementById('language-switch');
-            button.textContent = isEnglish ? 'Lihat dalam Bahasa Indonesia' : 'View in English';
-        }
-    </script>
 </body>
 </html>
