@@ -38,12 +38,36 @@
       color: #ffffff;
       border-color: #2563eb;
     }
+
+    #navbar {
+      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease, -webkit-backdrop-filter 0.3s ease;
+    }
+    #navbar.bg-transparent .lang-pill button:not(.bg-blue-600) {
+      color: rgba(255, 255, 255, 0.85);
+    }
+    #navbar.bg-transparent .lang-pill button:not(.bg-blue-600):hover {
+      color: #ffffff;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #navbar {
+        transition: none !important;
+      }
+    }
   </style>
 </head>
 <body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100 min-h-screen flex flex-col">
 
   <!-- Navbar -->
-  <nav class="bg-white/95 dark:bg-gray-800/95 backdrop-blur-md shadow-md py-4 fixed w-full top-0 z-40 transition-colors" id="navbar">
+  <nav class="bg-transparent text-white shadow-none py-4 fixed w-full top-0 z-40 transition-all duration-300" id="navbar">
+    <script>
+      if (window.scrollY > 30) {
+        var nb = document.getElementById('navbar');
+        if (nb) {
+          nb.classList.remove('bg-transparent', 'text-white', 'shadow-none');
+          nb.classList.add('bg-white/95', 'dark:bg-gray-800/95', 'text-gray-800', 'dark:text-gray-100', 'shadow-md', 'backdrop-blur-md');
+        }
+      }
+    </script>
     <div class="container mx-auto flex justify-between items-center px-4">
       <a href="./index.html" class="text-2xl font-bold hover:text-blue-500 transition-colors">Alaikal Hamdi</a>
       <div class="hidden md:flex items-center space-x-6 text-sm font-medium">
@@ -51,19 +75,19 @@
           <li><a href="./index.html" class="hover:text-blue-500 transition-colors" data-en="Home" data-id="Beranda">Home</a></li>
           <li><a href="./index.html#about" class="hover:text-blue-500 transition-colors" data-en="About" data-id="Tentang">About</a></li>
           <li><a href="./index.html#skills" class="hover:text-blue-500 transition-colors" data-en="Skills & Experiences" data-id="Keahlian & Pengalaman">Skills & Experiences</a></li>
-          <li><a href="./projects.html" class="text-blue-600 dark:text-blue-400 font-semibold border-b-2 border-blue-500 pb-0.5" data-en="Projects" data-id="Proyek">Projects</a></li>
+          <li><a href="./projects.html" class="text-blue-400 font-semibold border-b-2 border-blue-400 pb-0.5" data-en="Projects" data-id="Proyek">Projects</a></li>
           <li><a href="./index.html#contact" class="hover:text-blue-500 transition-colors" data-en="Contact" data-id="Kontak">Contact</a></li>
           <li><a href="./cv.html" class="hover:text-blue-500 transition-colors" data-en="CV" data-id="CV">CV</a></li>
         </ul>
         <!-- Language Switcher Pill -->
-        <div class="flex items-center bg-gray-100 dark:bg-gray-700/80 rounded-full p-1 border border-gray-200 dark:border-gray-600 text-xs shadow-inner">
+        <div class="lang-pill flex items-center bg-white/10 dark:bg-gray-700/80 rounded-full p-1 border border-white/20 dark:border-gray-600 text-xs shadow-inner transition-colors duration-300">
           <button type="button" onclick="setLanguage('en')" class="lang-btn-en px-2.5 py-0.5 rounded-full font-semibold transition-all" title="English">EN</button>
           <button type="button" onclick="setLanguage('id')" class="lang-btn-id px-2.5 py-0.5 rounded-full font-semibold transition-all" title="Bahasa Indonesia">ID</button>
         </div>
       </div>
       <!-- Mobile Right Controls (Switcher & Hamburger) -->
       <div class="flex items-center space-x-2.5 md:hidden">
-        <div class="flex items-center bg-gray-100 dark:bg-gray-700/80 rounded-full p-0.5 border border-gray-200 dark:border-gray-600 text-xs shadow-inner">
+        <div class="lang-pill flex items-center bg-white/10 dark:bg-gray-700/80 rounded-full p-0.5 border border-white/20 dark:border-gray-600 text-xs shadow-inner transition-colors duration-300">
           <button type="button" onclick="setLanguage('en')" class="lang-btn-en px-2 py-0.5 rounded-full font-semibold transition-all" title="English">EN</button>
           <button type="button" onclick="setLanguage('id')" class="lang-btn-id px-2 py-0.5 rounded-full font-semibold transition-all" title="Bahasa Indonesia">ID</button>
         </div>
@@ -104,7 +128,7 @@
         A comprehensive collection of web applications, AI-integrated software, robotics platforms, and community STEM initiatives I've engineered and contributed to.
       </p>
       <div class="flex flex-wrap justify-center gap-3 text-xs md:text-sm">
-        <span class="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full"><i class="fas fa-layer-group mr-1.5"></i> <span data-en="6 Featured Works" data-id="6 Proyek Unggulan">6 Featured Works</span></span>
+        <span class="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full"><i class="fas fa-layer-group mr-1.5"></i> <span data-en="7 Featured Works" data-id="7 Proyek Unggulan">7 Featured Works</span></span>
         <span class="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full"><i class="fas fa-code mr-1.5"></i> <span>Full-Stack & UI/UX</span></span>
         <span class="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full"><i class="fas fa-robot mr-1.5"></i> <span data-en="Robotics & AI" data-id="Robotika & AI">Robotics & AI</span></span>
       </div>
@@ -121,10 +145,10 @@
         <!-- Filter Tabs -->
         <div class="flex flex-wrap gap-2" id="filter-tabs">
           <button class="filter-btn active px-4 py-2 text-sm font-medium rounded-lg border border-gray-300 dark:border-gray-600 transition-colors" data-filter="all">
-            <span data-en="All Projects" data-id="Semua Proyek">All Projects</span> (<span id="count-all">6</span>)
+            <span data-en="All Projects" data-id="Semua Proyek">All Projects</span> (<span id="count-all">7</span>)
           </button>
           <button class="filter-btn px-4 py-2 text-sm font-medium rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" data-filter="web">
-            <span data-en="Web Development" data-id="Pengembangan Web">Web Development</span> (<span id="count-web">5</span>)
+            <span data-en="Web Development" data-id="Pengembangan Web">Web Development</span> (<span id="count-web">6</span>)
           </button>
           <button class="filter-btn px-4 py-2 text-sm font-medium rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" data-filter="robotics">
             <span data-en="Robotics & AI" data-id="Robotika & AI">Robotics & AI</span> (<span id="count-robotics">3</span>)
@@ -158,9 +182,11 @@
       <div class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700 flex flex-wrap items-center gap-2 text-xs">
         <span class="text-gray-500 dark:text-gray-400 font-semibold mr-1" data-en="Popular tags:" data-id="Tag populer:">Popular tags:</span>
         <button class="tag-filter bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2.5 py-1 rounded hover:bg-blue-100 hover:text-blue-700 dark:hover:bg-blue-900/40 dark:hover:text-blue-300 transition-colors" data-tag="Tailwind CSS">Tailwind CSS</button>
-        <button class="tag-filter bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2.5 py-1 rounded hover:bg-blue-100 hover:text-blue-700 dark:hover:bg-blue-900/40 dark:hover:text-blue-300 transition-colors" data-tag="UMKM">UMKM</button>
-        <button class="tag-filter bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2.5 py-1 rounded hover:bg-blue-100 hover:text-blue-700 dark:hover:bg-blue-900/40 dark:hover:text-blue-300 transition-colors" data-tag="React">React</button>
         <button class="tag-filter bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2.5 py-1 rounded hover:bg-blue-100 hover:text-blue-700 dark:hover:bg-blue-900/40 dark:hover:text-blue-300 transition-colors" data-tag="Next.js">Next.js</button>
+        <button class="tag-filter bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2.5 py-1 rounded hover:bg-blue-100 hover:text-blue-700 dark:hover:bg-blue-900/40 dark:hover:text-blue-300 transition-colors" data-tag="Supabase">Supabase</button>
+        <button class="tag-filter bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2.5 py-1 rounded hover:bg-blue-100 hover:text-blue-700 dark:hover:bg-blue-900/40 dark:hover:text-blue-300 transition-colors" data-tag="React">React</button>
+        <button class="tag-filter bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2.5 py-1 rounded hover:bg-blue-100 hover:text-blue-700 dark:hover:bg-blue-900/40 dark:hover:text-blue-300 transition-colors" data-tag="TypeScript">TypeScript</button>
+        <button class="tag-filter bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2.5 py-1 rounded hover:bg-blue-100 hover:text-blue-700 dark:hover:bg-blue-900/40 dark:hover:text-blue-300 transition-colors" data-tag="UMKM">UMKM</button>
         <button class="tag-filter bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2.5 py-1 rounded hover:bg-blue-100 hover:text-blue-700 dark:hover:bg-blue-900/40 dark:hover:text-blue-300 transition-colors" data-tag="Python">Python</button>
         <button class="tag-filter bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2.5 py-1 rounded hover:bg-blue-100 hover:text-blue-700 dark:hover:bg-blue-900/40 dark:hover:text-blue-300 transition-colors" data-tag="Robotics">Robotics</button>
         <button class="tag-filter bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2.5 py-1 rounded hover:bg-blue-100 hover:text-blue-700 dark:hover:bg-blue-900/40 dark:hover:text-blue-300 transition-colors" data-tag="STEM">STEM</button>
@@ -169,6 +195,55 @@
 
     <!-- Projects Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+
+      <!-- Project: SakuTrack (Personal Expense & Budget Tracker) -->
+      <article 
+        class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md border-2 border-emerald-500/40 dark:border-emerald-500/40 flex flex-col relative"
+        data-categories="web"
+        data-tags="Next.js React TypeScript Tailwind CSS Supabase PWA PostgreSQL FinTech Natural Language Web App"
+        data-title="SakuTrack — Personal & Student Budget Tracker"
+        data-title-id="SakuTrack — Pelacak Keuangan Pribadi & Mahasiswa"
+      >
+        <div class="relative overflow-hidden group cursor-pointer card-gallery-trigger" data-project-id="sakutrack">
+          <img src="./img/sakutrack.jpg" alt="SakuTrack — Personal & Student Budget Tracker" class="w-full h-52 object-cover object-top transition-transform duration-300 group-hover:scale-105">
+          <div class="absolute inset-0 bg-blue-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-sm font-medium">
+            <span data-en="<i class=&quot;fas fa-eye mr-2&quot;></i> View Case Study & Live App" data-id="<i class=&quot;fas fa-eye mr-2&quot;></i> Lihat Studi Kasus & Buka Aplikasi"><i class="fas fa-eye mr-2"></i> View Case Study & Live App</span>
+          </div>
+          <span class="absolute top-3 right-3 bg-emerald-600 text-white text-xs font-semibold px-2.5 py-1 rounded shadow">Next.js & Supabase</span>
+          <span class="absolute top-3 left-3 bg-emerald-500 text-gray-950 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded shadow" data-en="PWA & FinTech" data-id="PWA & FinTech">PWA & FinTech</span>
+        </div>
+        <div class="p-6 flex flex-col flex-grow">
+          <div class="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 mb-2">
+            <span><i class="fas fa-wallet mr-1 text-emerald-500"></i> Personal Finance</span>
+            <span>Full-Stack Web App</span>
+          </div>
+          <h2 class="text-xl font-bold mb-2 hover:text-emerald-500 cursor-pointer card-gallery-trigger" data-project-id="sakutrack">SakuTrack — Budget Tracker</h2>
+          <p class="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-3 flex-grow" data-en="A lightning-fast, mobile-first PWA personal expense tracker built with Next.js 16, React 19, and Supabase. Features natural language quick logging ('kopi 18k semalam'), dynamic burn rate forecasting, itemized split bills with public QR sharing, and sinking funds savings." data-id="Aplikasi pelacak keuangan pribadi dan mahasiswa berbasis PWA yang super cepat dengan Next.js 16, React 19, dan Supabase. Dilengkapi pencatatan natural language ('kopi 18k semalam'), proyeksi burn rate anggaran, fitur split bill itemized dengan QR code, dan tabungan sinking funds.">
+            A lightning-fast, mobile-first PWA personal expense tracker built with Next.js 16, React 19, and Supabase. Features natural language quick logging ('kopi 18k semalam'), dynamic burn rate forecasting, itemized split bills with public QR sharing, and sinking funds savings.
+          </p>
+          <div class="flex flex-wrap gap-1.5 mb-5">
+            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">Next.js 16</span>
+            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">React 19</span>
+            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">Supabase</span>
+            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">TypeScript</span>
+            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2.5 py-0.5 rounded">Tailwind CSS v4</span>
+          </div>
+          <div class="pt-4 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between">
+            <a href="https://personal-expense-tracker-umber-three.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-semibold text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300">
+              <span data-en="Open Live App" data-id="Buka Aplikasi">Open Live App</span>
+              <i class="fas fa-external-link-alt ml-1.5 text-xs"></i>
+            </a>
+            <div class="flex items-center space-x-3">
+              <a href="https://github.com/alaikalyuan/personal-expense-tracker" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white text-base transition-colors" title="GitHub Repository">
+                <i class="fab fa-github"></i>
+              </a>
+              <button class="card-gallery-trigger text-sm text-gray-600 dark:text-gray-300 hover:text-emerald-500 dark:hover:text-emerald-400 font-medium" data-project-id="sakutrack">
+                <span data-en="Details <i class=&quot;fas fa-chevron-right ml-1 text-xs&quot;></i>" data-id="Detail <i class=&quot;fas fa-chevron-right ml-1 text-xs&quot;></i>">Details <i class="fas fa-chevron-right ml-1 text-xs"></i></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </article>
 
       <!-- Project Showcase: KALA Coffee & Roastery (UMKM Showcase) -->
       <article 
@@ -493,10 +568,14 @@
               <h4 class="text-xs uppercase font-semibold text-gray-500 dark:text-gray-400 mb-2" data-en="Technologies Used" data-id="Teknologi yang Digunakan">Technologies Used</h4>
               <div id="modal-tags" class="flex flex-wrap gap-1.5"></div>
             </div>
-            <div id="modal-links-container" class="pt-3 border-t border-gray-200 dark:border-gray-700">
-              <a id="modal-live-link" href="#" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-2 px-4 rounded-lg transition-colors">
+            <div id="modal-links-container" class="pt-3 border-t border-gray-200 dark:border-gray-700 flex flex-col sm:flex-row gap-2">
+              <a id="modal-live-link" href="#" target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-2 px-4 rounded-lg transition-colors">
                 <span data-en="Visit Live Project" data-id="Buka Proyek Langsung">Visit Live Project</span>
                 <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+              </a>
+              <a id="modal-repo-link" href="#" target="_blank" rel="noopener noreferrer" class="hidden inline-flex items-center justify-center bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 text-sm font-medium py-2 px-3 rounded-lg transition-colors">
+                <i class="fab fa-github mr-1.5"></i>
+                <span data-en="Code" data-id="Kode">Code</span>
               </a>
             </div>
           </div>
@@ -576,6 +655,41 @@
   <script>
     // Project Data for Modals & Interactive Details (Bilingual: English & Indonesian)
     const projectDetails = {
+      'sakutrack': {
+        en: {
+          title: 'SakuTrack — Personal & Student Budget Tracker',
+          category: 'Full-Stack Web App / FinTech & PWA',
+          timelineRole: 'Personal Project | Full-Stack Developer & Designer',
+          description: 'SakuTrack is a modern, lightning-fast, mobile-first personal expense tracker built for students and budget-conscious individuals. Engineered with Next.js 16 (App Router & Server Actions), React 19, Tailwind CSS v4, and Supabase, it eliminates friction in personal finance. Users can record expenses in seconds using natural language with colloquial date understanding, monitor dynamic weekly/monthly burn rates, manage sinking funds with surplus sweep, split group bills with friends via public QR codes, and install the app as a Progressive Web App (PWA).',
+          contributions: [
+            'Architected a full-stack PWA web app utilizing Next.js 16 (Server Components, Server Actions), React 19, and Tailwind CSS v4.',
+            'Engineered a zero-effort Natural Language Quick Add parser supporting colloquial Indonesian & English terms ("kopi 18k", "2x lunch 25k", "bensin 30k semalam", "#exempt").',
+            'Implemented dynamic budget pacing and real-time projected burn rate algorithms with cadence toggles (weekly / monthly).',
+            'Built an itemized split bill workflow with tax, service fee, and cash rounding distribution, generating shareable public QR links and 1-click settlement logging.',
+            'Developed sinking funds and savings system with weekly surplus sweeping, audit trails, and 1-click deficit patching.',
+            'Configured Supabase PostgreSQL database, Row Level Security (RLS) policies, and anonymous guest onboarding with lossless account migration.'
+          ]
+        },
+        id: {
+          title: 'SakuTrack — Pelacak Keuangan Pribadi & Mahasiswa',
+          category: 'Aplikasi Web Full-Stack / FinTech & PWA',
+          timelineRole: 'Proyek Pribadi | Full-Stack Developer & Designer',
+          description: 'SakuTrack adalah aplikasi pelacak pengeluaran pribadi modern, cepat, dan mobile-first yang dirancang untuk mahasiswa dan individu yang peduli anggaran. Dibangun dengan Next.js 16 (App Router & Server Actions), React 19, Tailwind CSS v4, dan Supabase, aplikasi ini mempermudah pencatatan keuangan tanpa ribet. Pengguna dapat mencatat transaksi lewat bahasa alami (natural language) dengan pemahaman tanggal sehari-hari, memantau proyeksi burn rate mingguan/bulanan, mengelola tabungan target (sinking funds) dengan surplus sweep, membagi tagihan (split bill) dengan teman via QR code publik, serta memasangnya sebagai Progressive Web App (PWA).',
+          contributions: [
+            'Merancang arsitektur aplikasi web full-stack PWA menggunakan Next.js 16 (Server Components & Server Actions), React 19, dan Tailwind CSS v4.',
+            'Membangun parser Natural Language Quick Add yang memahami istilah percakapan Indonesia & Inggris ("kopi 18k", "2x makan 25k", "bensin 30k semalam", "#exempt").',
+            'Menerapkan pacing anggaran dinamis dan algoritma proyeksi burn rate real-time dengan opsi siklus mingguan dan bulanan.',
+            'Mengembangkan modul Split Bill (bagi tagihan) dengan kalkulasi pajak, biaya layanan, pembulatan tunai, QR code publik, dan sinkronisasi pelunasan 1-klik.',
+            'Membuat sistem tabungan dan sinking fund dengan fitur sweep surplus mingguan, riwayat audit lengkap, dan penambalan defisit 1-klik.',
+            'Mengonfigurasi database Supabase PostgreSQL, kebijakan Row Level Security (RLS), serta fitur guest mode dengan migrasi data tanpa hilang saat mendaftar.'
+          ]
+        },
+        tags: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS v4', 'Supabase', 'PostgreSQL RLS', 'PWA', 'Natural Language Parser', 'FinTech'],
+        liveLink: 'https://personal-expense-tracker-umber-three.vercel.app',
+        repoLink: 'https://github.com/alaikalyuan/personal-expense-tracker',
+        isApp: true,
+        images: ['./img/sakutrack.jpg', './img/sakutrack-icon.png']
+      },
       'kala-coffee': {
         en: {
           title: 'KALA Specialty Coffee & Roastery — Local Business Showcase',
@@ -781,6 +895,9 @@
       // Navbar Mobile Toggle
       const hamburgerBtn = document.getElementById('hamburger-btn');
       const navMenu = document.getElementById('nav-menu');
+      const navbar = document.getElementById('navbar');
+      const langPills = document.querySelectorAll('.lang-pill');
+      const projectsNavLink = document.querySelector('#navbar ul a[href="./projects.html"]');
 
       hamburgerBtn.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -792,6 +909,41 @@
           navMenu.classList.add('hidden');
         }
       });
+
+      // Topbar transparency toggle (transparent at top, opaque when scrolled)
+      let isNavbarScrolled = null;
+
+      function updateNavbarTransparency() {
+        const scrolled = window.scrollY > 30;
+        if (scrolled === isNavbarScrolled) return;
+        isNavbarScrolled = scrolled;
+
+        if (scrolled) {
+          navbar.classList.remove('bg-transparent', 'text-white', 'shadow-none');
+          navbar.classList.add('bg-white/95', 'dark:bg-gray-800/95', 'text-gray-800', 'dark:text-gray-100', 'shadow-md', 'backdrop-blur-md');
+          if (projectsNavLink) {
+            projectsNavLink.className = 'text-blue-600 dark:text-blue-400 font-semibold border-b-2 border-blue-500 pb-0.5 transition-colors';
+          }
+          langPills.forEach(pill => {
+            pill.classList.remove('bg-white/10', 'border-white/20');
+            pill.classList.add('bg-gray-100', 'border-gray-200');
+          });
+        } else {
+          navbar.classList.remove('bg-white/95', 'dark:bg-gray-800/95', 'text-gray-800', 'dark:text-gray-100', 'shadow-md', 'backdrop-blur-md');
+          navbar.classList.add('bg-transparent', 'text-white', 'shadow-none');
+          if (projectsNavLink) {
+            projectsNavLink.className = 'text-blue-400 font-semibold border-b-2 border-blue-400 pb-0.5 transition-colors';
+          }
+          langPills.forEach(pill => {
+            pill.classList.remove('bg-gray-100', 'border-gray-200');
+            pill.classList.add('bg-white/10', 'border-white/20');
+          });
+        }
+      }
+
+      window.addEventListener('scroll', updateNavbarTransparency, { passive: true });
+      window.addEventListener('resize', updateNavbarTransparency);
+      updateNavbarTransparency();
 
       // Filter and Search Logic
       const filterBtns = document.querySelectorAll('.filter-btn');
@@ -908,6 +1060,7 @@
       const modalTimelineRole = document.getElementById('modal-timeline-role');
       const modalTags = document.getElementById('modal-tags');
       const modalLiveLink = document.getElementById('modal-live-link');
+      const modalRepoLink = document.getElementById('modal-repo-link');
       const modalLinksContainer = document.getElementById('modal-links-container');
       const modalSlideshow = document.getElementById('modal-slideshow');
       const modalPrevSlide = document.getElementById('modal-prev-slide');
@@ -947,13 +1100,39 @@
           modalTags.appendChild(span);
         });
 
-        // Live Link
+        // Live Link / App Link
         if (data.liveLink) {
           modalLiveLink.href = data.liveLink;
           modalLiveLink.classList.remove('hidden');
           modalLinksContainer.classList.remove('hidden');
+          const isGithub = data.liveLink.includes('github.com');
+          let labelEn = 'Visit Live Project';
+          let labelId = 'Buka Proyek Langsung';
+          if (isGithub) {
+            labelEn = 'View GitHub Repository';
+            labelId = 'Lihat Repositori GitHub';
+          } else if (data.isApp) {
+            labelEn = 'Open Live App';
+            labelId = 'Buka Aplikasi';
+          }
+          const iconClass = isGithub ? 'fab fa-github' : 'fas fa-external-link-alt';
+          modalLiveLink.innerHTML = `<span data-en="${labelEn}" data-id="${labelId}">${lang === 'id' ? labelId : labelEn}</span><i class="${iconClass} ml-2 text-xs"></i>`;
         } else {
           modalLiveLink.classList.add('hidden');
+        }
+
+        // Repository Link (if separate from liveLink)
+        if (modalRepoLink) {
+          if (data.repoLink) {
+            modalRepoLink.href = data.repoLink;
+            modalRepoLink.classList.remove('hidden');
+            modalLinksContainer.classList.remove('hidden');
+          } else {
+            modalRepoLink.classList.add('hidden');
+          }
+        }
+
+        if (!data.liveLink && !data.repoLink) {
           modalLinksContainer.classList.add('hidden');
         }
       }

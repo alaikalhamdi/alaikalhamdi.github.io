@@ -27,11 +27,28 @@
         100% { background-position: 0% 0%; }
       }
     }
+
+    #navbar {
+      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease, -webkit-backdrop-filter 0.3s ease;
+    }
+    #navbar.bg-transparent .lang-pill button:not(.bg-blue-600) {
+      color: rgba(255, 255, 255, 0.85);
+    }
+    #navbar.bg-transparent .lang-pill button:not(.bg-blue-600):hover {
+      color: #ffffff;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #navbar {
+        transition: none !important;
+      }
+    }
   </style>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const hamburgerBtn = document.getElementById('hamburger-btn');
       const navMenu = document.getElementById('nav-menu');
+      const navbar = document.getElementById('navbar');
+      const langPills = document.querySelectorAll('.lang-pill');
 
       // Hamburger toggle & outside click handling
       hamburgerBtn.addEventListener('click', (e) => {
@@ -65,6 +82,31 @@
         });
       });
 
+      // Topbar transparency toggle (transparent at top, opaque when scrolled)
+      let isNavbarScrolled = null;
+
+      function updateNavbarTransparency() {
+        const scrolled = window.scrollY > 30;
+        if (scrolled === isNavbarScrolled) return;
+        isNavbarScrolled = scrolled;
+
+        if (scrolled) {
+          navbar.classList.remove('bg-transparent', 'text-white', 'shadow-none');
+          navbar.classList.add('bg-white/95', 'dark:bg-gray-800/95', 'text-gray-800', 'dark:text-gray-100', 'shadow-md', 'backdrop-blur-md');
+          langPills.forEach(pill => {
+            pill.classList.remove('bg-white/10', 'border-white/20');
+            pill.classList.add('bg-gray-100', 'border-gray-200');
+          });
+        } else {
+          navbar.classList.remove('bg-white/95', 'dark:bg-gray-800/95', 'text-gray-800', 'dark:text-gray-100', 'shadow-md', 'backdrop-blur-md');
+          navbar.classList.add('bg-transparent', 'text-white', 'shadow-none');
+          langPills.forEach(pill => {
+            pill.classList.remove('bg-gray-100', 'border-gray-200');
+            pill.classList.add('bg-white/10', 'border-white/20');
+          });
+        }
+      }
+
       // Scroll spy for topbar active link indicator
       const sections = [
         document.getElementById('home'),
@@ -87,29 +129,50 @@
           }
         });
 
+        const isTop = window.scrollY <= 30;
+
         navLinks.forEach(link => {
           const target = link.getAttribute('href').substring(1);
           if (target === currentId) {
-            link.className = 'text-blue-600 dark:text-blue-400 font-semibold border-b-2 border-blue-500 pb-0.5 transition-colors';
+            if (isTop) {
+              link.className = 'text-blue-400 font-semibold border-b-2 border-blue-400 pb-0.5 transition-colors';
+            } else {
+              link.className = 'text-blue-600 dark:text-blue-400 font-semibold border-b-2 border-blue-500 pb-0.5 transition-colors';
+            }
           } else {
             link.className = 'hover:text-blue-500 transition-colors';
           }
         });
       }
 
-      window.addEventListener('scroll', updateActiveNav);
-      updateActiveNav();
+      function handleScroll() {
+        updateNavbarTransparency();
+        updateActiveNav();
+      }
+
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      window.addEventListener('resize', handleScroll);
+      handleScroll();
     });
   </script>
 </head>
 <body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
   <!-- Navbar -->
-  <nav class="bg-white/95 dark:bg-gray-800/95 backdrop-blur-md shadow-md py-4 fixed w-full top-0 z-40 transition-colors" id="navbar">
+  <nav class="bg-transparent text-white shadow-none py-4 fixed w-full top-0 z-40 transition-all duration-300" id="navbar">
+    <script>
+      if (window.scrollY > 30) {
+        var nb = document.getElementById('navbar');
+        if (nb) {
+          nb.classList.remove('bg-transparent', 'text-white', 'shadow-none');
+          nb.classList.add('bg-white/95', 'dark:bg-gray-800/95', 'text-gray-800', 'dark:text-gray-100', 'shadow-md', 'backdrop-blur-md');
+        }
+      }
+    </script>
     <div class="container mx-auto flex justify-between items-center px-4">
       <a href="#home" class="text-2xl font-bold hover:text-blue-500 transition-colors">Alaikal Hamdi</a>
       <div class="hidden md:flex items-center space-x-6 text-sm font-medium">
         <ul class="flex items-center space-x-6">
-          <li><a href="#home" class="text-blue-600 dark:text-blue-400 font-semibold border-b-2 border-blue-500 pb-0.5 transition-colors" data-en="Home" data-id="Beranda">Home</a></li>
+          <li><a href="#home" class="text-blue-400 font-semibold border-b-2 border-blue-400 pb-0.5 transition-colors" data-en="Home" data-id="Beranda">Home</a></li>
           <li><a href="#about" class="hover:text-blue-500 transition-colors" data-en="About" data-id="Tentang">About</a></li>
           <li><a href="#skills" class="hover:text-blue-500 transition-colors" data-en="Skills & Experiences" data-id="Keahlian & Pengalaman">Skills & Experiences</a></li>
           <li><a href="#client-showcase" class="hover:text-blue-500 transition-colors" data-en="Client Showcase" data-id="Showcase Klien">Client Showcase</a></li>
@@ -118,14 +181,14 @@
           <li><a href="./cv.html" class="hover:text-blue-500 transition-colors" data-en="CV" data-id="CV">CV</a></li>
         </ul>
         <!-- Language Switcher Pill -->
-        <div class="flex items-center bg-gray-100 dark:bg-gray-700/80 rounded-full p-1 border border-gray-200 dark:border-gray-600 text-xs shadow-inner">
+        <div class="lang-pill flex items-center bg-white/10 dark:bg-gray-700/80 rounded-full p-1 border border-white/20 dark:border-gray-600 text-xs shadow-inner transition-colors duration-300">
           <button type="button" onclick="setLanguage('en')" class="lang-btn-en px-2.5 py-0.5 rounded-full font-semibold transition-all" title="English">EN</button>
           <button type="button" onclick="setLanguage('id')" class="lang-btn-id px-2.5 py-0.5 rounded-full font-semibold transition-all" title="Bahasa Indonesia">ID</button>
         </div>
       </div>
       <!-- Mobile Right Controls (Switcher & Hamburger) -->
       <div class="flex items-center space-x-2.5 md:hidden">
-        <div class="flex items-center bg-gray-100 dark:bg-gray-700/80 rounded-full p-0.5 border border-gray-200 dark:border-gray-600 text-xs shadow-inner">
+        <div class="lang-pill flex items-center bg-white/10 dark:bg-gray-700/80 rounded-full p-0.5 border border-white/20 dark:border-gray-600 text-xs shadow-inner transition-colors duration-300">
           <button type="button" onclick="setLanguage('en')" class="lang-btn-en px-2 py-0.5 rounded-full font-semibold transition-all" title="English">EN</button>
           <button type="button" onclick="setLanguage('id')" class="lang-btn-id px-2 py-0.5 rounded-full font-semibold transition-all" title="Bahasa Indonesia">ID</button>
         </div>
@@ -468,7 +531,34 @@
           <i class="fas fa-arrow-right ml-2 transition-transform duration-200 group-hover:translate-x-1"></i>
         </a>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Project: SakuTrack -->
+        <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded shadow flex flex-col justify-between border-2 border-emerald-500/30">
+          <div>
+            <div class="relative -mx-6 -mt-6 mb-4">
+              <img src="./img/sakutrack.jpg" alt="SakuTrack — Personal & Student Budget Tracker" class="w-full h-48 object-cover object-top rounded-t">
+            </div>
+            <div class="flex items-center space-x-2 text-xs text-emerald-500 font-semibold mb-1">
+              <span data-en="Next.js & Supabase" data-id="Next.js & Supabase">Next.js & Supabase</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2">SakuTrack</h3>
+            <p class="text-sm text-gray-700 dark:text-gray-300" data-en="A lightning-fast, mobile-first PWA personal budget tracker. Features natural language quick add, burn rate forecasting, split bills with QR codes, and sinking funds." data-id="Aplikasi pelacak keuangan pribadi & mahasiswa berbasis PWA. Dilengkapi pencatatan natural language, proyeksi burn rate, split bill QR code, dan tabungan sinking funds.">A lightning-fast, mobile-first PWA personal budget tracker. Features natural language quick add, burn rate forecasting, split bills with QR codes, and sinking funds.</p>
+          </div>
+          <div class="mt-4 flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-600">
+            <a href="https://personal-expense-tracker-umber-three.vercel.app" class="bg-emerald-600 text-white px-4 py-2 rounded text-sm hover:bg-emerald-700 inline-flex items-center font-medium shadow-sm transition" target="_blank" rel="noopener noreferrer">
+              <span data-en="Open App" data-id="Buka Aplikasi">Open App</span>
+              <i class="fas fa-external-link-alt ml-1.5 text-xs"></i>
+            </a>
+            <div class="flex items-center space-x-2.5">
+              <a href="https://github.com/alaikalyuan/personal-expense-tracker" class="text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white text-base transition-colors" target="_blank" rel="noopener noreferrer" title="GitHub Repository">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="./projects.html" class="text-sm text-emerald-600 dark:text-emerald-400 hover:underline font-medium">
+                <span data-en="Case Study &rarr;" data-id="Studi Kasus &rarr;">Case Study &rarr;</span>
+              </a>
+            </div>
+          </div>
+        </div>
         <!-- Project 1 -->
         <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded shadow flex flex-col justify-between">
           <div>
